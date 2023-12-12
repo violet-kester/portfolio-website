@@ -1,0 +1,17 @@
+{% extends 'portfolio/base.html' %}
+
+{% block title %}Projects{% endblock %}
+
+{% block content %}
+
+  <!-- Projects -------------------------------->
+  {% for project in projects %}
+  <h2>
+    <a href="{{ project.get_absolute_url }}">
+      {{ project.title }}
+    </a>
+  </h2>
+  {{ project.description|markdown|truncatewords_html:30 }}
+  {% endfor %}
+
+{% endblock %}
