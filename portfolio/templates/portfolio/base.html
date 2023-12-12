@@ -29,10 +29,16 @@
 </head>
 
 <body hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'>
+  <div class="container-fluid">
 
-  {% block content %}
-  {% endblock %}
+    <!-- Navbar -------------------------------->
+    {% include './navbar.html' %}
 
+    <!-- Content ------------------------------->
+    {% block content %}
+    {% endblock %}
+
+  </div>
 </body>
 
 </html>
