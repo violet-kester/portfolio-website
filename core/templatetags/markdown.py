@@ -4,6 +4,7 @@ import markdown
 
 register = template.Library()
 
+
 @register.filter(name='markdown')
 def markdown_format(text):
     """Converts a text to HTML using markdown syntax."""
