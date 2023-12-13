@@ -7,23 +7,7 @@ def homepage(request):
     Portfolio homepage.
     """
 
-    return render(request, 'portfolio/homepage.html')
-
-
-def project_list(request):
-    """
-    Project list view.
-
-    Context variables:
-       - `projects`: An object containing all published project data.
-    """
-
-    project_list = Project.objects.filter(status='PB')
-    context = {
-        'projects': project_list,
-    }
-
-    return render(request, 'portfolio/project/list.html', context)
+    return render(request, 'portfolio/index.html')
 
 
 def project_detail(request, slug):
@@ -44,3 +28,19 @@ def project_detail(request, slug):
     }
 
     return render(request, 'portfolio/project/detail.html', context)
+
+
+def project_list(request):
+    """
+    Project list view.
+
+    Context variables:
+       - `projects`: An object containing all published project data.
+    """
+
+    project_list = Project.objects.filter(status='PB')
+    context = {
+        'projects': project_list,
+    }
+
+    return render(request, 'portfolio/project/list.html', context)
