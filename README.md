@@ -21,11 +21,30 @@
   <p>
     <code>git clone https://github.com/violet-kester/portfolio-website.git</code><br/>
   </p>
-  <h4>2. Activate virtual environment and install dependencies.</h4>
+  <h4>2. Activate the virtual environment and install dependencies.</h4>
   <p>
    <code>python3 -m venv venv</code><br />
    <code>source venv/bin/activate</code><br />
    <code>pip install -r requirements.txt</code>
+  </p>
+  <h4>
+    3. Create the database.
+  </h4>
+  <p>
+    <code>createdb vk_portfolio_website</code><br/>
+  </p>
+  <h4>
+    4. Configure the environment variables.
+  </h4>
+  <p>
+    Add an <code>.env</code> file to the project directory with the following values:
+  </p>
+  <p>
+    <code>SECRET_KEY=your-secret-key</code><br/>
+    <code>DB_NAME=vk_portfolio_website</code><br/>
+    <code>DB_USER=your-db-username</code><br/>
+    <code>DB_PASS=your-db-password</code><br/>
+    <code>DEBUG=True</code>
   </p>
   <h4>
     3. Start the development server.
