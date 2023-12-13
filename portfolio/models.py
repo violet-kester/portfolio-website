@@ -1,5 +1,5 @@
-from django.db import models
 from django.contrib.auth.models import User
+from django.db import models
 from django.urls import reverse
 from django.utils import timezone
 
@@ -22,7 +22,7 @@ class Project(models.Model):
                                related_name='projects')
     description = models.TextField()
     thumbnail = models.ImageField(upload_to='portfolio/static/img/thumbnails/',
-                                  default='static/img/thumbnails/default_thumbnail.png')
+                                  default='static/img/default_thumbnail.png')
     publish = models.DateTimeField(default=timezone.now)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)

@@ -1,5 +1,5 @@
-from django.db import models
 from django.contrib.auth.models import User
+from django.db import models
 from django.urls import reverse
 from django.utils import timezone
 
@@ -50,7 +50,7 @@ class Comment(models.Model):
     body = models.TextField()
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
-    # for manually deactivating comments using the admin site
+    # For manually deactivating comments using the admin page
     active = models.BooleanField(default=True)
 
     class Meta:

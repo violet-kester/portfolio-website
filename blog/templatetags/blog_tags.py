@@ -5,13 +5,6 @@ from ..models import Post
 register = template.Library()
 
 
-@register.simple_tag
-def get_total_posts():
-    """Returns the number of published posts."""
-
-    return Post.objects.filter(status='PB').count()
-
-
 @register.inclusion_tag('blog/post/latest_posts.html')
 def get_latest_posts(count=5):
     """Displays the latest published posts."""
@@ -28,3 +21,10 @@ def get_most_commented_posts(count=5):
     return Post.objects.filter(status='PB').annotate(
         total_comments=Count('comments')
     ).order_by('-total_comments')[:count]
+
+
+@register.simple_tag
+def get_total_posts():
+    """Returns the number of published posts."""
+
+    return Post.objects.filter(status='PB').count()
