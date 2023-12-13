@@ -1,1 +1,15 @@
-<p>This is the navbar.</p>
+{% load static %}
+
+<nav class="navbar navbar-dark glassy fixed-top p-3">
+  <div class="container-fluid justify-content-between">
+
+    <!-- Logo -->
+    <a class="navbar-brand" href="{% url 'core:homepage' %}">
+      <img src="{% static 'img/logo-square.png' %}" alt="Logo" height="35px">
+    </a>
+
+    <div class="d-flex col-6 col-md-5 col-lg-4 col-xl-3 justify-content-end px-0">
+    </div>
+
+  </div>
+</nav>
