@@ -1,0 +1,7 @@
+<form>
+  <input
+    type="search" class="form-control"
+    name="query" placeholder="Search..."
+    hx-post="{% url 'core:search' %}" hx-swap="innerHTML"
+    hx-target="#content" hx-trigger="keyup changed delay:500ms, search">
+</form>
