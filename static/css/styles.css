@@ -1,0 +1,128 @@
+* {
+    /* Hide scrollbar for IE and Edge */
+    -ms-overflow-style: none;
+    /* Hide scrollbar for Firefox */
+    scrollbar-width: none;
+}
+
+*::-webkit-scrollbar {
+    /* Hide scrollbar for Chrome, Safari, and Opera  */
+    display: none;
+}
+
+.container-fluid {
+    padding: 0;
+}
+
+ul {
+    padding-inline-start: 0;
+}
+
+ul li {
+    list-style-type: none;
+}
+
+figure img {
+    width: 100%;
+    padding: 1rem 2rem 2rem 2rem;
+    border-radius: 4rem;
+}
+
+figcaption {
+    font-family: 'Homemade Apple';
+    text-align: center;
+    font-style: italic;
+    margin-bottom: 1.25rem;
+    /* `light` theme color */
+    color: #8a8a8a;
+}
+
+.thumbnail-icon {
+    max-width: 5rem;
+}
+
+/* Typography -------------------------------- */
+
+body {
+    font-family: 'Inter';
+    letter-spacing: .04em;
+}
+
+a {
+    transition: all .3s ease-in-out;
+}
+
+h1,
+h3 {
+    font-family: 'Homemade Apple';
+    letter-spacing: 0;
+}
+
+h1 {
+    margin-bottom: 3rem;
+}
+
+/* Navigation -------------------------------- */
+
+.navbar {
+    z-index: 5;
+    height: 64px;
+}
+
+.navbar-toggler:focus {
+    outline: none;
+    /* `primary` theme color */
+    border-color: #FFC107;
+}
+
+#sidebar {
+    top: 64px;
+}
+
+#sidebar {
+    overflow-y: scroll;
+}
+
+/* Effects and transitions ------------------- */
+
+.glassy {
+    background-color: rgba(13, 13, 13, 0.5);
+    backdrop-filter: blur(9px);
+    z-index: 1;
+}
+
+.fade-in {
+    transition: all .3s ease-in-out;
+    opacity: 1;
+}
+
+.fade-out {
+    transition: all .3s ease-in-out;
+    opacity: 0;
+}
+
+.slide-up {
+    transition: all .6s ease-in-out;
+    height: 0;
+    opacity: 0;
+}
+
+.slide-down {
+    transition: all .6s ease-in-out;
+    height: 100vh;
+    opacity: 1;
+}
+
+/* Media queries ----------------------------- */
+
+/* Medium+ screens */
+/* @media (min-width: 768px) {
+} */
+
+/* Large+ screens */
+@media (min-width: 992px) {
+    #sidebar {
+        right: 0;
+        border-radius: 1.5rem;
+    }
+}
