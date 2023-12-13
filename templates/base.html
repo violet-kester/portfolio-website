@@ -28,15 +28,22 @@
   <script src="https://unpkg.com/hyperscript.org@0.9.12"></script>
 </head>
 
-<body hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'>
-  <div class="container-fluid">
+<body hx-boost="true" hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'>
+  <div class="grid container-fluid">
 
     <!-- Navbar -------------------------------->
     {% include './core/navbar.html' %}
 
     <!-- Content ------------------------------->
-    {% block content %}
-    {% endblock %}
+    <main id="content" class="container col-12 col-lg-7 col-xl-6 p-3 text-center">
+      {% block content %}
+      {% endblock %}
+    </main>
+
+    <!-- Sidebar ------------------------------->
+    <aside id="sidebar" class="glassy slide-up col-12 col-lg-3 p-3 position-fixed">
+      {% include './portfolio/sidebar.html' %}
+    </aside>
 
   </div>
 </body>
