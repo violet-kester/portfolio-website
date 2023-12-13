@@ -1,8 +1,8 @@
 from django.contrib import admin
-from .models import Post
+from .models import Post, Comment
 
 
-admin.site.register(Post)
+@admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
     # Displayed columns
     list_display = ['id', 'slug', 'title', 'author', 'publish', 'status']
@@ -15,3 +15,11 @@ class PostAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('title',)}
     # Order columns by status and publish date by default
     ordering = ['-status', '-publish']
+
+
+@admin.register(Comment)
+class CommentAdmin(admin.ModelAdmin):
+    # Displayed columns
+    list_display = ['name', 'post', 'created', 'active']
+    # Column filters
+    list_filter = ['active', 'created', 'updated']
