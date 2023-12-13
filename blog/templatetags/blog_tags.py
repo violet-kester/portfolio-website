@@ -30,10 +30,3 @@ def get_most_commented_posts(count=5):
     return Post.objects.filter(status='PB').annotate(
         total_comments=Count('comments')
     ).order_by('-total_comments')[:count]
-
-
-@register.filter(name='markdown')
-def markdown_format(text):
-    """Converts a text to HTML using markdown syntax."""
-
-    return mark_safe(markdown.markdown(text))
