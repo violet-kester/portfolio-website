@@ -21,8 +21,8 @@ class Project(models.Model):
                                on_delete=models.CASCADE,
                                related_name='projects')
     description = models.TextField()
-    thumbnail = models.ImageField(upload_to='portfolio/static/images/thumbnails/',
-                                  default='portfolio/static/images/thumbnails/default_thumbnail.png')
+    thumbnail = models.ImageField(upload_to='portfolio/static/img/thumbnails/',
+                                  default='static/img/thumbnails/default_thumbnail.png')
     publish = models.DateTimeField(default=timezone.now)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)

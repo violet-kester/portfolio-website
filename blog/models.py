@@ -22,7 +22,7 @@ class Post(models.Model):
                                related_name='posts')
     body = models.TextField()
     thumbnail = models.ImageField(upload_to='blog/static/img/thumbnails/',
-                                  default='blog/static/img/default_thumbnail.png')
+                                  default='static/img/default_thumbnail.png')
     publish = models.DateTimeField(default=timezone.now)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
