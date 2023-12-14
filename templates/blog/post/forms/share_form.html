@@ -1,0 +1,12 @@
+{% load crispy_forms_tags %}
+
+<h3>Share "{{ post.title }}" via email</h3>
+
+<form hx-post="{% url 'blog:post_share' %}" hx-target="#content">
+  <div class="my-5">
+    {{ form|crispy }}
+  </div>
+  <button type="submit" class="btn btn-outline-primary">
+    <i class="bi-send mr-1"></i> Share this post
+  </button>
+</form>
