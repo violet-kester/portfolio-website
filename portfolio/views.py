@@ -5,9 +5,22 @@ from .models import Project
 def homepage(request):
     """
     Portfolio homepage.
+
+    Context variables:
+        - `base_template`: The base template to extend from,
+           depending on the request type.
     """
 
-    return render(request, 'portfolio/index.html')
+    if request.htmx:
+        base_template = "_partial.html"
+    else:
+        base_template = "_base.html"
+
+    return render(
+        request,
+        "portfolio/index.html",
+        {"base_template": base_template},
+    )
 
 
 def project_detail(request, slug):
@@ -17,17 +30,27 @@ def project_detail(request, slug):
     Parameters:
         - `slug`: The project's unique slug identifier.
     Context variables:
-       - `project`: The Project object to be displayed.
+        - `project`: The Project object to be displayed.
+        - `base_template`: The base template to extend from,
+           depending on the request type.
     """
 
     project = get_object_or_404(Project,
                                 status=Project.Status.PUBLISHED,
                                 slug=slug)
+
+    if request.htmx:
+        base_template = "_partial.html"
+    else:
+        base_template = "_base.html"
+
     context = {
         'project': project,
+        'base_template': base_template,
     }
-
-    return render(request, 'portfolio/project/detail.html', context)
+    return render(request,
+                  'portfolio/project/detail.html',
+                  context)
 
 
 def project_list(request):
@@ -35,12 +58,22 @@ def project_list(request):
     Project list view.
 
     Context variables:
-       - `projects`: An object containing all published project data.
+        - `projects`: An object containing all published project data.
+        - `base_template`: The base template to extend from,
+           depending on the request type.
     """
 
     project_list = Project.objects.filter(status='PB')
+
+    if request.htmx:
+        base_template = "_partial.html"
+    else:
+        base_template = "_base.html"
+
     context = {
         'projects': project_list,
+        'base_template': base_template,
     }
-
-    return render(request, 'portfolio/project/list.html', context)
+    return render(request,
+                  'portfolio/project/list.html',
+                  context)
