@@ -4,26 +4,25 @@
   <div class="container-fluid justify-content-between">
 
     <!-- Logo ---------------------------------->
-    <a class="navbar-brand" href="{% url 'core:homepage' %}">
-      <img src="{% static 'img/logo-square.png' %}" alt="Logo" height="35px">
-    </a>
+    <span
+      class="navbar-brand"
+      hx-get="{% url 'core:homepage' %}"
+      hx-target="#content"
+      hx-swap="outerHTML"
+      hx-push-url="true"
+      style="cursor: pointer;">
+        <img src="{% static 'img/logo-square.png' %}" alt="Logo" height="35px">
+    </span>
 
-    <div class=" d-flex justify-content-end col-7 col-md-6 col-lg-4 col-xl-4 px-0">
-      <!-- Search form ------------------------->
-      <div id="searchFormContainer" class="col-12 px-0">
-        {% include 'core/search_form.html' %}
-      </div>
-      <!-- Search form toggler ----------------->
-      <button class="btn btn-outline-primary ml-2" aria-label="Toggle search form"
-        _="on click toggle between .fade-in and .fade-out on #searchFormContainer">
-        <i class="bi-search"></i>
-      </button>
-      <!-- Sidebar toggler --------------------->
-      <button class="btn btn-outline-primary ml-2" aria-label="Toggle sidebar"
-        _="on click toggle between .slide-down and .slide-up on #sidebar">
+    <span class="nav-name d-none d-sm-block text-primary">Violet Kester</span>
+
+    <!-- Sidebar toggler --------------------->
+    <button
+      class="btn btn-outline-primary"
+      aria-label="Toggle sidebar"
+      _="on click toggle between .slide-down and .slide-up on #sidebar">
         <i class="bi-x-lg"></i>
-      </button>
-    </div>
+    </button>
 
   </div>
 </nav>
