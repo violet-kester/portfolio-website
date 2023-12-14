@@ -31,18 +31,23 @@
 <body hx-boost="true" hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'>
   <div class="grid container-fluid">
 
-    <!-- Navbar -------------------------------->
+    <!-- Navbar (top) -------------------------->
     {% include './core/navbar.html' %}
 
+    <!-- Nav explorer (left) ------------------->
+    <nav id="nav-menu" class="glassy position-fixed d-none d-sm-block col-sm-2 p-3 text-primary">
+      {% include './core/nav_links.html' %}
+    </nav>
+
     <!-- Content ------------------------------->
-    <main id="content" class="container col-12 col-lg-7 col-xl-6 p-3 text-center">
-      {% block content %}
-      {% endblock %}
+    <main id="content" class="container col-12 col-sm-8 col-lg-7 col-xl-6 px-5 py-3 text-center">
+      {% block main %}{% endblock %}
     </main>
 
-    <!-- Sidebar ------------------------------->
-    <aside id="sidebar" class="glassy slide-up col-12 col-lg-3 p-3 position-fixed">
-      {% include './portfolio/sidebar.html' %}
+    <!-- Sidebar (right) ----------------------->
+    <aside id="sidebar"
+      class="glassy slide-down col-8 col-sm-6 col-md-4 col-lg-3 p-3 position-fixed border border-secondary">
+      {% include './core/sidebar.html' %}
     </aside>
 
   </div>
