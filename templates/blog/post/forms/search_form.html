@@ -1,0 +1,18 @@
+<form hx-post="{% url 'blog:post_search' %}" hx-target="#content">
+  <div class="d-flex">
+    <input
+      type="search"
+      class="form-control"
+      name="query"
+      placeholder="Search posts..."
+      hx-post="{% url 'blog:post_search' %}"
+      hx-target="#content"
+      hx-swap="outerHTML"
+      hx-trigger="keyup changed delay:500ms, search">
+    <button
+      type="submit"
+      class="btn btn-outline-primary ml-3">
+        <i class="bi-search"></i>
+    </button>
+  </div>
+</form>
