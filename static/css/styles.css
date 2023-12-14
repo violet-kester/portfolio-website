@@ -75,11 +75,22 @@ h1 {
     border-color: #FFC107;
 }
 
-#sidebar {
+.nav-name {
+    font-size: xx-large;
+    text-transform: uppercase;
+    letter-spacing: 1.25rem;
+    font-weight: 200;
+}
+
+#nav-menu {
     top: 64px;
+    height: calc(100vh - 64px);
 }
 
 #sidebar {
+    right: 0;
+    top: 0;
+    border-radius: 1.5rem;
     overflow-y: scroll;
 }
 
@@ -120,9 +131,14 @@ h1 {
 } */
 
 /* Large+ screens */
-@media (min-width: 992px) {
-    #sidebar {
-        right: 0;
-        border-radius: 1.5rem;
-    }
-}
+/* @media (min-width: 992px) {
+} */
+
+/* Theme colors ------------------------------ */
+
+/* `primary` theme color */
+/* rgba(255, 193, 7, 0.15); */
+/* #FFC107; */
+
+/* `light` theme color */
+/* #8a8a8a; */
