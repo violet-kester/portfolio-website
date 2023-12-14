@@ -1,0 +1,22 @@
+{% extends base_template %}
+
+{% block title %}Share a post{% endblock %}
+
+{% block main %}
+
+{% if sent %}
+
+<!-- Share success message -->
+<h3>success</h3>
+<p>
+  "{{ post.title }}" was successfully emailed to {{ form.cleaned_data.recipients_email }}.
+</p>
+
+{% else %}
+
+<!-- Share form -->
+{% include './forms/share_form.html' %}
+
+{% endif %}
+
+{% endblock %}
