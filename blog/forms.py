@@ -19,8 +19,4 @@ class CommentForm(forms.ModelForm):
 
 
 class SearchForm(forms.Form):
-    query = forms.CharField(
-        label=False,
-        widget=forms.TextInput(attrs={
-            'placeholder': 'Search posts!'
-        }))
+    query = forms.CharField(label=False)
