@@ -2,7 +2,7 @@
   <div class="d-flex ml-1">
     <input
       type="search"
-      class="form-control"
+      class="form-control mr-2"
       name="query"
       placeholder="Search posts..."
       hx-post="{% url 'blog:post_search' %}"
@@ -11,7 +11,7 @@
       hx-trigger="keyup changed delay:500ms, search">
     <button
       type="submit"
-      class="btn btn-nav ml-2">
+      class="btn btn-nav">
         <img src="/static/img/icons/search.png"/>
     </button>
   </div>
