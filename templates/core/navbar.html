@@ -1,28 +1,51 @@
 {% load static %}
 
 <nav class="navbar glassy sticky-top p-3">
-  <div class="container-fluid justify-content-between">
+  <div class="container-fluid d-flex justify-content-between align-items-center">
 
-    <!-- Logo ---------------------------------->
-    <span
-      class="navbar-brand"
+    <!-- Navbar logo --------------------------->
+
+    <div
+      class="btn-nav mr-0"
       hx-get="{% url 'core:homepage' %}"
       hx-target="#content"
       hx-swap="outerHTML"
-      hx-push-url="true"
-      style="cursor: pointer;">
-        <img src="{% static 'img/logo-square.png' %}" alt="Logo" height="35px">
-    </span>
+      hx-push-url="true">
+        <img
+          src="{% static 'img/logos/logo-square.png' %}"
+          alt="Logo"
+          height="32px">
+    </div>
 
-    <span class="nav-name d-none d-sm-block text-primary">Violet Kester</span>
+    <!-- Navbar name (small+ only) ------------->
 
-    <!-- Sidebar toggler --------------------->
-    <button
-      class="btn btn-outline-primary"
+    <span class="nav-name d-none d-sm-block text-primary fw-light">Violet Kester</span>
+
+    <!-- Navbar links (mobile only) --------------->
+
+    <div class="d-flex d-sm-none flex-grow-1 justify-content-end">
+
+      <div class="d-flex align-items-center">
+        {% include 'core/nav_links.html' %}
+      </div>
+
+      <div
+        class="btn-nav justify-content-center"
+        aria-label="Toggle sidebar"
+        _="on click toggle between .slide-down and .slide-up on #sidebar">
+          <img src="{% static 'img/icons/list.png' %}"/>
+      </div>
+
+    </div>
+
+    <!-- Sidebar toggler (small+ only) --------->
+
+    <div
+      class="btn-nav d-none d-sm-flex justify-content-center"
       aria-label="Toggle sidebar"
       _="on click toggle between .slide-down and .slide-up on #sidebar">
-        <i class="bi-x-lg"></i>
-    </button>
+        <img src="{% static 'img/icons/list.png' %}"/>
+    </div>
 
   </div>
 </nav>
