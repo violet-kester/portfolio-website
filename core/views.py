@@ -1,7 +1,4 @@
-from blog.models import Post
-from django.contrib.postgres.search import SearchVector, SearchQuery, SearchRank
 from django.shortcuts import render
-from .forms import SearchForm
 
 
 def homepage(request):
@@ -23,3 +20,47 @@ def homepage(request):
         "core/index.html",
         {"base_template": base_template},
     )
+
+
+def resume(request):
+    """
+    View for the resume page.
+
+    Context variables:
+        - `base_template`: The base template to extend from,
+           depending on the request type.
+    """
+
+    if request.htmx:
+        base_template = "_partial.html"
+    else:
+        base_template = "_base.html"
+
+    context = {
+        'base_template': base_template,
+    }
+    return render(request,
+                  'core/resume.html',
+                  context)
+
+
+def about(request):
+    """
+    View for the about page.
+
+    Context variables:
+        - `base_template`: The base template to extend from,
+           depending on the request type.
+    """
+
+    if request.htmx:
+        base_template = "_partial.html"
+    else:
+        base_template = "_base.html"
+
+    context = {
+        'base_template': base_template,
+    }
+    return render(request,
+                  'core/about.html',
+                  context)
