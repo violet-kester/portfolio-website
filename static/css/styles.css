@@ -62,6 +62,10 @@ h1 {
     margin-bottom: 3rem;
 }
 
+.fw-light {
+    font-weight: 200;
+}
+
 /* Navigation -------------------------------- */
 
 .navbar {
@@ -76,10 +80,20 @@ h1 {
 }
 
 .nav-name {
-    font-size: xx-large;
+    font-size: 24px;
+    height: 40px;
     text-transform: uppercase;
     letter-spacing: 1.25rem;
-    font-weight: 200;
+    margin-left: 16px;
+}
+
+.btn-nav {
+    height: 40px;
+    width: 32px;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
 }
 
 #nav-menu {
@@ -87,11 +101,21 @@ h1 {
     height: calc(100vh - 64px);
 }
 
+.nav-link {
+    /* font-size: 1rem; */
+    letter-spacing: .16rem;
+    cursor: pointer;
+}
+
 #sidebar {
     right: 0;
     top: 0;
     border-radius: 1.5rem;
     overflow-y: scroll;
+}
+
+#sidebar input {
+    height: 40px;
 }
 
 /* Effects and transitions ------------------- */
@@ -125,6 +149,13 @@ h1 {
 }
 
 /* Media queries ----------------------------- */
+
+/* Small+ screens */
+/* @media (min-width: 576px) {
+    .nav-link {
+        font-size: 1.25rem;
+    }
+} */
 
 /* Medium+ screens */
 /* @media (min-width: 768px) {

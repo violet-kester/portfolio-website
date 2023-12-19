@@ -1,24 +1,32 @@
 <div class="d-flex justify-content-between">
-  <!-- Search form -->
+
+  <!-- Search form ----------------------------->
+
   <div class="flex-grow-1">
     {% include 'blog/post/forms/search_form.html' %}
   </div>
 
-  <!-- Sidebar toggler -->
-  <button
-    class="btn btn-outline-primary ml-3"
-    aria-label="Toggle search form"
+  <!-- Sidebar toggler ------------------------->
+
+  <div
+    class="btn-nav"
+    aria-label="Toggle sidebar"
     _="on click toggle between .slide-up and .slide-down on #sidebar">
-      <i class="bi-x-lg"></i>
+      <img src="/static/img/icons/close.png"/>
   </button>
+
 </div>
 
-<h3 class="mt-5">portfolio</h3>
-<p>
-  Amet nisl purus in mollis nunc. Odio ut sem nulla pharetra diam sit amet.
-</p>
+<!-- Sidebar content --------------------------->
 
-<h3 class="mt-5">blog</h3>
-<p>
-  Elementum facilisis leo vel fringilla est ullamcorper eget nulla facilisi.
-</p>
+<div class="mt-5">
+<h3>portfolio</h3>
+  <p>
+    Amet nisl purus in mollis nunc. Odio ut sem nulla pharetra diam sit amet.
+  </p>
+
+  <h3 class="mt-5">blog</h3>
+  <p>
+    Elementum facilisis leo vel fringilla est ullamcorper eget nulla facilisi.
+  </p>
+</div>
