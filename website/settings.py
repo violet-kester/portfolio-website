@@ -34,7 +34,7 @@ INSTALLED_APPS = [
     'taggit',
     'template_partials',
     'core',
-    'portfolio',
+    'projects',
     'blog',
 ]
 
