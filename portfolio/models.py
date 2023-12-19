@@ -22,7 +22,7 @@ class Project(models.Model):
                                related_name='projects')
     description = models.TextField()
     thumbnail = models.ImageField(upload_to='portfolio/static/img/thumbnails/',
-                                  default='static/img/default_thumbnail.png')
+                                  default='static/img/logos/logo-thumbnail.png')
     publish = models.DateTimeField(default=timezone.now)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
