@@ -73,12 +73,6 @@ h1 {
     height: 64px;
 }
 
-.navbar-toggler:focus {
-    outline: none;
-    /* `primary` theme color */
-    border-color: #FFC107;
-}
-
 .nav-name {
     font-size: 24px;
     height: 40px;
@@ -93,7 +87,9 @@ h1 {
     cursor: pointer;
     padding: 0;
     display: flex;
+    justify-content: center;
     align-items: center;
+    flex-shrink: 0;
 }
 
 #nav-menu {
@@ -102,9 +98,16 @@ h1 {
 }
 
 .nav-link {
-    /* font-size: 1rem; */
+    display: flex;
+    align-items: center;
     letter-spacing: .16rem;
     cursor: pointer;
+}
+
+.nav-link button {
+    border-radius: 50%;
+    height: 20px;
+    width: 20px;
 }
 
 #sidebar {
@@ -152,9 +155,6 @@ h1 {
 
 /* Small+ screens */
 /* @media (min-width: 576px) {
-    .nav-link {
-        font-size: 1.25rem;
-    }
 } */
 
 /* Medium+ screens */
@@ -173,3 +173,30 @@ h1 {
 
 /* `light` theme color */
 /* #8a8a8a; */
+
+/* `red` theme color */
+/* #E6330B */
+
+/* `orange` theme color */
+/* #FF9320 */
+
+/* `yellow` theme color */
+/* #FFC107 */
+
+/* `green` theme color */
+/* #7EE692 */
+
+/* `teal` theme color */
+/* #85FFE4 */
+
+/* `cyan` theme color */
+/* #97E3F1 */
+
+/* `blue` theme color */
+/* #415EF1 */
+
+/* `indigo` theme color */
+/* #5F1FCF */
+
+/* `purple` theme color */
+/* #B987FA */
