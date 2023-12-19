@@ -1,5 +1,5 @@
 <form hx-post="{% url 'blog:post_search' %}" hx-target="#content">
-  <div class="d-flex">
+  <div class="d-flex ml-1">
     <input
       type="search"
       class="form-control"
@@ -11,8 +11,8 @@
       hx-trigger="keyup changed delay:500ms, search">
     <button
       type="submit"
-      class="btn btn-outline-primary ml-3">
-        <i class="bi-search"></i>
+      class="btn btn-nav ml-2">
+        <img src="/static/img/icons/search.png"/>
     </button>
   </div>
 </form>
