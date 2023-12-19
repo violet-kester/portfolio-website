@@ -4,7 +4,7 @@ from .models import Project
 
 def homepage(request):
     """
-    Portfolio homepage.
+    Projects homepage.
 
     Context variables:
         - `base_template`: The base template to extend from,
@@ -18,7 +18,7 @@ def homepage(request):
 
     return render(
         request,
-        "portfolio/index.html",
+        "projects/index.html",
         {"base_template": base_template},
     )
 
@@ -49,7 +49,7 @@ def project_detail(request, slug):
         'base_template': base_template,
     }
     return render(request,
-                  'portfolio/project/detail.html',
+                  'projects/detail.html',
                   context)
 
 
@@ -75,5 +75,5 @@ def project_list(request):
         'base_template': base_template,
     }
     return render(request,
-                  'portfolio/project/list.html',
+                  'projects/list.html',
                   context)
