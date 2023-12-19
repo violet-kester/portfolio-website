@@ -1,32 +1,38 @@
-<div class="d-flex justify-content-between">
+<aside
+  id="sidebar"
+  class="glassy slide-up col-sm-6 col-md-4 col-xl-3 p-3 position-fixed text-right border border-secondary">
 
-  <!-- Search form ----------------------------->
+  <div class="d-flex justify-content-between">
 
-  <div class="flex-grow-1">
-    {% include 'blog/post/forms/search_form.html' %}
+    <!-- Search form ----------------------------->
+
+    <div class="flex-grow-1">
+      {% include 'blog/post/forms/search_form.html' %}
+    </div>
+
+    <!-- Sidebar toggler ------------------------->
+
+    <div
+      class="btn-nav"
+      aria-label="Toggle sidebar"
+      _="on click toggle between .slide-up and .slide-down on #sidebar">
+        <img src="/static/img/icons/close.png"/>
+    </div>
+
   </div>
 
-  <!-- Sidebar toggler ------------------------->
+  <!-- Sidebar content --------------------------->
 
-  <div
-    class="btn-nav"
-    aria-label="Toggle sidebar"
-    _="on click toggle between .slide-up and .slide-down on #sidebar">
-      <img src="/static/img/icons/close.png"/>
+  <div class="mt-5 px-5">
+  <h3>projects</h3>
+    <p>
+      Amet nisl purus in mollis nunc. Odio ut sem nulla pharetra diam sit amet.
+    </p>
+
+    <h3 class="mt-5">blog</h3>
+    <p>
+      Elementum facilisis leo vel fringilla est ullamcorper eget nulla facilisi.
+    </p>
   </div>
 
-</div>
-
-<!-- Sidebar content --------------------------->
-
-<div class="mt-5 px-5">
-<h3>portfolio</h3>
-  <p>
-    Amet nisl purus in mollis nunc. Odio ut sem nulla pharetra diam sit amet.
-  </p>
-
-  <h3 class="mt-5">blog</h3>
-  <p>
-    Elementum facilisis leo vel fringilla est ullamcorper eget nulla facilisi.
-  </p>
-</div>
+</aside>

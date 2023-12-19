@@ -11,40 +11,38 @@
       hx-target="#content"
       hx-swap="outerHTML"
       hx-push-url="true">
-        <img
-          src="{% static 'img/logos/logo-square.png' %}"
-          alt="Logo"
-          height="32px">
+        <img src="{% static 'img/logos/logo-square.png' %}" alt="Logo" height="32px">
     </div>
 
-    <!-- Navbar name (small+ only) ------------->
 
-    <span class="nav-name d-none d-sm-block text-primary fw-light">Violet Kester</span>
+    <!-- Navbar links (small screens only)------>
 
-    <!-- Navbar links (mobile only) --------------->
-
-    <div class="d-flex d-sm-none flex-grow-1 justify-content-end">
+    <div class="d-flex d-md-none flex-grow-1 justify-content-end">
 
       <div class="d-flex align-items-center">
         {% include 'core/nav_links.html' %}
       </div>
 
       <div
-        class="btn-nav justify-content-center"
+        class="btn-nav"
         aria-label="Toggle sidebar"
         _="on click toggle between .slide-down and .slide-up on #sidebar">
-          <img src="{% static 'img/icons/list.png' %}"/>
+          <img src="{% static 'img/icons/list.png' %}" />
       </div>
 
     </div>
 
-    <!-- Sidebar toggler (small+ only) --------->
+    <!-- Navbar name (med+ screens only) ------->
+
+    <span class="nav-name d-none d-md-block text-primary fw-light">Violet Kester</span>
+
+    <!-- Sidebar toggler (med+ screens only) --->
 
     <div
-      class="btn-nav d-none d-sm-flex justify-content-center"
+      class="btn-nav d-none d-md-flex"
       aria-label="Toggle sidebar"
-      _="on click toggle between .slide-down and .slide-up on #sidebar">
-        <img src="{% static 'img/icons/list.png' %}"/>
+      _="on click toggle between .slide-up and .slide-down on #sidebar">
+        <img src="{% static 'img/icons/list.png' %}" />
     </div>
 
   </div>
