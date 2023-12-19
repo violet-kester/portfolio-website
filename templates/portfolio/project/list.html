@@ -2,11 +2,12 @@
 
 {% load markdown %}
 
-{% block title %}Projects{% endblock %}
+{% block title %}Violet Kester - Web Developer - Projects{% endblock %}
 
 {% block main %}
 
 <!-- Projects -------------------------------->
+
 {% for project in projects %}
 <h2>
   <a href="{{ project.get_absolute_url }}">
