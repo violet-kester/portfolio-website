@@ -1,0 +1,12 @@
+{% load crispy_forms_tags %}
+
+<h5>Add a new comment</h5>
+
+<form action="{% url 'blog:post_comment' post.id %}" method="POST">
+  <div class="my-5">
+    {{ comment_form|crispy }}
+  </div>
+  <button type="submit" class="btn btn-outline-primary">
+    <i class="bi-pencil-square mr-1"></i> Add comment
+  </button>
+</form>

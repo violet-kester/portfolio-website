@@ -1,0 +1,21 @@
+{% extends base_template %}
+
+{% block main %}
+
+{% if added %}
+
+<!-- Comment success message --------------------->
+
+<h3>success</h3>
+<p>Your comment has been added.</p>
+<button hx-get="">Add another comment</button>
+
+{% else %}
+
+<!-- Share form -------------------------------->
+
+{% include './forms/share_form.html' %}
+
+{% endif %}
+
+{% endblock %}
