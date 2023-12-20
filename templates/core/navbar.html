@@ -6,40 +6,25 @@
     <!-- Navbar logo --------------------------->
 
     <div
-      class="btn-nav mr-0"
+      class="nav-btn mr-0"
       hx-get="{% url 'core:homepage' %}"
       hx-target="#content"
       hx-swap="outerHTML"
-      hx-push-url="true">
+      hx-push-url="true"
+      _="on htmx:afterOnLoad take .focus for event.target">
         <img src="{% static 'img/logos/logo-square.png' %}" alt="Logo" height="32px">
     </div>
 
+    <!-- Navbar title --------------------------->
 
-    <!-- Navbar links (small screens only)------>
-
-    <div class="d-flex d-md-none flex-grow-1 justify-content-end">
-
-      <div class="d-flex align-items-center">
-        {% include 'core/nav_links.html' %}
-      </div>
-
-      <div
-        class="btn-nav"
-        aria-label="Toggle sidebar"
-        _="on click toggle between .slide-down and .slide-up on #sidebar">
-          <img src="{% static 'img/icons/list.png' %}" />
-      </div>
-
+    <div class="navbar-title d-flex align-items-center">
+      <span class="text-primary fw-light">Violet Kester</span>
     </div>
 
-    <!-- Navbar name (med+ screens only) ------->
-
-    <span class="nav-name d-none d-md-block text-primary fw-light">Violet Kester</span>
-
-    <!-- Sidebar toggler (med+ screens only) --->
+    <!-- Sidebar toggler ----------------------->
 
     <div
-      class="btn-nav d-none d-md-flex"
+      class="nav-btn"
       aria-label="Toggle sidebar"
       _="on click toggle between .slide-up and .slide-down on #sidebar">
         <img src="{% static 'img/icons/list.png' %}" />
