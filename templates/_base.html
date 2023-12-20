@@ -35,13 +35,13 @@
 
     {% include './core/navbar.html' %}
 
-    <!-- Nav menu (left) ----------------------->
+    <!-- Nav menu (xs: bottom/sm+: left) -------->
 
     {% include './core/nav_menu.html' %}
 
     <!-- Content ------------------------------->
 
-    <main id="content" class="container col-11 col-sm-10 col-md-9 col-lg-8 col-xl-6 px-5 py-3 text-center">
+    <main id="content" class="container col-12 col-sm-11 col-md-8 col-lg-8 col-xl-6 px-3 py-3 text-center">
       {% block main %}{% endblock %}
     </main>
 
