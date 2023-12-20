@@ -1,9 +1,22 @@
 {% extends base_template %}
 
-{% block title %}Violet Kester - Web Developer - Blog{% endblock %}
+{% block title %}Violet Kester - Web Development & Design - Blog{% endblock %}
 
 {% block main %}
 
-<p>This is the blog homepage.</p>
+<h1>blog</h1>
+
+<p class="my-5">
+  Hac habitasse platea dictumst vetibulum.<br />
+  Leo duis ut diam quam nulla.<br />
+  Integer enim neque volutpat ac. Urna id volutpat lacus laoreet
+  non curabitur gravida.<br />
+  Mi quis hendrerit dolor magna eget est lorem.
+</p>
+
+<div class="mt-5">
+  <h5>Recent posts</h5>
+  {% include './post/list.html' %}
+</div>
 
 {% endblock %}
