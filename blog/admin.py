@@ -10,7 +10,7 @@ class PostAdmin(admin.ModelAdmin):
     list_filter = ['status', 'created', 'publish', 'author']
     # Fields displayed in the admin edit form
     fields = ['slug', 'title', 'author', 'body',
-              'thumbnail', 'publish', 'status']
+              'thumbnail', 'tags', 'publish', 'status']
     # Prepopulate slug field based on title
     prepopulated_fields = {'slug': ('title',)}
     # Order columns by status and publish date by default
