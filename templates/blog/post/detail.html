@@ -1,9 +1,110 @@
 {% extends base_template %}
 
+{% load blog_tags %}
+
+{% load markdown %}
+
 {% block title %}Violet Kester - Blog - {{ post.title }}{% endblock %}
 
 {% block main %}
 
-<p>This is the blog detail page.</p>
+<!-- Post content ------------------------------>
+
+<article class="mb-5 pb-3">
+
+  <h1>{{ post.title }}</h1>
+
+  <div class="row mb-5 px-5 py-4 border-bottom border-top border-secondary align-items-center">
+    <div class="col-auto">
+      <img
+        src="{{ post.thumbnail.url }}"
+        class="thumbnail-icon rounded"
+        width="100%"
+        alt="{{ post.title }}">
+    </div>
+    <div class="col pl-3 pr-0">
+      <span class="d-block mb-0 text-muted small">
+        <i class="bi-calendar-event mr-1"></i>
+        Published {{ post.publish }}
+      </span>
+      <span class="d-block mb-0 text-muted small">
+        <i class="bi-person-circle mr-1"></i>
+        Written by {{ post.author }}
+      </span>
+      <a href="{% url 'blog:post_share' post.id %}" class="d-block mb-0 small">
+        <i class="bi-share mr-1"></i> Share this post
+      </a>
+    </div>
+  </div>
+
+  {{ post.body|markdown }}
+
+</article>
+
+<!-- Similar posts section --------------------->
+
+<section class="mb-5">
+
+  <h2 class="mb-4">Similar posts</h2>
+
+  {% if similar_posts %}
+  <div class="row justify-content-center">
+
+    {% for post in similar_posts|slice:":3" %}
+    <div class="col-12 col-md-3 col-lg-12 col-xl-3 mb-4 px-5 px-md-2 px-lg-5 px-xl-2 py-3">
+      <a href="{{ post.get_absolute_url }}">
+        <div class="card">
+          <img
+            src="{{ post.thumbnail.url }}"
+            class="mx-auto card-img-top pt-5 pb-3 px-4"
+            alt="{{ post.title }}">
+          <div class="card-body p-4 text-center">
+            <h6 class="card-title text-light">{{ post.title }}</h6>
+            <p class="card-text">
+              {{ post.body|truncatewords_html:125 }}
+            </p>
+          </div>
+        </div>
+      </a>
+    </div>
+    {% endfor %}
+
+  </div>
+  {% else %}
+  <p class="text-muted">There are no similar posts yet.</p>
+  {% endif %}
+
+</section>
+
+<!-- Comments section -------------------------->
+
+<section>
+
+  <!-- Header -->
+  {% with comments.count as total_comments %}
+  <h2 class="mb-4 pb-4 border-bottom border-secondary">
+    {{ total_comments }} comment{{ total_comments|pluralize }}
+  </h2>
+  {% endwith %}
+
+  <!-- Comments list -->
+  <div class="mb-5">
+    {% for comment in comments %}
+    <div class="my-4 pb-2 border-bottom border-secondary">
+      <p class="text-muted">
+        Comment {{ forloop.counter }} by <span class="text-primary">{{ comment.name }}</span><br />
+        {{ comment.created }}
+      </p>
+      {{ comment.body|linebreaks }}
+    </div>
+    {% empty %}
+    <p class="text-muted">There are no comments yet.</p>
+    {% endfor %}
+  </div>
+
+  <!-- New comment form ------------------------>
+  <div>{% include "./forms/comment_form.html" %}</div>
+
+</section>
 
 {% endblock %}
