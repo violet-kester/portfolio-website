@@ -17,22 +17,25 @@ def homepage(request):
            depending on the request type.
     """
 
+    posts = Post.objects.filter(status='PB')
+
     if request.htmx:
-        base_template = "_partial.html"
+        base_template = '_partial.html'
     else:
-        base_template = "_base.html"
+        base_template = '_base.html'
 
     context = {
-        "base_template": base_template
+        'posts': posts,
+        'base_template': base_template,
     }
     return render(
         request,
-        "blog/index.html",
+        'blog/index.html',
         context,
     )
 
 
-def post_detail(request, year, month, day, post):
+def post_detail(request, post_slug):
     """
     Post detail view.
 
@@ -41,10 +44,7 @@ def post_detail(request, year, month, day, post):
     and a list of recommended posts.
 
     Parameters:
-        - `year`: The year the post was published.
-        - `month`: The month the post was published.
-        - `day`: The day the post was published.
-        - `post`: The post's unique slug identifier.
+        - `post_slug`: The post's unique slug identifier.
 
     Context variables:
        - `post`: The Post object representing the displayed post.
@@ -57,13 +57,9 @@ def post_detail(request, year, month, day, post):
 
     post = get_object_or_404(Post,
                              status=Post.Status.PUBLISHED,
-                             slug=post,
-                             publish__year=year,
-                             publish__month=month,
-                             publish__day=day)
+                             slug=post_slug)
 
     form = CommentForm()
-    # Active comments for this post
     comments = post.comments.filter(active=True)
     # Similar, recommended posts
     post_tags_ids = post.tags.values_list('id', flat=True)
@@ -74,9 +70,9 @@ def post_detail(request, year, month, day, post):
                                  .order_by('-same_tags', '-publish')[:4]
 
     if request.htmx:
-        base_template = "_partial.html"
+        base_template = '_partial.html'
     else:
-        base_template = "_base.html"
+        base_template = '_base.html'
 
     context = {
         'post': post,
@@ -106,21 +102,21 @@ def post_list(request, tag_slug=None):
            depending on the request type.
     """
 
-    post_list = Post.objects.filter(status='PB')
+    posts = Post.objects.filter(status='PB')
     tag = None
 
     # If a tag slug is provided, filter posts by tag
     if tag_slug:
         tag = get_object_or_404(Tag, slug=tag_slug)
-        post_list = post_list.filter(tags__in=[tag])
+        posts = posts.filter(tags__in=[tag])
 
     if request.htmx:
-        base_template = "_partial.html"
+        base_template = '_partial.html'
     else:
-        base_template = "_base.html"
+        base_template = '_base.html'
 
     context = {
-        'posts': post_list,
+        'posts': posts,
         'tag': tag,
         'base_template': base_template,
     }
@@ -161,9 +157,9 @@ def post_search(request):
             ).filter(search=query).order_by('-rank')
 
     if request.htmx:
-        base_template = "_partial.html"
+        base_template = '_partial.html'
     else:
-        base_template = "_base.html"
+        base_template = '_base.html'
 
     context = {
         'query': query,
@@ -212,9 +208,9 @@ def post_share(request, post_id):
         form = SharePostForm()
 
     if request.htmx:
-        base_template = "_partial.html"
+        base_template = '_partial.html'
     else:
-        base_template = "_base.html"
+        base_template = '_base.html'
 
     context = {
         'post': post,
@@ -224,6 +220,35 @@ def post_share(request, post_id):
     }
     return render(request,
                   'blog/post/share_success.html',
+                  context)
+
+
+def comment_form(request):
+    """
+    Comment form view.
+
+    Returns a comment form template.
+    Used when the 'Add another comment' button is clicked.
+
+    Context variables:
+    - `form`: An instance of the CommentForm.
+    - `base_template`: The base template to extend from,
+        depending on the request type.
+    """
+
+    form = CommentForm()
+
+    if request.htmx:
+        base_template = '_partial.html'
+    else:
+        base_template = '_base.html'
+
+    context = {
+        'form': form,
+        'base_template': base_template,
+    }
+    return render(request,
+                  'blog/post/comment_success.html',
                   context)
 
 
@@ -257,9 +282,9 @@ def post_comment(request, post_id):
         comment.save()
 
     if request.htmx:
-        base_template = "_partial.html"
+        base_template = '_partial.html'
     else:
-        base_template = "_base.html"
+        base_template = '_base.html'
 
     context = {
         'post': post,
