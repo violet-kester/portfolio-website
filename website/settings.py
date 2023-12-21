@@ -30,7 +30,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.postgres',
-    "django_htmx",
+    'crispy_forms',
+    'crispy_bootstrap5',
+    'django_htmx',
     'taggit',
     'template_partials',
     'core',
@@ -136,3 +138,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_URL = ''
 MEDIA_ROOT = BASE_DIR / ''
+
+
+# Specifies a list of allowed template packs that django-crispy-forms can use
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+
+# Defines the default template pack to use when rendering a form
+
+CRISPY_TEMPLATE_PACK = "bootstrap5"
