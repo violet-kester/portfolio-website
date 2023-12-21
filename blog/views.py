@@ -50,7 +50,7 @@ def post_detail(request, post_slug):
        - `post`: The Post object representing the displayed post.
        - `comments`: A QuerySet of active comment objects related to the post.
        - `form`: An instance of the CommentForm for posting new comments.
-       - `similar_posts`: A QuerySet of recommended Posts sharing common tags with the post.
+       - `similar_posts`: A QuerySet of recommended Posts based on shared tags.
        - `base_template`: The base template to extend from,
            depending on the request type.
     """
@@ -82,7 +82,7 @@ def post_detail(request, post_slug):
         'base_template': base_template,
     }
     return render(request,
-                  'blog/post/list.html',
+                  'blog/post/detail.html',
                   context)
 
 
