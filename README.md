@@ -1,7 +1,7 @@
 <!-- header -->
 
 <div align='center'>
-  <img src='/static/img/logo-square.png' width='75px' alt='Logo'>
+  <img src='/static/img/logos/logo-square.png' width='75px' alt='Logo'>
   <h1>Portfolio Website</h1>
   <p>
     <i>My personal website and blog.</i>
