@@ -9,7 +9,7 @@ class PostAdmin(admin.ModelAdmin):
     # Column filters
     list_filter = ['status', 'created', 'publish', 'author']
     # Fields displayed in the admin edit form
-    fields = ['slug', 'title', 'author', 'body',
+    fields = ['slug', 'title', 'author', 'summary', 'body',
               'thumbnail', 'tags', 'publish', 'status']
     # Prepopulate slug field based on title
     prepopulated_fields = {'slug': ('title',)}

@@ -20,7 +20,8 @@ class Project(models.Model):
     author = models.ForeignKey(User,
                                on_delete=models.CASCADE,
                                related_name='projects')
-    description = models.TextField()
+    summary = models.TextField(blank=True)
+    description = models.TextField(blank=True)
     thumbnail = models.ImageField(upload_to='portfolio/static/img/thumbnails/',
                                   default='static/img/logos/logo-thumbnail.png')
     publish = models.DateTimeField(default=timezone.now)

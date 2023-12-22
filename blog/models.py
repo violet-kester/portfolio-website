@@ -21,7 +21,8 @@ class Post(models.Model):
     author = models.ForeignKey(User,
                                on_delete=models.CASCADE,
                                related_name='posts')
-    body = models.TextField()
+    summary = models.TextField(blank=True)
+    body = models.TextField(blank=True)
     thumbnail = models.ImageField(upload_to='blog/static/img/thumbnails/',
                                   default='static/img/logos/logo-thumbnail.png')
     publish = models.DateTimeField(default=timezone.now)
@@ -49,6 +50,7 @@ class Comment(models.Model):
                              on_delete=models.CASCADE,
                              related_name='comments')
     name = models.CharField(max_length=100)
+    location = models.TextField(blank=True)
     body = models.TextField()
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
