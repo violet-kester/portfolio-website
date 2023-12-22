@@ -1,3 +1,5 @@
+{% load blog_tags %}
+
 <aside
   id="sidebar"
   class="glassy slide-up col-sm-6 col-md-5 col-lg-4 col-xl-3 p-3 position-fixed text-right border border-secondary">
@@ -24,15 +26,58 @@
   <!-- Sidebar content --------------------------->
 
   <div class="mt-5 px-4 px-lg-5">
-  <h3 class="text-primary">projects</h3>
-    <p>
-      Amet nisl purus in mollis nunc. Odio ut sem nulla pharetra diam sit amet.
-    </p>
 
-    <h3 class="mt-5 text-primary">blog</h3>
-    <p>
-      Elementum facilisis leo vel fringilla est ullamcorper eget nulla facilisi.
-    </p>
+    <!-- Projects sidebar content  -->
+
+    <div class="mb-5">
+      <h3
+        class="text-primary"
+        hx-get="{% url 'projects:homepage' %}"
+        hx-target="#content"
+        hx-swap="outerHTML"
+        hx-push-url="true"
+        style="cursor:pointer">
+          projects
+      </h3>
+      <p>
+        Amet nisl purus in mollis nunc. Odio ut sem nulla pharetra diam sit amet.
+      </p>
+    </div>
+
+    <!-- Blog sidebar content  -->
+
+    <div class="mb-5">
+      <h3
+        class="text-primary"
+        hx-get="{% url 'blog:homepage' %}"
+        hx-target="#content"
+        hx-swap="outerHTML"
+        hx-push-url="true"
+        style="cursor:pointer">
+          blog
+      </h3>
+      <p>
+        Elementum facilisis leo vel fringilla est ullamcorper eget nulla facilisi.
+      </p>
+
+      <div class="pt-2">
+        <h5 class="text-primary">Recent posts</h5>
+        {% get_latest_posts 3 %}
+      </div>
+
+      <div class="pt-2">
+        <h5 class="text-primary">Tags</h5>
+        {% get_all_post_tags as post_tags %}
+        <ul>
+          {% for tag in post_tags %}
+          <li class="mb-1">
+            <span class="tag">#{{ tag.name }}</span>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+
   </div>
 
 </aside>
