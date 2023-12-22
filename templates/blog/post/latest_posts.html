@@ -1,0 +1,16 @@
+<ul class="mt-4">
+  {% for post in latest_posts %}
+  <li
+    class="my-3 small rounded"
+    hx-get="{{ post.get_absolute_url }}"
+    hx-target="#content"
+    hx-swap="outerHTML"
+    hx-push-url="true"
+    style="cursor:pointer;">
+      <h6 class="mb-1">{{ post.title }}</h6>
+      <span class="text-light">{{ post.publish }}</span>
+      <p class="text-muted">{{ post.summary }}</p>
+
+  </li>
+  {% endfor %}
+</ul>
