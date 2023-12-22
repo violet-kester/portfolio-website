@@ -29,8 +29,9 @@
       <h3 class="mb-3">
           {{ post.title }}
       </h3>
-      <div class="text-muted">
-        {{ post.body|truncatewords_html:18 }}
+      <span class="text-light small">{{ post.publish }}</span>
+      <div class="text-muted small">
+        {{ post.body|truncatewords_html:18|markdown|striptags }}
       </div>
     </div>
 
