@@ -58,11 +58,11 @@ def post_detail(request, post_slug):
     post = get_object_or_404(Post,
                              status=Post.Status.PUBLISHED,
                              slug=post_slug)
-
     form = CommentForm()
     comments = post.comments.filter(active=True)
-    # Similar, recommended posts
-    post_tags_ids = post.tags.values_list('id', flat=True)
+    post_tags = post.tags.all()
+    post_tags_ids = post_tags.values_list('id', flat=True)
+    # Similar, recommended posts ranked by number of shared tags
     similar_posts = Post.objects.filter(status='PB')\
                                 .filter(tags__in=post_tags_ids)\
                                 .exclude(id=post.id)
@@ -76,6 +76,7 @@ def post_detail(request, post_slug):
 
     context = {
         'post': post,
+        'post_tags': post_tags,
         'comments': comments,
         'form': form,
         'similar_posts': similar_posts,

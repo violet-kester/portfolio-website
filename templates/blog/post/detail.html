@@ -14,7 +14,15 @@
 
   <h1 class="mb-5">{{ post.title }}</h1>
 
-  <div class="d-flex justify-content-center align-items-center mb-5 px-5 py-4 border-bottom border-top border-secondary">
+  <ul class="d-flex justify-content-center">
+    {% for tag in post_tags %}
+    <li class="mx-1">
+      <span class="tag">#{{ tag.name }}</span>
+    </li>
+    {% endfor %}
+  </ul>
+
+  <div class="d-flex justify-content-center align-items-center px-0 px-sm-5 py-4 mb-4 border-bottom border-top border-secondary">
     <div>
       <img
         src="{{ post.thumbnail.url }}"
@@ -22,52 +30,56 @@
         width="100%"
         alt="{{ post.title }}">
     </div>
-    <div class="ml-5">
-      <span class="d-block mb-0 text-muted small">
+    <div class="ml-4 small">
+      <span class="d-block mb-0 text-light">
         <i class="bi-calendar-event mr-1"></i>
         Published {{ post.publish }}
       </span>
-      <span class="d-block mb-0 text-muted small">
+      <span class="d-block mb-0 text-light">
         <i class="bi-person-circle mr-1"></i>
-        Written by {{ post.author }}
+        Written by {{ post.author.first_name }} {{ post.author.last_name }}
       </span>
-      <a href="{% url 'blog:post_share' post.id %}" class="d-block mb-0 small">
+      <a href="{% url 'blog:post_share' post.id %}" class="d-block mb-0">
         <i class="bi-share mr-1"></i> Share this post
       </a>
     </div>
   </div>
 
-  <div>
+  <h2 class="pt-2">{{ post.summary }}</h2>
+
   {{ post.body|markdown }}
-  </div>
 
 </article>
 
 <!-- Similar posts section --------------------->
 
-<section class="mb-5">
+<section class="mb-4">
 
-  <h2 class="mb-4">Similar posts</h2>
+  <h4 class="mb-3 text-primary">Similar posts</h4>
 
   {% if similar_posts %}
-  <div class="row justify-content-center">
+  <div class="row justify-content-center p-3">
 
     {% for post in similar_posts|slice:":3" %}
-    <div class="col-12 col-md-3 col-lg-12 col-xl-3 mb-4 px-5 px-md-2 px-lg-5 px-xl-2 py-3">
-      <a href="{{ post.get_absolute_url }}">
-        <div class="card">
-          <img
-            src="{{ post.thumbnail.url }}"
-            class="mx-auto card-img-top pt-5 pb-3 px-4"
-            alt="{{ post.title }}">
-          <div class="card-body p-4 text-center">
-            <h6 class="card-title text-light">{{ post.title }}</h6>
-            <p class="card-text">
-              {{ post.body|truncatewords_html:125 }}
-            </p>
-          </div>
+    <div class="col-12 col-md-4 px-5 px-md-3 pb-5 pb-md-3">
+        <div
+          class="card"
+          hx-get="{{ post.get_absolute_url }}"
+          hx-target="#content"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+          style="cursor:pointer">
+            <img
+              class="mx-auto card-img-top p-5"
+              src="{{ post.thumbnail.url }}"
+              alt="{{ post.title }}">
+            <div class="card-body px-5 px-md-3 pb-5 pb-md-3 pt-0">
+              <h5 class="card-title text-light">{{ post.title }}</h5>
+              <p class="card-text small">
+                {{ post.body|truncatewords_html:100|markdown|striptags }}
+              </p>
+            </div>
         </div>
-      </a>
     </div>
     {% endfor %}
 
@@ -78,19 +90,17 @@
 
 </section>
 
-<!-- Comments section -------------------------->
+<!-- Comments ---------------------------------->
 
 <section>
 
-  <!-- Header -->
   {% with comments.count as total_comments %}
-  <h2 class="mb-4 pb-4 border-bottom border-secondary">
+  <h4 class="mb-4 pb-4 border-bottom border-secondary text-primary">
     {{ total_comments }} comment{{ total_comments|pluralize }}
-  </h2>
+  </h4>
   {% endwith %}
 
-  <!-- Comments list -->
-  <div class="mb-5">
+  <div class="p-3">
     {% for comment in comments %}
     <div class="my-4 pb-2 border-bottom border-secondary">
       <p class="text-muted">
@@ -104,7 +114,6 @@
     {% endfor %}
   </div>
 
-  <!-- New comment form ------------------------>
   <div>{% include "./forms/comment_form.html" %}</div>
 
 </section>
