@@ -1,0 +1,7 @@
+<li class="d-flex flex-column pb-1 mb-4 border-bottom border-secondary">
+  <p class="text-muted">
+    Comment by <span class="text-primary">{{ comment.name }}</span><br />
+    {{ comment.location }} - {{ comment.created }}
+  </p>
+  {{ comment.body|linebreaks }}
+</li>
