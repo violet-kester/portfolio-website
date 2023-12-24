@@ -31,11 +31,11 @@
         alt="{{ post.title }}">
     </div>
     <div class="ml-4 small">
-      <span class="d-block mb-0 text-light">
+      <span class="d-block mb-0 text-muted">
         <i class="bi-calendar-event mr-1"></i>
         Published {{ post.publish }}
       </span>
-      <span class="d-block mb-0 text-light">
+      <span class="d-block mb-0 text-muted">
         <i class="bi-person-circle mr-1"></i>
         Written by {{ post.author.first_name }} {{ post.author.last_name }}
       </span>
@@ -55,7 +55,7 @@
 
 <section class="mb-4">
 
-  <h4 class="mb-3 text-primary">Similar posts</h4>
+  <h4 class="mb-2 text-primary">Similar posts</h4>
 
   {% if similar_posts %}
   <div class="row justify-content-center p-3">
@@ -90,7 +90,7 @@
 
 </section>
 
-<!-- Comments ---------------------------------->
+<!-- Comments section -------------------------->
 
 <section>
 
@@ -100,21 +100,23 @@
   </h4>
   {% endwith %}
 
-  <div class="p-3">
-    {% for comment in comments %}
-    <div class="my-4 pb-2 border-bottom border-secondary">
-      <p class="text-muted">
-        Comment {{ forloop.counter }} by <span class="text-primary">{{ comment.name }}</span><br />
-        {{ comment.created }}
-      </p>
-      {{ comment.body|linebreaks }}
-    </div>
-    {% empty %}
-    <p class="text-muted">There are no comments yet.</p>
-    {% endfor %}
+  <!-- Comments -->
+
+  <div class="px-3 pt-1 pb-3 text-left">
+    <ul id="comments">
+      {% for comment in comments %}
+      {% include './comment.html' with comment=comment %}
+      {% empty %}
+      <p class="pb-3 text-muted text-center">There are no comments yet.</p>
+      {% endfor %}
+    </ul>
   </div>
 
-  <div>{% include './forms/comment_form.html' %}</div>
+  <!-- Comment form  -->
+
+  <div id="comment-form">
+    {% include './forms/comment_form.html' %}
+  </div>
 
 </section>
 
