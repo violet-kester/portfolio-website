@@ -1,21 +1,13 @@
-{% extends base_template %}
-
-{% block main %}
-
-{% if added %}
-
-<!-- Comment success message --------------------->
+<!-- Comment success message ------------------->
 
 <h3>success</h3>
+
 <p>Your comment has been added.</p>
-<button hx-get="">Add another comment</button>
 
-{% else %}
-
-<!-- Share form -------------------------------->
-
-{% include './forms/share_form.html' %}
-
-{% endif %}
-
-{% endblock %}
+<button
+  class="btn btn-outline-primary mt-3"
+  hx-get="{% url 'blog:comment_form' post.slug %}"
+  hx-target="#comment-form"
+  hx-swap="innerHTML">
+    <i class="bi-pencil-square mr-1"></i> Add another comment
+</button>
