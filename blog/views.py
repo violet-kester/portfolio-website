@@ -1,3 +1,4 @@
+from django.contrib import messages
 from django.contrib.postgres.search import SearchVector, SearchRank
 from django.core.mail import send_mail
 from django.db.models import Count
@@ -172,7 +173,7 @@ def post_search(request):
                   context)
 
 
-def post_share(request, post_id):
+def post_share(request, post_slug):
     """
     Post share view.
 
@@ -181,7 +182,7 @@ def post_share(request, post_id):
     Renders a template with the post, form, and email status.
 
     Parameters:
-        - `post_id`: The ID of the post.
+        - `post_slug` - The slug identifier of the post
 
     Context variables:
         - `post`: The Post object.
@@ -191,7 +192,11 @@ def post_share(request, post_id):
            depending on the request type.
     """
 
-    post = get_object_or_404(Post, id=post_id, status=Post.Status.PUBLISHED)
+    post = get_object_or_404(
+        Post,
+        post_slug=post_slug,
+        status=Post.Status.PUBLISHED
+    )
     sent = False
 
     if request.method == 'POST':
@@ -224,53 +229,27 @@ def post_share(request, post_id):
                   context)
 
 
-def comment_form(request):
-    """
-    Comment form view.
-
-    Returns a comment form template.
-    Used when the 'Add another comment' button is clicked.
-
-    Context variables:
-    - `form`: An instance of the CommentForm.
-    - `base_template`: The base template to extend from,
-        depending on the request type.
-    """
-
-    form = CommentForm()
-
-    if request.htmx:
-        base_template = '_partial.html'
-    else:
-        base_template = '_base.html'
-
-    context = {
-        'form': form,
-        'base_template': base_template,
-    }
-    return render(request,
-                  'blog/post/comment_success.html',
-                  context)
-
-
 @require_POST
 def post_comment(request, post_slug):
     """
     Post comment view.
 
     Creates and displays a comment for a published post.
-    Renders a template with success message and a link back to the post.
+    Renders a comment template to be appended to the comments list.
 
     Parameters:
-        - `post_id`: The ID of the post being commented on.
+        - `post_slug`: The slug identifier of the post being commented on.
 
     Context variables:
         - `post`: The Post object being commented on.
+        - `comment`: The new Comment object.
         - `base_template`: The base template to extend from,
            depending on the request type.
     """
 
-    post = get_object_or_404(Post, slug=post_slug, status=Post.Status.PUBLISHED)
+    post = get_object_or_404(Post,
+                             slug=post_slug,
+                             status=Post.Status.PUBLISHED)
     comment = None
 
     form = CommentForm(data=request.POST)
@@ -281,6 +260,8 @@ def post_comment(request, post_slug):
         comment.post = post
         # Save the comment to the database
         comment.save()
+        # Add a success message to the request object
+        # messages.success(request, "Your comment has been added.")
 
     if request.htmx:
         base_template = '_partial.html'
@@ -293,4 +274,30 @@ def post_comment(request, post_slug):
     }
     return render(request,
                   'blog/post/comment_success.html',
+                  context)
+
+
+def comment_form(request, post_slug):
+    """
+    Comment form view.
+
+    Returns the comment form template.
+    Used when the 'Add another comment' button is clicked.
+
+    Context variables:
+    - `post`: The Post object being commented on.
+    - `form`: An instance of the CommentForm.
+    """
+
+    post = get_object_or_404(Post,
+                             slug=post_slug,
+                             status=Post.Status.PUBLISHED)
+    form = CommentForm()
+
+    context = {
+        'post': post,
+        'form': form,
+    }
+    return render(request,
+                  'blog/post/forms/comment_form.html',
                   context)
