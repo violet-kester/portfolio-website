@@ -3,7 +3,7 @@
     class="nav-menu-link col-auto col-sm p-2 justify-content-center justify-content-md-start"
     hx-get="{% url 'projects:homepage' %}"
     hx-target="#content"
-    hx-swap="outerHTML"
+    hx-swap="outerHTML show:window:top"
     hx-push-url="true"
     _="on htmx:afterOnLoad take .focus for event.target">
       <button class="d-inline-block mr-3" style="background-color:#E6330B"></button>
@@ -13,7 +13,7 @@
     class="nav-menu-link col-auto col-sm p-2 justify-content-center justify-content-md-start"
     hx-get="{% url 'core:resume' %}"
     hx-target="#content"
-    hx-swap="outerHTML"
+    hx-swap="outerHTML show:window:top"
     hx-push-url="true"
     _="on htmx:afterOnLoad take .focus for event.target">
       <button class="d-inline-block mr-3" style="background-color:#FF9320"></button>
@@ -23,7 +23,7 @@
     class="nav-menu-link col-auto col-sm p-2 justify-content-center justify-content-md-start"
     hx-get="{% url 'core:about' %}"
     hx-target="#content"
-    hx-swap="outerHTML"
+    hx-swap="outerHTML show:window:top"
     hx-push-url="true"
     _="on htmx:afterOnLoad take .focus for event.target">
       <button class="d-inline-block mr-3" style="background-color:#7EE692"></button>
@@ -33,7 +33,7 @@
     class="nav-menu-link col-auto col-sm p-2 justify-content-center justify-content-md-start"
     hx-get="{% url 'blog:homepage' %}"
     hx-target="#content"
-    hx-swap="outerHTML"
+    hx-swap="outerHTML show:window:top"
     hx-push-url="true"
     _="on htmx:afterOnLoad take .focus for event.target">
       <button class="d-inline-block mr-3" style="background-color:#415EF1"></button>
