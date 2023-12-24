@@ -50,7 +50,7 @@ class Comment(models.Model):
                              on_delete=models.CASCADE,
                              related_name='comments')
     name = models.CharField(max_length=100)
-    location = models.TextField(blank=True)
+    location = models.CharField(max_length=100, blank=True)
     body = models.TextField()
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
