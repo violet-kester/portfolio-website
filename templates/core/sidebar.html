@@ -34,9 +34,10 @@
         class="text-primary"
         hx-get="{% url 'projects:homepage' %}"
         hx-target="#content"
-        hx-swap="outerHTML"
+        hx-swap="outerHTML show:window:top"
         hx-push-url="true"
-        style="cursor:pointer">
+        style="cursor:pointer"
+        _="on click toggle between .slide-down and .slide-up on #sidebar">
           projects
       </h3>
       <p>
@@ -51,7 +52,7 @@
         class="text-primary"
         hx-get="{% url 'blog:homepage' %}"
         hx-target="#content"
-        hx-swap="outerHTML"
+        hx-swap="outerHTML show:window:top"
         hx-push-url="true"
         style="cursor:pointer">
           blog

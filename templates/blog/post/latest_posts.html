@@ -4,13 +4,13 @@
     class="my-3 small rounded"
     hx-get="{{ post.get_absolute_url }}"
     hx-target="#content"
-    hx-swap="outerHTML"
+    hx-swap="outerHTML show:window:top"
     hx-push-url="true"
-    style="cursor:pointer;">
+    style="cursor:pointer;"
+    _="on click toggle between .slide-down and .slide-up on #sidebar">
       <h6 class="mb-1">{{ post.title }}</h6>
       <span class="text-light">{{ post.publish }}</span>
-      <p class="text-muted">{{ post.summary }}</p>
-
+      <p class="text-light">{{ post.summary }}</p>
   </li>
   {% endfor %}
 </ul>
