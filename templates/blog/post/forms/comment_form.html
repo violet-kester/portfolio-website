@@ -2,11 +2,11 @@
 
 <h5>Add a new comment</h5>
 
-<form action="{% url 'blog:post_comment' post.id %}" method="POST">
-  <div class="my-5">
-    {{ comment_form|crispy }}
+<form class="text-left" hx-post="{% url 'blog:post_comment' post.id %}">
+  <div class="my-3">
+    {{ form|crispy }}
   </div>
-  <button type="submit" class="btn btn-outline-primary">
+  <button type="submit" class="btn btn-outline-primary mt-3">
     <i class="bi-pencil-square mr-1"></i> Add comment
   </button>
 </form>

@@ -254,7 +254,7 @@ def comment_form(request):
 
 
 @require_POST
-def post_comment(request, post_id):
+def post_comment(request, post_slug):
     """
     Post comment view.
 
@@ -270,7 +270,7 @@ def post_comment(request, post_id):
            depending on the request type.
     """
 
-    post = get_object_or_404(Post, id=post_id, status=Post.Status.PUBLISHED)
+    post = get_object_or_404(Post, slug=post_slug, status=Post.Status.PUBLISHED)
     comment = None
 
     form = CommentForm(data=request.POST)

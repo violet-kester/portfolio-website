@@ -14,8 +14,11 @@ class SharePostForm(forms.Form):
 class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
-        fields = ['name', 'body']
-        labels = {'name': 'Your name', 'body': 'Comment'}
+        fields = ['name', 'location', 'body']
+        labels = {
+            'name': 'Your name',
+            'location': 'Location (optional)',
+            'body': 'Comment'}
 
 
 class SearchForm(forms.Form):
