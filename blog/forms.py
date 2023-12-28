@@ -18,7 +18,13 @@ class CommentForm(forms.ModelForm):
         labels = {
             'name': 'Your name',
             'location': 'Location (optional)',
-            'body': 'Comment'}
+            'body': 'Comment'
+        }
+        widgets = {
+            'name': forms.TextInput(attrs={'class': 'form-control'}),
+            'location': forms.TextInput(attrs={'class': 'form-control'}),
+            'body': forms.Textarea(attrs={'class': 'form-control', 'rows': 5})
+        }
 
 
 class SearchForm(forms.Form):

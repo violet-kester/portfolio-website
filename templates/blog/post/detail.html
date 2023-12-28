@@ -103,9 +103,9 @@
   <!-- Comments -->
 
   <div class="px-3 pt-1 pb-3 text-left">
-    <ul id="comments">
+    <ul id="comment-list">
       {% for comment in comments %}
-      {% include './comment.html' with comment=comment %}
+      {% include './comment.html' %}
       {% empty %}
       <p class="pb-3 text-muted text-center">There are no comments yet.</p>
       {% endfor %}
@@ -113,6 +113,8 @@
   </div>
 
   <!-- Comment form  -->
+
+  <h5>Add a new comment</h5>
 
   <div id="comment-form">
     {% include './forms/comment_form.html' %}

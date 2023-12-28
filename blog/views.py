@@ -241,10 +241,7 @@ def post_comment(request, post_slug):
         - `post_slug`: The slug identifier of the post being commented on.
 
     Context variables:
-        - `post`: The Post object being commented on.
         - `comment`: The new Comment object.
-        - `base_template`: The base template to extend from,
-           depending on the request type.
     """
 
     post = get_object_or_404(Post,
@@ -263,17 +260,12 @@ def post_comment(request, post_slug):
         # Add a success message to the request object
         # messages.success(request, "Your comment has been added.")
 
-    if request.htmx:
-        base_template = '_partial.html'
-    else:
-        base_template = '_base.html'
-
     context = {
-        'post': post,
-        'base_template': base_template,
+        'comment': comment,
+        'added': True,
     }
     return render(request,
-                  'blog/post/comment_success.html',
+                  'blog/post/comment.html',
                   context)
 
 
