@@ -95,14 +95,14 @@
 <section>
 
   {% with comments.count as total_comments %}
-  <h4 class="mb-4 pb-4 border-bottom border-secondary text-primary">
+  <h4 class="pb-4 mb-4 border-bottom border-secondary text-primary">
     {{ total_comments }} comment{{ total_comments|pluralize }}
   </h4>
   {% endwith %}
 
   <!-- Comments -->
 
-  <div class="px-3 pt-1 pb-3 text-left">
+  <div class="pt-1 pb-3 text-left">
     <ul id="comment-list">
       {% for comment in comments %}
       {% include './comment.html' %}

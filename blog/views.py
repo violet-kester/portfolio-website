@@ -127,52 +127,6 @@ def post_list(request, tag_slug=None):
                   context)
 
 
-def post_search(request):
-    """
-    Post search view.
-
-    Renders a template of published blog posts that match a query string.
-    Finds posts that contain the query in their title or body.
-
-    Context variables:
-        - `query` - The query string submitted by the user.
-        - `results` - A QuerySet of Post objects, ordered by relevance.
-        - `base_template`: The base template to extend from,
-           depending on the request type.
-    """
-
-    query = None
-    results = []
-
-    if 'query' in request.POST:
-        form = SearchForm(request.POST)
-        if form.is_valid():
-            query = form.cleaned_data['query']
-            # Create a search vector based on title and body fields of posts
-            search_vector = SearchVector('title', 'body')
-            # Use the search vector and query to filter posts by status,
-            # annotate posts with a search rank based on relevance,
-            # and order posts by descending rank value
-            results = Post.objects.filter(status='PB').annotate(
-                search=search_vector,
-                rank=SearchRank(search_vector, query)
-            ).filter(search=query).order_by('-rank')
-
-    if request.htmx:
-        base_template = '_partial.html'
-    else:
-        base_template = '_base.html'
-
-    context = {
-        'query': query,
-        'results': results,
-        'base_template': base_template,
-    }
-    return render(request,
-                  'blog/post/list.html',
-                  context)
-
-
 def post_share(request, post_slug):
     """
     Post share view.
@@ -229,67 +183,88 @@ def post_share(request, post_slug):
                   context)
 
 
-@require_POST
-def post_comment(request, post_slug):
+def post_comment (request, post_slug):
     """
     Post comment view.
 
-    Creates and displays a comment for a published post.
-    Renders a comment template to be appended to the comments list.
+    Handles both GET and POST requests for commenting on a post.
+    For GET requests, returns the comment form template.
+    For POST requests, creates a comment and appended it to the comments list.
 
     Parameters:
         - `post_slug`: The slug identifier of the post being commented on.
 
     Context variables:
-        - `comment`: The new Comment object.
+        - `comment`: The new Comment object (only for POST requests).
+        - `form`: An instance of the CommentForm.
     """
 
-    post = get_object_or_404(Post,
-                             slug=post_slug,
-                             status=Post.Status.PUBLISHED)
+    post = get_object_or_404(Post, slug=post_slug, status=Post.Status.PUBLISHED)
     comment = None
 
-    form = CommentForm(data=request.POST)
-    if form.is_valid():
-        # Create a comment without saving it to the database
-        comment = form.save(commit=False)
-        # Assign comment to post
-        comment.post = post
-        # Save the comment to the database
-        comment.save()
-        # Add a success message to the request object
-        # messages.success(request, "Your comment has been added.")
+    if request.method == 'POST':
+        form = CommentForm(data=request.POST)
+        if form.is_valid():
+            # Create a comment without saving it to the database
+            comment = form.save(commit=False)
+            # Assign comment to post
+            comment.post = post
+            # Save the comment to the database
+            comment.save()
+            # Add a success message to the request object
+            messages.success(request, "Your comment has been added.")
+        context = {
+            'comment': comment,
+        }
+        return render(request, 'blog/post/comment.html', context)
 
     context = {
-        'comment': comment,
-        'added': True,
+        'form': CommentForm(),
     }
-    return render(request,
-                  'blog/post/comment.html',
-                  context)
+    return render(request, 'blog/post/forms/comment_form.html', context)
 
 
-def comment_form(request, post_slug):
+def post_search(request):
     """
-    Comment form view.
+    Post search view.
 
-    Returns the comment form template.
-    Used when the 'Add another comment' button is clicked.
+    Renders a template of published blog posts that match a query string.
+    Finds posts that contain the query in their title or body.
 
     Context variables:
-    - `post`: The Post object being commented on.
-    - `form`: An instance of the CommentForm.
+        - `query` - The query string submitted by the user.
+        - `results` - A QuerySet of Post objects, ordered by relevance.
+        - `base_template`: The base template to extend from,
+           depending on the request type.
     """
 
-    post = get_object_or_404(Post,
-                             slug=post_slug,
-                             status=Post.Status.PUBLISHED)
-    form = CommentForm()
+    query = None
+    results = []
+
+    if 'query' in request.POST:
+        form = SearchForm(request.POST)
+        if form.is_valid():
+            query = form.cleaned_data['query']
+            # Create a search vector based on title and body fields of posts
+            search_vector = SearchVector('title', 'body')
+            # Use the search vector and query to filter posts by status,
+            # annotate posts with a search rank based on relevance,
+            # and order posts by descending rank value
+            results = Post.objects.filter(status='PB').annotate(
+                search=search_vector,
+                rank=SearchRank(search_vector, query)
+            ).filter(search=query).order_by('-rank')
+
+    if request.htmx:
+        base_template = '_partial.html'
+    else:
+        base_template = '_base.html'
 
     context = {
-        'post': post,
-        'form': form,
+        'query': query,
+        'results': results,
+        'base_template': base_template,
     }
     return render(request,
-                  'blog/post/forms/comment_form.html',
+                  'blog/post/list.html',
                   context)

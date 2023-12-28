@@ -1,14 +1,10 @@
-{% if added %}
-<div class="alert alert-success">Comment added successfully.</div>
-{% endif %}
-
 <form
   class="text-left"
   hx-post="{% url 'blog:post_comment' post.slug %}"
   hx-target="#comment-list"
   hx-swap="afterbegin"
   hx-on::after-request="this.reset()">
-    <div class="my-3">
+      <div class="my-3">
       {{ form.as_p }}
     </div>
     <button type="submit" class="btn btn-outline-primary mt-3">
