@@ -173,6 +173,18 @@ figcaption {
     max-width: 6rem;
 }
 
+/* Code blocks ------------------------------- */
+
+pre {
+    text-align: left;
+    padding: 1.25rem 2rem;
+    margin-bottom: 1.25rem;
+}
+
+.codehilite {
+    border-radius: .75rem;
+}
+
 /* Effects and transitions ------------------- */
 
 .glassy {
