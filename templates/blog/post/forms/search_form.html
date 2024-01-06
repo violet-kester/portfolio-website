@@ -1,18 +1,20 @@
-<form hx-post="{% url 'blog:post_search' %}" hx-target="#content">
-  <div class="d-flex ml-1">
-    <input
-      type="search"
-      class="form-control mr-2"
-      name="query"
-      placeholder="Search posts..."
-      hx-post="{% url 'blog:post_search' %}"
-      hx-target="#content"
-      hx-swap="outerHTML"
-      hx-trigger="keyup changed delay:500ms, search">
-    <button
-      type="submit"
-      class="btn nav-btn">
-        <img src="/static/img/icons/search.png"/>
-    </button>
-  </div>
+<form
+  hx-post="{% url 'blog:post_search' %}"
+  hx-target="#content"
+  hx-swap="innerHTML show:window:top"
+  _="on submit toggle between .slide-down and .slide-up on #sidebar">
+    <div class="d-flex ml-1">
+      <input
+        type="search"
+        class="form-control mr-2"
+        name="query"
+        placeholder="Search posts..."
+        hx-post="{% url 'blog:post_search' %}"
+        hx-target="#content"
+        hx-swap="innerHTML"
+        hx-trigger="keyup changed delay:500ms">
+      <button type="submit" class="btn nav-btn">
+          <img src="/static/img/icons/search.png"/>
+      </button>
+    </div>
 </form>
