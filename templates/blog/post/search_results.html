@@ -1,0 +1,56 @@
+{% load markdown %}
+
+{% load blog_tags %}
+
+{% if query %}
+
+<!-- Search results ---------------------------->
+
+<h3>Posts containing "{{query}}"</h3>
+
+<div class="mt-5">
+
+  <h4 class="text-primary">
+    {% with results.count as total_results %}
+    Found {{ total_results }} result{{ total_results|pluralize }}
+    {% endwith %}
+  </h4>
+
+  <!-- Posts ----------------------------------->
+
+  {% for post in results %}
+  <div
+    class="row justify-content-between align-items-center p-3 p-md-4 mx-3 border-top border-secondary"
+    hx-get="{{ post.get_absolute_url }}"
+    hx-target="#content"
+    hx-swap="outerHTML show:window:top"
+    hx-push-url="true"
+    style="cursor: pointer">
+
+      <!-- Post thumbnail -->
+
+      <div class="col-3 p-3 p-lg-5">
+          <img src="{{ post.thumbnail.url }}" class="w-100" alt="{{ post.title }}">
+      </div>
+
+      <!-- Post content -->
+
+      <div class="col-9 p-3 text-right">
+        <h3 class="mb-3">
+            {{ post.title }}
+        </h3>
+        <span class="text-light small">{{ post.publish }}</span>
+        <div class="text-muted small">
+          {{ post.body|truncatewords_html:18|markdown|striptags }}
+        </div>
+      </div>
+
+  </div>
+
+  {% empty %}
+  <p class="pt-2">There are no results for your query.</p>
+  {% endfor %}
+
+
+
+{% endif %}
