@@ -1,9 +1,8 @@
 from django.contrib import messages
-from django.contrib.postgres.search import SearchVector, SearchRank
+from django.contrib.postgres.search import SearchQuery, SearchRank, SearchVector
 from django.core.mail import send_mail
 from django.db.models import Count
 from django.shortcuts import render, get_object_or_404
-from django.views.decorators.http import require_POST
 from .forms import CommentForm, SearchForm, SharePostForm
 from .models import Post
 from taggit.models import Tag
@@ -223,7 +222,11 @@ def post_comment (request, post_slug):
     }
     return render(request, 'blog/post/forms/comment_form.html', context)
 
-
+# TODO:
+# Enable prefix matching, for example:
+# Searching for 'app' should return posts containing 'apple' and 'application'.
+# Currently matches whole words only, for example:
+# Searching for 'app' returns 0 results. Searching 'apple' returns 1 result.
 def post_search(request):
     """
     Post search view.
@@ -234,8 +237,6 @@ def post_search(request):
     Context variables:
         - `query` - The query string submitted by the user.
         - `results` - A QuerySet of Post objects, ordered by relevance.
-        - `base_template`: The base template to extend from,
-           depending on the request type.
     """
 
     query = None
@@ -245,26 +246,16 @@ def post_search(request):
         form = SearchForm(request.POST)
         if form.is_valid():
             query = form.cleaned_data['query']
-            # Create a search vector based on title and body fields of posts
-            search_vector = SearchVector('title', 'body')
-            # Use the search vector and query to filter posts by status,
-            # annotate posts with a search rank based on relevance,
-            # and order posts by descending rank value
+            search_vector = SearchVector('title', 'body', 'summary')
             results = Post.objects.filter(status='PB').annotate(
                 search=search_vector,
                 rank=SearchRank(search_vector, query)
             ).filter(search=query).order_by('-rank')
 
-    if request.htmx:
-        base_template = '_partial.html'
-    else:
-        base_template = '_base.html'
-
     context = {
         'query': query,
         'results': results,
-        'base_template': base_template,
     }
     return render(request,
-                  'blog/post/list.html',
+                  'blog/post/search_results.html',
                   context)
