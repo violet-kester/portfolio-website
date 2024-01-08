@@ -39,8 +39,13 @@
         <i class="bi-person-circle mr-1"></i>
         Written by {{ post.author.first_name }} {{ post.author.last_name }}
       </span>
-      <a href="{% url 'blog:post_share' post.id %}" class="d-block mb-0">
-        <i class="bi-share mr-1"></i> Share this post
+      <a
+        class="d-block mb-0"
+        hx-get="{% url 'blog:post_share' post.slug %}"
+        hx-target="#content"
+        hx-swap="outerHTML"
+        hx-push-url="true">
+          <i class="bi-share mr-1"></i> Share this post
       </a>
     </div>
   </div>
