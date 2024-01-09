@@ -45,6 +45,10 @@ h3 {
     letter-spacing: 0;
 }
 
+button {
+    letter-spacing: .075em;
+}
+
 .fw-light {
     font-weight: 200;
 }
