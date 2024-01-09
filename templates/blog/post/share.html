@@ -1,0 +1,38 @@
+{% extends base_template %}
+
+{% block main %}
+
+<div class="container-fluid mb-3">
+  {% if sent %}
+
+  <!-- Share success message --------------------->
+
+  <h3>success</h3>
+
+  <p class="my-5">
+    "{{ post.title }}" was successfully emailed to
+    {{ form.cleaned_data.recipients_email }}.
+  </p>
+
+  {% else %}
+
+  <!-- Share form -------------------------------->
+
+  <h3>Share "{{ post.title }}" by email</h3>
+
+  {% include './forms/share_form.html' %}
+
+  {% endif %}
+</div>
+
+<a
+  class="text-primary"
+  hx-get="{{ post.get_absolute_url }}"
+  hx-target="#content"
+  hx-swap="outerHTML"
+  hx-push-url="true"
+  style="cursor:pointer">
+    Back to post
+</a>
+
+{% endblock %}

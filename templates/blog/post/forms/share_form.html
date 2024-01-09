@@ -1,10 +1,8 @@
-<h3>Share "{{ post.title }}" by email</h3>
-
 <form
   hx-post="{% url 'blog:post_share' post.slug %}"
   hx-target="#content"
-  hx-swap="innerHTML">
-    <div class="my-3">
+  hx-swap="outerHTML">
+    <div class="my-5 text-left">
       {{ form.as_p }}
     </div>
     <button type="submit" class="btn btn-outline-primary">

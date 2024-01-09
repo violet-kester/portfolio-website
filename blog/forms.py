@@ -3,12 +3,20 @@ from .models import Comment
 
 
 class SharePostForm(forms.Form):
-    senders_name = forms.CharField(max_length=50, label="Your name")
-    # senders_email = forms.EmailField(label="Your email address")
-    recipients_email = forms.EmailField(label="Recipient's email address")
-    message = forms.CharField(label="Add a message",
-                              required=False,
-                              widget=forms.Textarea(attrs={'rows': 5}))
+    senders_name = forms.CharField(
+        label='Your name',
+        max_length=50,
+        widget=forms.TextInput(attrs={'class': 'form-control'})
+    )
+    recipients_email = forms.EmailField(
+        label="Recipient's email address",
+        widget=forms.EmailInput(attrs={'class': 'form-control'})
+    )
+    message = forms.CharField(
+        label='Add a message (optional)',
+        required=False,
+        widget=forms.Textarea(attrs={'class': 'form-control', 'rows': 5})
+    )
 
 
 class CommentForm(forms.ModelForm):

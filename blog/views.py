@@ -130,26 +130,24 @@ def post_share(request, post_slug):
     """
     Post share view.
 
-    Allows users to share a published post by email using a form.
-    Sends an email with a link to the post and optional message from the user.
+    Handles both GET and POST requests for sharing a post by email.
+    For GET requests, returns the share post form template.
+    For POST requests, sends an email with the post link to the recipient.
     Renders a template with the post, form, and email status.
 
     Parameters:
-        - `post_slug` - The slug identifier of the post
+        - `post_slug` - The slug identifier of the post being shared.
 
     Context variables:
         - `post`: The Post object.
         - `form`: An instance of SharePostForm.
-        - `sent`: A boolean indicating whether the email has been sent.
+        - `sent`: A boolean indicating whether the email has been sent,
+           used to show/hide HTML content.
         - `base_template`: The base template to extend from,
            depending on the request type.
     """
 
-    post = get_object_or_404(
-        Post,
-        post_slug=post_slug,
-        status=Post.Status.PUBLISHED
-    )
+    post = get_object_or_404(Post, slug=post_slug, status=Post.Status.PUBLISHED)
     sent = False
 
     if request.method == 'POST':
@@ -157,11 +155,14 @@ def post_share(request, post_slug):
         if form.is_valid():
             data = form.cleaned_data
             post_url = request.build_absolute_uri(post.get_absolute_url())
-            subject = f"{data['senders_name']} recommends you read {post.title}"
-            message = f"Read {post.title} at {post_url}" \
-                      f"{data['senders_name']}\'s comments: {data['message']}"
-            send_mail(subject, message,
-                      'kester.violet.j@gmail.com', [data['to']])
+            subject = f'{data["senders_name"]} recommends you read "{post.title}"'
+            message = f'Read "{post.title}" at:\n' \
+                      f'{post_url}\n\n' + \
+                      (f'{data["senders_name"]}\'s comments:\n {data["message"]}' if data['message'] else '')
+            send_mail(subject,
+                      message,
+                      'kester.violet.j@gmail.com',
+                      [data['recipients_email']])
             sent = True
     else:
         form = SharePostForm()
@@ -178,7 +179,7 @@ def post_share(request, post_slug):
         'base_template': base_template,
     }
     return render(request,
-                  'blog/post/share_success.html',
+                  'blog/post/share.html',
                   context)
 
 
@@ -221,6 +222,7 @@ def post_comment (request, post_slug):
         'form': CommentForm(),
     }
     return render(request, 'blog/post/forms/comment_form.html', context)
+
 
 # TODO:
 # Enable prefix matching, for example:

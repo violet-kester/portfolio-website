@@ -40,11 +40,12 @@
         Written by {{ post.author.first_name }} {{ post.author.last_name }}
       </span>
       <a
-        class="d-block mb-0"
+        class="d-block mb-0 text-primary"
         hx-get="{% url 'blog:post_share' post.slug %}"
         hx-target="#content"
         hx-swap="outerHTML"
-        hx-push-url="true">
+        hx-push-url="true"
+        style="cursor: pointer">
           <i class="bi-share mr-1"></i> Share this post
       </a>
     </div>
