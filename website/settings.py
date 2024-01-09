@@ -30,8 +30,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.postgres',
-    'crispy_forms',
-    'crispy_bootstrap5',
     'django_htmx',
     'taggit',
     'template_partials',
@@ -140,10 +138,10 @@ MEDIA_URL = ''
 MEDIA_ROOT = BASE_DIR / ''
 
 
-# Specifies a list of allowed template packs that django-crispy-forms can use
+# Email server configuration
 
-CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
-
-# Defines the default template pack to use when rendering a form
-
-CRISPY_TEMPLATE_PACK = "bootstrap5"
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'kester.violet.j@gmail.com'
+EMAIL_HOST_PASSWORD = 'coshscsoeolkqzsi'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
