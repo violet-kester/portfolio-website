@@ -53,7 +53,9 @@
 
   <h2 class="pt-2">{{ post.summary }}</h2>
 
-  {{ post.body|markdown }}
+  <div class="text-left">
+    {{ post.body|markdown }}
+  </div>
 
 </article>
 
@@ -120,7 +122,7 @@
 
   <!-- Comment form  -->
 
-  <h5>Add a new comment</h5>
+  <h6>Add a new comment</h6>
 
   <div id="comment-form">
     {% include './forms/comment_form.html' %}
