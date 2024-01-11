@@ -23,8 +23,8 @@ class Post(models.Model):
                                related_name='posts')
     summary = models.TextField(blank=True)
     body = models.TextField(blank=True)
-    thumbnail = models.ImageField(upload_to='blog/static/img/thumbnails/',
-                                  default='static/img/logos/logo-thumbnail.png')
+    thumbnail = models.ImageField(upload_to='blog/static/blog/img/thumbnails/',
+                                  default='static/img/logos/logo-480.png')
     publish = models.DateTimeField(default=timezone.now)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
@@ -37,7 +37,15 @@ class Post(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        """Returns the absolute URL of the post detail view."""
+        """
+        Returns the absolute URL of the post detail view.
+
+        For example:
+            post = Post.objects.get(slug='secret-recipe')
+            post.get_absolute_url()
+        Returns:
+            'https://example.com/blog/posts/secret-recipe/'
+        """
 
         return reverse('blog:post_detail',
                        args=[self.slug])

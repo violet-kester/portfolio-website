@@ -22,8 +22,8 @@ class Project(models.Model):
                                related_name='projects')
     summary = models.TextField(blank=True)
     description = models.TextField(blank=True)
-    thumbnail = models.ImageField(upload_to='portfolio/static/img/thumbnails/',
-                                  default='static/img/logos/logo-thumbnail.png')
+    logo = models.ImageField(upload_to='projects/static/projects/img/logos/',
+                             default='static/img/logos/logo-480.png')
     publish = models.DateTimeField(default=timezone.now)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
@@ -35,7 +35,31 @@ class Project(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        """Returns the absolute URL of the project detail view."""
+        """
+        Returns the absolute URL of the project detail view.
+
+        For example:
+            project = Project.objects.get(slug='jobly')
+            project.get_absolute_url()
+        Returns:
+            'https://example.com/projects/jobly/'
+        """
 
         return reverse('portfolio:project_detail',
                        args=[self.slug])
+
+
+class Screenshot(models.Model):
+    """A model class that represents a screenshot of a project."""
+
+    project = models.ForeignKey(
+        Project,
+        on_delete=models.CASCADE,
+        related_name='screenshots'
+    )
+    image = models.ImageField(
+        upload_to='projects/static/projects/img/screenshots/'
+    )
+
+    def __str__(self):
+        return f'Screenshot of {self.project.title}'
