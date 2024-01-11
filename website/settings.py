@@ -142,6 +142,6 @@ MEDIA_ROOT = BASE_DIR / ''
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'kester.violet.j@gmail.com'
-EMAIL_HOST_PASSWORD = 'coshscsoeolkqzsi'
+EMAIL_HOST_PASSWORD = os.environ.get('GMAIL_APP_PASSWORD')
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
