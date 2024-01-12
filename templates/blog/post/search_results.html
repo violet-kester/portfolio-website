@@ -6,13 +6,13 @@
 
 <!-- Search results ---------------------------->
 
-<h3>Posts containing "{{query}}"</h3>
+<h1>Search results</h1>
 
 <div class="mt-5">
-
   <h4 class="text-primary">
     {% with results.count as total_results %}
-    Found {{ total_results }} result{{ total_results|pluralize }}
+    {{ total_results }} result{{ total_results|pluralize }}
+    matching "{{query}}"
     {% endwith %}
   </h4>
 
