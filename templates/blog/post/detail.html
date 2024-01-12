@@ -71,7 +71,7 @@
     {% for post in similar_posts|slice:":3" %}
     <div class="col-12 col-md-4 px-5 px-md-3 pb-5 pb-md-3">
         <div
-          class="card"
+          class="card faded-card"
           hx-get="{{ post.get_absolute_url }}"
           hx-target="#content"
           hx-swap="outerHTML show:window:top"
