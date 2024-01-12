@@ -6,13 +6,13 @@
     <!-- Navbar logo --------------------------->
 
     <div
-      class="nav-btn mr-0"
+      class="nav-btn mr-0 ml-2"
       hx-get="{% url 'core:homepage' %}"
       hx-target="#content"
       hx-swap="outerHTML show:window:top"
       hx-push-url="true"
       _="on htmx:afterOnLoad take .focus for event.target">
-        <img src="{% static 'img/logos/logo-square.png' %}" alt="Logo" height="32px">
+        <img src="{% static 'img/logos/portfolio-logo-240.png' %}" alt="Logo" height="32px">
     </div>
 
     <!-- Navbar title --------------------------->
