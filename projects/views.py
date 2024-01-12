@@ -7,19 +7,26 @@ def homepage(request):
     Projects homepage.
 
     Context variables:
+        - `projects`: A QuerySet of all published Project objects.
         - `base_template`: The base template to extend from,
-           depending on the request type.
+                           depending on the request type.
     """
+
+    projects = Project.objects.filter(status='PB')
 
     if request.htmx:
         base_template = "_partial.html"
     else:
         base_template = "_base.html"
 
+    context = {
+        'projects': projects,
+        'base_template': base_template,
+    }
     return render(
         request,
         "projects/index.html",
-        {"base_template": base_template},
+        context,
     )
 
 
@@ -30,9 +37,9 @@ def project_detail(request, slug):
     Parameters:
         - `slug`: The project's unique slug identifier.
     Context variables:
-        - `project`: The Project object to be displayed.
+        - `project`: The Project object.
         - `base_template`: The base template to extend from,
-           depending on the request type.
+                           depending on the request type.
     """
 
     project = get_object_or_404(Project,
@@ -50,30 +57,4 @@ def project_detail(request, slug):
     }
     return render(request,
                   'projects/detail.html',
-                  context)
-
-
-def project_list(request):
-    """
-    Project list view.
-
-    Context variables:
-        - `projects`: An object containing all published project data.
-        - `base_template`: The base template to extend from,
-           depending on the request type.
-    """
-
-    project_list = Project.objects.filter(status='PB')
-
-    if request.htmx:
-        base_template = "_partial.html"
-    else:
-        base_template = "_base.html"
-
-    context = {
-        'projects': project_list,
-        'base_template': base_template,
-    }
-    return render(request,
-                  'projects/list.html',
                   context)
