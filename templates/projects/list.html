@@ -1,20 +1,52 @@
-{% extends base_template %}
-
 {% load markdown %}
 
-{% block title %}Violet Kester - Web Development & Design - Projects{% endblock %}
-
-{% block main %}
-
 <!-- Projects -------------------------------->
+<div class="container-fluid">
+<div class="card-group row row-cols-1">
 
-{% for project in projects %}
-<h2>
-  <a href="{{ project.get_absolute_url }}">
-    {{ project.title }}
-  </a>
-</h2>
-{{ project.description|markdown|truncatewords_html:30 }}
-{% endfor %}
+  {% for project in projects %}
+  <div class="col">
+    <div
+      class="card container project-card mb-2"
+      hx-get="{{ project.get_absolute_url }}"
+      hx-target="#content"
+      hx-swap="outerHTML"
+      hx-push-url="true"
+      style="cursor: pointer">
 
-{% endblock %}
+        <div class="row row-cols-2">
+        <div class="col p-0 d-flex align-items-center">
+          <img
+            src="{{ project.thumbnail.url }}"
+            class="w-100"
+            alt="{{project.title}}">
+        </div>
+
+        <div class="col p-3 d-flex align-items-center">
+          <div class="card-body p-0">
+            <h3 class="card-title my-3">{{ project.title }}</h3>
+            <div class="card-text">
+              {{ project.summary|markdown|truncatewords_html:30 }}
+            </div>
+            <ul class="list-group list-group-flush text-muted small mb-3">
+              {% for technology in project.technologies.all %}
+              <li class="list-group-item p-0 border-0">{{ technology }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+        <div class="card-body p-4 mb-4 border-bottom col-12">
+          {% for link in project.links.all %}
+          <a class="card-link" href="{{ link.url }}">
+              <i class="{{ link.bootstrap_icon }} mr-1"></i> {{ link.name }}
+          </a>
+          {% endfor %}
+        </div>
+        </div>
+
+    </div>
+  </div>
+  {% endfor %}
+
+</div>
+</div>
