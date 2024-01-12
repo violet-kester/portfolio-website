@@ -1,5 +1,5 @@
 from django.contrib import messages
-from django.contrib.postgres.search import SearchQuery, SearchRank, SearchVector
+from django.contrib.postgres.search import SearchRank, SearchVector
 from django.core.mail import send_mail
 from django.db.models import Count
 from django.shortcuts import render, get_object_or_404
@@ -13,8 +13,9 @@ def homepage(request):
     Blog homepage.
 
     Context variables:
+        - `posts`: A QuerySet of all published Post objects.
         - `base_template`: The base template to extend from,
-           depending on the request type.
+                           depending on the request type.
     """
 
     posts = Post.objects.filter(status='PB')
@@ -40,7 +41,7 @@ def post_detail(request, post_slug):
     Post detail view.
 
     Renders a template displaying a single published post,
-    along with comments, a form for posting new comments,
+    along with its comments, a form for posting new comments,
     and a list of recommended posts.
 
     Parameters:
@@ -52,7 +53,7 @@ def post_detail(request, post_slug):
        - `form`: An instance of the CommentForm for posting new comments.
        - `similar_posts`: A QuerySet of recommended Posts based on shared tags.
        - `base_template`: The base template to extend from,
-           depending on the request type.
+                          depending on the request type.
     """
 
     post = get_object_or_404(Post,
@@ -66,6 +67,9 @@ def post_detail(request, post_slug):
     similar_posts = Post.objects.filter(status='PB')\
                                 .filter(tags__in=post_tags_ids)\
                                 .exclude(id=post.id)
+    # Annotate each post with the number of tags shared with the current post
+    # Order similar posts by the number of shared tags in descending order
+    # Limit results to the first four posts
     similar_posts = similar_posts.annotate(same_tags=Count('tags'))\
                                  .order_by('-same_tags', '-publish')[:4]
 
@@ -100,7 +104,7 @@ def post_list(request, tag_slug=None):
         - `posts`: A list of Post objects.
         - `tag`: A Tag object if a tag slug is provided, or None.
         - `base_template`: The base template to extend from,
-           depending on the request type.
+                           depending on the request type.
     """
 
     posts = Post.objects.filter(status='PB')
@@ -131,9 +135,9 @@ def post_share(request, post_slug):
     Post share view.
 
     Handles both GET and POST requests for sharing a post by email.
-    For GET requests, returns the share post form template.
-    For POST requests, sends an email with the post link to the recipient.
-    Renders a template with the post, form, and email status.
+        - For GET requests, returns the share post form template.
+        - For POST requests, sends an email with a link to the recipient.
+          Renders a confirmation message template after the email is sent.
 
     Parameters:
         - `post_slug` - The slug identifier of the post being shared.
@@ -142,9 +146,9 @@ def post_share(request, post_slug):
         - `post`: The Post object.
         - `form`: An instance of SharePostForm.
         - `sent`: A boolean indicating whether the email has been sent,
-           used to show/hide HTML content.
+                  used to show/hide HTML content.
         - `base_template`: The base template to extend from,
-           depending on the request type.
+                           depending on the request type.
     """
 
     post = get_object_or_404(Post, slug=post_slug, status=Post.Status.PUBLISHED)
@@ -158,7 +162,8 @@ def post_share(request, post_slug):
             subject = f'{data["senders_name"]} recommends you read "{post.title}"'
             message = f'Read "{post.title}" at:\n' \
                       f'{post_url}\n\n' + \
-                      (f'{data["senders_name"]}\'s comments:\n {data["message"]}' if data['message'] else '')
+                      f'{data["senders_name"]}\'s comments:\n' \
+                      f'{data["message"]}' if data['message'] else '(empty)'
             send_mail(subject,
                       message,
                       'kester.violet.j@gmail.com',
