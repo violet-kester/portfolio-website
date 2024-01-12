@@ -44,6 +44,7 @@ h1,
 h3 {
     font-family: 'Homemade Apple';
     letter-spacing: 0;
+    text-transform: lowercase;
 }
 
 button {
@@ -84,7 +85,7 @@ button {
     width: 100vw;
     height: 64px;
     /* `secondary` theme color */
-    border-top: 1px solid #1a1a1a;
+    /* border-top: 1px solid #1a1a1a; */
     border-radius: 1.25rem;
 }
 
@@ -128,25 +129,45 @@ button {
 
 /* Components -------------------------------- */
 
-.card {
-    min-width: 120px;
-    max-height: 375px;
+.faded-card {
     overflow: hidden;
     opacity: 45%;
     transition: opacity 0.3s ease-in-out;
+    min-width: 120px;
+    max-height: 375px;
     /* Vendor prefixes for mask-image */
     -webkit-mask-image: linear-gradient(to top, transparent, #1a1a1a 100px);
     mask-image: linear-gradient(to top, transparent, #1a1a1a 100px);
     background: linear-gradient(to top, transparent, #1a1a1a 100px);
 }
 
-.card:hover {
+.faded-card:hover {
     opacity: 100%;
     overflow-y: scroll;
 }
 
-.card img {
+.faded-card img {
     max-width: 250px;
+}
+
+.project-card {
+    background: none;
+}
+
+.project-card .card-body {
+    /* `white` theme color */
+    color: #f9f7f7;
+}
+
+.project-card img {
+    background: none;
+    /* `secondary` theme color */
+    border: 1px solid #1a1a1a;
+    border-radius: 3%;
+}
+
+.project-card .list-group-item {
+    background: none;
 }
 
 figure img {
@@ -187,8 +208,9 @@ figcaption {
 
 pre {
     text-align: left;
+    font-size: 1rem;
     padding: 1.5rem;
-    margin: .25rem 0 1.5rem 0;
+    margin-bottom: 15px;
 }
 
 .codehilite {
