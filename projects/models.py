@@ -94,7 +94,7 @@ class Link(models.Model):
         related_name='links'
     )
     name = models.CharField(max_length=100)
-    url = models.URLField(max_length=300)
+    url = models.URLField(max_length=250)
     bootstrap_icon = models.CharField(max_length=100)
 
     class Meta:
@@ -115,6 +115,7 @@ class Screenshot(models.Model):
     image = models.ImageField(
         upload_to='projects/static/projects/img/screenshots/'
     )
+    description = models.CharField(max_length=250, blank=True)
 
     def __str__(self):
         return f'{self.project.title} screenshot {self.id}'
