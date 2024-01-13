@@ -150,8 +150,13 @@ button {
     max-width: 250px;
 }
 
+.project-logo {
+    max-width: 64px;
+}
+
 .project-card {
     background: none;
+    border: 0;
 }
 
 .project-card .card-body {
@@ -159,11 +164,15 @@ button {
     color: #f9f7f7;
 }
 
-.project-card img {
-    background: none;
+.project-card .carousel-inner {
     /* `secondary` theme color */
-    border: 1px solid #1a1a1a;
+    background-color: #1a1a1a;
     border-radius: 3%;
+}
+
+.project-card .carousel-item img {
+    max-height: 400px;
+    object-fit: contain;
 }
 
 .project-card .list-group-item {
@@ -271,13 +280,18 @@ a {
         font-size: 1.75rem;
     }
 
-    .nav-menu-link span {
+    .nav-menu-link span,
+    .card-link {
         font-size: 1.25rem;
     }
 
     .nav-menu-link button {
         height: 16px;
         width: 16px;
+    }
+
+    .project-card .carousel-item img {
+        max-height: 600px;
     }
 
     .pdf {
@@ -311,6 +325,10 @@ a {
 /* `light` theme color */
 /* #8a8a8a */
 /* rgba(249, 247, 247, 1) */
+
+/* `white` theme color */
+/* base font color */
+/* #f9f7f7; */
 
 /* `red` theme color */
 /* #E6330B */
