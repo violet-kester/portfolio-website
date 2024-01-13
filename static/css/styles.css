@@ -164,15 +164,11 @@ button {
     color: #f9f7f7;
 }
 
-.project-card .carousel-inner {
+.project-card .carousel-item img {
     /* `secondary` theme color */
     background-color: #1a1a1a;
     border-radius: 3%;
-}
-
-.project-card .carousel-item img {
     max-height: 400px;
-    object-fit: contain;
 }
 
 .project-card .list-group-item {
