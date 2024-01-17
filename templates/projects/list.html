@@ -1,6 +1,7 @@
 {% load markdown %}
 
 <!-- Projects -------------------------------->
+
 <div class="container">
   <div class="card-group row row-cols-1">
 
@@ -9,65 +10,10 @@
       <div class="card project-card">
         <div class="row row-cols-1 row-cols-sm-2">
 
-          <!-- Project screenshot carousel -->
+          <!-- Project images  -->
 
           <div class="col p-3 d-flex justify-content-center align-items-center">
-            <div
-              id="screenshotCarousel-{{ project.slug }}"
-              class="carousel slide"
-              data-bs-interval="false">
-
-                <div class="carousel-indicators">
-                  {% for screenshot in project.screenshots.all %}
-                  <button
-                    type="button"
-                    data-bs-target="#screenshotCarousel-{{ project.slug }}"
-                    data-bs-slide-to="{{ forloop.counter0 }}"
-                    {% if forloop.first %}
-                    class="active"
-                    aria-current="true"
-                    {% endif %}
-                    aria-label="Slide {{ forloop.counter }}">
-                  </button>
-                  {% endfor %}
-                </div>
-
-                <div class="carousel-inner">
-                  {% for screenshot in project.screenshots.all %}
-                    {% if forloop.first %}
-                    <div class="carousel-item active">
-                      <img
-                        src="{{ screenshot.image.url }}"
-                        class="img-fluid"
-                        alt="{{ screenshot.description }}">
-                    </div>
-                    {% else %}
-                    <div class="carousel-item">
-                      <img
-                        src="{{ screenshot.image.url }}"
-                        class="img-fluid"
-                        alt="{{ screenshot.description }}">
-                    </div>
-                    {% endif %}
-                  {% endfor %}
-                </div>
-
-                <button
-                  class="carousel-control-prev"
-                  type="button"
-                  data-bs-target="#screenshotCarousel-{{ project.slug }}"
-                  data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                </button>
-                <button
-                  class="carousel-control-next"
-                  type="button"
-                  data-bs-target="#screenshotCarousel-{{ project.slug }}"
-                  data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                </button>
-
-            </div>
+            {% include './screenshot_carousel.html' %}
           </div>
 
           <!-- Project details  -->
@@ -76,45 +22,28 @@
             class="col p-3"
             hx-get="{{ project.get_absolute_url }}"
             hx-target="#content"
-            hx-swap="outerHTML"
+            hx-swap="outerHTML show:window:top"
             hx-push-url="true"
             style="cursor: pointer">
               <div class="card-body h-100 d-flex flex-column p-0">
 
-                <!-- Project links -->
-
-                <ul class="d-flex flex-wrap justify-content-center">
-                  {% for link in project.links.all %}
-                  <li class="p-1">
-                    <button
-                      class="card-link btn btn-outline-primary btn-sm text-nowrap"
-                      href="{{ link.url }}"
-                      target="_blank">
-                        <i class="{{ link.bootstrap_icon }} mr-1"></i>
-                        {{ link.name }}
-                    </button>
-                  </li>
-                  {% endfor %}
-                </ul>
-
-                <!-- Project description -->
+                {% include './link_buttons.html' %}
 
                 <div class="flex-grow-1 d-flex flex-column justify-content-center px-3 pt-3 pb-0">
+
                   <img
                     src="{{ project.logo.url }}"
                     class="project-logo mx-auto mb-4"
                     alt="{{ project.title }} logo">
+
                   <h3 class="card-title mb-3">{{ project.title }}</h3>
+
                   <div class="card-text">
                     {{ project.summary|markdown|truncatewords_html:30 }}
                   </div>
-                  <ul class="list-group list-group-flush small">
-                    {% for technology in project.technologies.all %}
-                    <li class="list-group-item p-0 border-0 text-muted">
-                      {{ technology }}
-                    </li>
-                    {% endfor %}
-                  </ul>
+
+                  {% include './technologies_list.html' %}
+
                 </div>
 
               </div>
