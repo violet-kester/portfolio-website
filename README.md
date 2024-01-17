@@ -65,11 +65,11 @@
   <h3>Image Gallery</h3>
   <hr/>
   <div class='images-container'>
-    <img src='projects/static/projects/img/screenshots/portfolio-600x900-projects.png' alt='Projects page' style='max-width:300px'>
-    <img src='projects/static/projects/img/screenshots/portfolio-600x900-blog.png' alt='Blog' style='max-width:400px'>
-    <img src='projects/static/projects/img/screenshots/portfolio-600x900-post-code.png' alt='Blog post with code examples' style='max-width:400px'>
-    <img src='projects/static/projects/img/screenshots/portfolio-600x900-post-images.png' alt='Blog post' style='max-width:400px'>
-    <img src='projects/static/projects/img/screenshots/portfolio-600x900-post-comment.png' alt='Comment form' style='max-width:400px'>
-    <img src='projects/static/projects/img/screenshots/portfolio-600x900-post-search.png' alt='Search results' style='max-width:400px'>
+    <img src='projects/static/projects/img/screenshots/portfolio-600x900-projects.png' alt='Projects page' width='400px' height='600px'>
+    <img src='projects/static/projects/img/screenshots/portfolio-600x900-blog.png' alt='Blog' width='400px' height='600px'>
+    <img src='projects/static/projects/img/screenshots/portfolio-600x900-post-code.png' alt='Blog post with code examples' width='400px' height='600px'>
+    <img src='projects/static/projects/img/screenshots/portfolio-600x900-post-images.png' alt='Blog post' width='400px' height='600px'>
+    <img src='projects/static/projects/img/screenshots/portfolio-600x900-post-comment.png' alt='Comment form' width='400px' height='600px'>
+    <img src='projects/static/projects/img/screenshots/portfolio-600x900-post-search.png' alt='Search results' width='400px' height='600px'>
   </div>
 </div>
