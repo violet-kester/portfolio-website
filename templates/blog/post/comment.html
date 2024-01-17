@@ -1,4 +1,4 @@
-<li class="d-flex flex-column pb-1 mb-4 border-bottom border-secondary">
+<li class="d-flex flex-column p-3 border-top">
 
   {% if messages %}
   <ul class="messages">
@@ -8,7 +8,7 @@
   </ul>
   {% endif %}
 
-  <p class="text-muted">
+  <p class="text-muted pt-3 mb-3">
     Comment by <span class="text-primary">{{ comment.name }}</span><br />
     {{ comment.location }} - {{ comment.created }}
   </p>

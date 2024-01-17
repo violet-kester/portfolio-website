@@ -22,7 +22,7 @@
     {% endfor %}
   </ul>
 
-  <div class="d-flex justify-content-center align-items-center px-0 px-sm-5 py-4 mb-4 border-bottom border-top border-secondary">
+  <div class="d-flex justify-content-center align-items-center px-0 px-sm-5 py-3 mb-4 border-bottom border-top border-secondary">
     <div>
       <img
         src="{{ post.thumbnail.url }}"
@@ -51,7 +51,7 @@
     </div>
   </div>
 
-  <h2 class="pt-2">{{ post.summary }}</h2>
+  <h2>{{ post.summary }}</h2>
 
   <div class="text-left">
     {{ post.body|markdown }}
@@ -61,12 +61,12 @@
 
 <!-- Similar posts section --------------------->
 
-<section class="mb-4">
+<section class="mb-5">
 
-  <h4 class="mb-2 text-primary">Similar posts</h4>
+  <h4 class="pb-3 mb-4 border-bottom text-primary">Similar posts</h4>
 
   {% if similar_posts %}
-  <div class="row justify-content-center p-3">
+  <div class="row justify-content-center">
 
     {% for post in similar_posts|slice:":3" %}
     <div class="col-12 col-md-4 px-5 px-md-3 pb-5 pb-md-3">
@@ -103,14 +103,14 @@
 <section>
 
   {% with comments.count as total_comments %}
-  <h4 class="pb-4 mb-4 border-bottom border-secondary text-primary">
+  <h4 class="mb-3 text-primary">
     {{ total_comments }} comment{{ total_comments|pluralize }}
   </h4>
   {% endwith %}
 
   <!-- Comments -->
 
-  <div class="pt-1 pb-3 text-left">
+  <div class="text-left">
     <ul id="comment-list">
       {% for comment in comments %}
       {% include './comment.html' %}
