@@ -1,0 +1,15 @@
+<ul class="mt-4">
+  {% for project in latest_projects %}
+  <li
+    class="my-3 small"
+    hx-get="{{ project.get_absolute_url }}"
+    hx-target="#content"
+    hx-swap="outerHTML show:window:top"
+    hx-push-url="true"
+    style="cursor:pointer;"
+    _="on click toggle between .slide-down and .slide-up on #sidebar">
+      <h6 class="mb-1">{{ project.title }}</h6>
+      <p class="text-light">{{ project.summary }}</p>
+  </li>
+  {% endfor %}
+</ul>
