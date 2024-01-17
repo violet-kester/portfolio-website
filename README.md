@@ -1,7 +1,7 @@
 <!-- header -->
 
 <div align='center'>
-  <img src='/static/img/logos/logo-square.png' width='75px' alt='Logo'>
+  <img src='static/img/logos/portfolio-logo-240.png' width='75px' alt='Logo'>
   <h1>Portfolio Website</h1>
   <p>
     <i>My personal website and blog.</i>
@@ -57,4 +57,19 @@
   <h4>
     4. Open the app in your browser at <a href='http://127.0.0.1:8000/'>http://127.0.0.1:8000/</a>.
   </h4>
+</div>
+
+<!-- images  -->
+
+<div align='center'>
+  <h3>Image Gallery</h3>
+  <hr/>
+  <div class='images-container'>
+    <img src='projects/static/projects/img/screenshots/portfolio-600x900-projects.png' alt='Projects page'>
+    <img src='projects/static/projects/img/screenshots/portfolio-600x900-blog.png' alt='Blog'>
+    <img src='projects/static/projects/img/screenshots/portfolio-600x900-post-code.png' alt='Blog post with code examples'>
+    <img src='projects/static/projects/img/screenshots/portfolio-600x900-post-images.png' alt='Blog post'>
+    <img src='projects/static/projects/img/screenshots/portfolio-600x900-post-comment.png' alt='Comment form'>
+    <img src='projects/static/projects/img/screenshots/portfolio-600x900-post-search.png' alt='Search results'>
+  </div>
 </div>
