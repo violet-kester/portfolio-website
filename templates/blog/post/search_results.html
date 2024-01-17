@@ -12,7 +12,7 @@
   <h4>
     {% with results.count as total_results %}
     {{ total_results }} result{{ total_results|pluralize }}
-    matching "{{query}}"
+    matching "{{ query }}"
     {% endwith %}
   </h4>
 
@@ -50,7 +50,5 @@
   {% empty %}
   <p class="pt-2">There are no results for your query.</p>
   {% endfor %}
-
-
 
 {% endif %}

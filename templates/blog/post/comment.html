@@ -10,7 +10,8 @@
 
   <p class="text-muted">
     Comment by <span class="text-primary">{{ comment.name }}</span><br />
-    {{ comment.location }} - {{ comment.created }}
+    {% if comment.location %}{{ comment.location }} -{% endif %}
+    {{ comment.created }}
   </p>
 
   <div class="mb-1">
