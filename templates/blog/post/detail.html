@@ -17,19 +17,25 @@
   <ul class="d-flex justify-content-center">
     {% for tag in post_tags %}
     <li class="mx-1">
-      <span class="tag">#{{ tag.name }}</span>
+      <span
+        class="tag"
+        hx-get="{% url 'blog:post_list_by_tag' tag_slug=tag.slug %}"
+        hx-target="#content"
+        hx-swap="outerHTML"
+        hx-push-url="true"
+        style="cursor:pointer">
+          #{{ tag.name }}
+      </span>
     </li>
     {% endfor %}
   </ul>
 
-  <div class="d-flex justify-content-center align-items-center px-0 px-sm-5 py-3 mb-4 border-bottom border-top border-secondary">
-    <div>
-      <img
-        src="{{ post.thumbnail.url }}"
-        class="thumbnail-icon rounded"
-        width="100%"
-        alt="{{ post.title }}">
-    </div>
+  <div class="d-flex justify-content-center align-items-center px-0 px-sm-5 py-3 mb-4 border-bottom border-top">
+    <img
+      src="{{ post.thumbnail.url }}"
+      class="thumbnail-icon rounded"
+      width="100%"
+      alt="{{ post.title }}">
     <div class="ml-4 small">
       <span class="d-block mb-0 text-muted">
         <i class="bi-calendar-event mr-1"></i>
@@ -51,7 +57,7 @@
     </div>
   </div>
 
-  <h2>{{ post.summary }}</h2>
+  <h2 class="pt-1">{{ post.summary }}</h2>
 
   <div class="text-left">
     {{ post.body|markdown }}
@@ -102,13 +108,7 @@
 
 <section>
 
-  {% with comments.count as total_comments %}
-  <h4 class="mb-3 text-primary">
-    {{ total_comments }} comment{{ total_comments|pluralize }}
-  </h4>
-  {% endwith %}
-
-  <!-- Comments -->
+  <h4 class="mb-3 text-primary"> Comments</h4>
 
   <div class="text-left">
     <ul id="comment-list">
@@ -119,8 +119,6 @@
       {% endfor %}
     </ul>
   </div>
-
-  <!-- Comment form  -->
 
   <h6>Add a new comment</h6>
 

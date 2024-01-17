@@ -1,0 +1,55 @@
+{% extends base_template %}
+
+{% load markdown %}
+
+{% load blog_tags %}
+
+{% block main %}
+
+{% if tag %}
+<h1>Browse posts by tag</h1>
+
+  <div class="mt-5">
+    <h4>
+      {% with posts.count as total_results %}
+      {{ total_results }} post{{ total_results|pluralize }}
+      tagged with "{{ tag.name }}"
+      {% endwith %}
+    </h4>
+
+    {% for post in posts %}
+    <div
+      class="row justify-content-between align-items-center p-3 p-md-4 mx-3 border-top border-secondary"
+      hx-get="{{ post.get_absolute_url }}"
+      hx-target="#content"
+      hx-swap="outerHTML show:window:top"
+      hx-push-url="true"
+      style="cursor: pointer">
+
+        <!-- Post thumbnail -->
+
+        <div class="col-3 p-3 p-lg-5">
+            <img src="{{ post.thumbnail.url }}" class="w-100" alt="{{ post.title }}">
+        </div>
+
+        <!-- Post content -->
+
+        <div class="col-9 p-3 text-right">
+          <h3 class="mb-3">
+              {{ post.title }}
+          </h3>
+          <span class="text-light small">{{ post.publish }}</span>
+          <div class="text-muted small">
+            {{ post.body|truncatewords_html:18|markdown|striptags }}
+          </div>
+        </div>
+
+    </div>
+
+    {% empty %}
+    <p class="pt-2">There are no results for your query.</p>
+    {% endfor %}
+
+{% endif %}
+
+{% endblock %}

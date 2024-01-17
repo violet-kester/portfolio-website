@@ -110,16 +110,25 @@ def post_list(request, tag_slug=None):
     posts = Post.objects.filter(status='PB')
     tag = None
 
-    # If a tag slug is provided, filter posts by tag
-    if tag_slug:
-        tag = get_object_or_404(Tag, slug=tag_slug)
-        posts = posts.filter(tags__in=[tag])
-
     if request.htmx:
         base_template = '_partial.html'
     else:
         base_template = '_base.html'
 
+    # If a tag slug is provided, filter posts by tag
+    if tag_slug:
+        tag = get_object_or_404(Tag, slug=tag_slug)
+        posts = posts.filter(tags__in=[tag])
+        context = {
+            'posts': posts,
+            'tag': tag,
+            'base_template': base_template,
+        }
+        return render(request,
+                    'blog/post/tag_results.html',
+                    context)
+
+    # Else return all published posts
     context = {
         'posts': posts,
         'tag': tag,
