@@ -4,6 +4,29 @@
 
 {% block main %}
 
-<p>This is the project detail page.</p>
+<h1 class="mb-5">{{ project.title }}</h1>
+
+<p class="px-3 mb-3">{{ project.summary }}</p>
+
+<img
+  src="{{ project.logo.url }}"
+  class="project-logo mx-auto mb-3"
+  alt="{{ project.title }} logo">
+
+{% include './technologies_list.html' %}
+
+<div class="py-3">
+  {% include './link_buttons.html' %}
+</div>
+
+<div class="px-3 py-4 mb-4 border-top">
+  {{ project.description }}
+</div>
+
+<h4 class="pb-3 mb-2 border-bottom">Screenshots</h4>
+
+<div class="p-3">
+  {% include './screenshot_carousel.html' %}
+</div>
 
 {% endblock %}
