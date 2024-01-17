@@ -172,9 +172,12 @@ button {
     max-height: 400px;
 }
 
+.screenshot-carousel {
+   max-width: 500px;
+   max-height: 750px;
+}
 .screenshot-carousel img {
     border-radius: 3%;
-    max-height: 700px;
 }
 
 .technologies .list-group-item {

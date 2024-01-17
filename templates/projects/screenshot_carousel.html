@@ -2,7 +2,7 @@
 
 <div
   id="screenshotCarousel-{{ project.slug }}"
-  class="carousel screenshot-carousel slide"
+  class="carousel carousel-dark screenshot-carousel slide mx-auto"
   data-bs-interval="false">
 
     <div class="carousel-indicators">
@@ -27,6 +27,8 @@
         <img
           src="{{ screenshot.image.url }}"
           class="img-fluid"
+          data-bs-target="#screenshotCarousel-{{ project.slug }}"
+          data-bs-slide="next"
           alt="{{ screenshot.description }}">
       </div>
       {% else %}
@@ -34,25 +36,27 @@
         <img
           src="{{ screenshot.image.url }}"
           class="img-fluid"
+          data-bs-target="#screenshotCarousel-{{ project.slug }}"
+          data-bs-slide="next"
           alt="{{ screenshot.description }}">
       </div>
       {% endif %}
       {% endfor %}
     </div>
 
-    <button
-      class="carousel-control-prev"
-      type="button"
-      data-bs-target="#screenshotCarousel-{{ project.slug }}"
-      data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    </button>
-    <button
-      class="carousel-control-next"
-      type="button"
-      data-bs-target="#screenshotCarousel-{{ project.slug }}"
-      data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    </button>
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#screenshotCarousel-{{ project.slug }}"
+        data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      </button>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#screenshotCarousel-{{ project.slug }}"
+        data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      </button>
 
   </div>
