@@ -7,9 +7,9 @@
 
   <!-- Share success message --------------------->
 
-  <h3>success</h3>
+  <h3 class="mb-5">success</h3>
 
-  <p class="my-5">
+  <p>
     "{{ post.title }}" was successfully emailed to
     {{ form.cleaned_data.recipients_email }}.
   </p>
@@ -18,7 +18,7 @@
 
   <!-- Share form -------------------------------->
 
-  <h3>Share "{{ post.title }}" by email</h3>
+  <h3 class="mb-5">Share "{{ post.title }}" by email</h3>
 
   {% include './forms/share_form.html' %}
 

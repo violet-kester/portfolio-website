@@ -3,11 +3,12 @@
   hx-post="{% url 'blog:post_comment' post.slug %}"
   hx-target="#comment-list"
   hx-swap="afterbegin"
+  hx-vals="total_comments: total_comments + 1"
   hx-on::after-request="this.reset()">
-    <div class="my-3">
+    <div class="mb-4">
       {{ form.as_p }}
     </div>
-    <button type="submit" class="btn btn-outline-primary mt-3">
+    <button type="submit" class="btn btn-outline-primary">
       <i class="bi-pencil-square mr-1"></i> Add comment
     </button>
 </form>
