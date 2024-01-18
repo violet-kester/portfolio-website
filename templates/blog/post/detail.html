@@ -37,22 +37,24 @@
       width="100%"
       alt="{{ post.title }}">
     <div class="ml-4 small">
-      <span class="d-block mb-0 text-muted">
+      <span class="d-block text-muted mb-0">
         <i class="bi-calendar-event mr-1"></i>
         Published {{ post.publish }}
       </span>
-      <span class="d-block mb-0 text-muted">
+      <span class="d-block text-muted mb-0">
         <i class="bi-person-circle mr-1"></i>
         Written by {{ post.author.first_name }} {{ post.author.last_name }}
       </span>
       <a
-        class="d-block mb-0 text-primary"
+        class="d-block mb-0"
         hx-get="{% url 'blog:post_share' post.slug %}"
         hx-target="#content"
         hx-swap="outerHTML"
         hx-push-url="true"
-        style="cursor: pointer">
-          <i class="bi-share mr-1"></i> Share this post
+        style="cursor:pointer; color:#FFC107;">
+          <span class="teal-pulse">
+            <i class="bi-share mr-1"></i>Share this post
+          </span>
       </a>
     </div>
   </div>

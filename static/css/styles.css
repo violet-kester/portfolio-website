@@ -173,9 +173,10 @@ button {
 }
 
 .screenshot-carousel {
-   max-width: 500px;
-   max-height: 750px;
+    max-width: 500px;
+    max-height: 750px;
 }
+
 .screenshot-carousel img {
     border-radius: 3%;
 }
@@ -231,7 +232,7 @@ pre {
     border-radius: .75rem;
 }
 
-/* Effects and transitions ------------------- */
+/* Effects and animation ------------------- */
 
 .glassy {
     background-color: rgba(13, 13, 13, 0.5);
@@ -273,8 +274,22 @@ pre {
     box-shadow: 0 0 0 3px #f9f7f7;
 }
 
-a {
-    transition: all .3s ease-in-out;
+@keyframes teal {
+
+    0%,
+    100% {
+        color: currentColor;
+    }
+
+    50% {
+        /* `teal` theme color */
+        color: #85FFE4;
+    }
+}
+
+.teal-pulse:hover {
+    animation: teal 4s infinite;
+    /* text-shadow: 0 0 5px rgba(255, 255, 255, .8); */
 }
 
 /* Media queries ----------------------------- */
