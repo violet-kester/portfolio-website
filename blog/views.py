@@ -225,7 +225,7 @@ def post_comment (request, post_slug):
             comment.post = post
             # Save the comment to the database
             comment.save()
-            # Add a success message to the request object
+            # Add a success flash message
             messages.success(request, "Your comment has been added.")
         context = {
             'comment': comment,
@@ -241,7 +241,7 @@ def post_comment (request, post_slug):
 # TODO:
 # Enable prefix matching, for example:
 # Searching for 'app' should return posts containing 'apple' and 'application'.
-# Currently matches whole words only, for example:
+# Currently, search matches whole words only:
 # Searching for 'app' returns 0 results. Searching 'apple' returns 1 result.
 def post_search(request):
     """
