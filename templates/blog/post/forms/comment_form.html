@@ -3,7 +3,6 @@
   hx-post="{% url 'blog:post_comment' post.slug %}"
   hx-target="#comment-list"
   hx-swap="afterbegin"
-  hx-vals="total_comments: total_comments + 1"
   hx-on::after-request="this.reset()">
     <div class="mb-4">
       {{ form.as_p }}
