@@ -40,6 +40,11 @@ body {
     letter-spacing: .075em;
 }
 
+em {
+    /* `red` theme color */
+    color: #E6330B;
+}
+
 h1,
 h3 {
     font-family: 'Homemade Apple';
