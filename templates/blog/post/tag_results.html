@@ -7,12 +7,12 @@
 {% block main %}
 
 {% if tag %}
-<h1>Browse posts by tag</h1>
+<h1>Browse by tag</h1>
 
   <div class="mt-5">
     <h4>
       {% with posts.count as total_results %}
-      {{ total_results }} post{{ total_results|pluralize }}
+      {{ total_results }} blog post{{ total_results|pluralize }}
       tagged with "{{ tag.name }}"
       {% endwith %}
     </h4>
@@ -35,7 +35,7 @@
         <!-- Post content -->
 
         <div class="col-9 p-3 text-right">
-          <h3 class="mb-3">
+          <h3 class="mb-3 fade-to-teal">
               {{ post.title }}
           </h3>
           <span class="text-light small">{{ post.publish }}</span>
