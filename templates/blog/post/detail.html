@@ -90,7 +90,7 @@
               src="{{ post.thumbnail.url }}"
               alt="{{ post.title }}">
             <div class="card-body px-5 px-md-4 pt-0 pb-5">
-              <h5 class="card-title text-light mt-0">{{ post.title }}</h5>
+              <h3 class="card-title text-light">{{ post.title }}</h5>
               <p class="card-text small">
                 {{ post.body|truncatewords_html:100|markdown|striptags }}
               </p>
