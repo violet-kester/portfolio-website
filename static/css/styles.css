@@ -226,16 +226,14 @@ figcaption {
 
 .callout {
     font-size: 85%;
-    /* `teal` theme color */
-    color: #85FFE4;
+    /* `light` theme color */
+    color: #8a8a8a;
     margin-bottom: 15px;
 }
 
 /* Code blocks ------------------------------- */
 
 pre {
-    /* `teal` theme color */
-    color: #85FFE4;
     font-size: 75%;
     text-align: left;
     background-color: #1a1a1a;
@@ -295,22 +293,10 @@ code {
     box-shadow: 0 0 0 3px #f9f7f7;
 }
 
-@keyframes teal {
-
-    0%,
-    100% {
-        color: currentColor;
-    }
-
-    50% {
-        /* `teal` theme color */
-        color: #85FFE4;
-    }
-}
-
-.teal-pulse:hover {
-    animation: teal 4s infinite;
-    /* text-shadow: 0 0 5px rgba(255, 255, 255, .8); */
+.fade-to-teal:hover {
+    /* `teal` theme color */
+    color: #85FFE4;
+    transition: color 1.5s;
 }
 
 /* Media queries ----------------------------- */
@@ -357,17 +343,6 @@ code {
 
 /* Theme colors ------------------------------ */
 
-/* `primary` theme color */
-/* rgba(255, 193, 7, 0.15) */
-/* #FFC107 */
-
-/* `secondary` theme color */
-/* #1a1a1a */
-
-/* `light` theme color */
-/* #8a8a8a */
-/* rgba(249, 247, 247, 1) */
-
 /* `white` theme color */
 /* base font color */
 /* #f9f7f7; */
@@ -399,6 +374,31 @@ code {
 /* `purple` theme color */
 /* #B987FA */
 
+/* `primary` theme color */
+/* rgba(255, 193, 7, 0.15) */
+/* #FFC107 */
+
+/* `secondary` theme color */
+/* Card background, code block background, tag background, form input borders */
+/* Horizontal line dividers */
+/* #1a1a1a */
+
+/* `gray-500` theme color */
+/* `light` theme color */
+/* Card text, sidebar preview text, project technologies list, search result dates */
+/* #8a8a8a */
+/* rgba(249, 247, 247, 1) */
+
+/* `gray-600` theme color */
+/* `muted` theme color */
+/* Blog post header details, empty comments list text, comment details */
+/* Search result preview text */
+/* #5a5a5a */
+
 /* `gray-900` theme color */
-/* background color */
+/* Website background color */
 /* #0d0d0d */
+
+/* `black` theme color */
+/* Form input background color */
+/* #080808 */
