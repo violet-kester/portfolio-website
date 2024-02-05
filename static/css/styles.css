@@ -204,6 +204,15 @@ figcaption {
     color: #8a8a8a;
 }
 
+.thumbnail-icon {
+    max-width: 6rem;
+}
+
+.pdf {
+    width: 100%;
+    height: 65vh;
+}
+
 .tag {
     font-size: 85%;
     /* `teal` theme color */
@@ -215,26 +224,33 @@ figcaption {
     cursor: pointer;
 }
 
-.thumbnail-icon {
-    max-width: 6rem;
-}
-
-.pdf {
-    width: 100%;
-    height: 65vh;
+.callout {
+    font-size: 85%;
+    /* `teal` theme color */
+    color: #85FFE4;
+    margin-bottom: 15px;
 }
 
 /* Code blocks ------------------------------- */
 
 pre {
+    /* `teal` theme color */
+    color: #85FFE4;
+    font-size: 75%;
     text-align: left;
-    font-size: 1rem;
+    background-color: #1a1a1a;
     padding: 1.5rem;
     margin-bottom: 15px;
+    /* Enable word wrap in code blocks */
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-wrap: break-word;
 }
 
-.codehilite {
-    border-radius: .75rem;
+code {
+    font-family: 'DM Mono';
+    font-weight: 300;
+    line-height: 1.5rem;
 }
 
 /* Effects and animation ------------------- */
