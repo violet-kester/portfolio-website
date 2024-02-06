@@ -60,8 +60,9 @@ h4 {
     margin-top: 24px;
 }
 
-h5 {
-    margin-top: 18px;
+h4, h5 {
+    margin-top: 24px;
+    margin-bottom: 15px;
 }
 
 button {
@@ -166,6 +167,15 @@ button {
     max-width: 250px;
 }
 
+.post-thumbnail {
+    border-radius: .5rem;
+}
+
+.post-thumbnail-icon {
+    border-radius: .5rem;
+    max-width: 6rem;
+}
+
 .project-logo {
     max-width: 64px;
 }
@@ -211,9 +221,7 @@ figcaption {
     margin-bottom: 1.25rem;
 }
 
-.thumbnail-icon {
-    max-width: 6rem;
-}
+
 
 .pdf {
     width: 100%;
