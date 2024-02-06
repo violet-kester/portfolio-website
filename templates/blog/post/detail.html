@@ -33,7 +33,7 @@
   <div class="d-flex justify-content-center align-items-center px-0 px-sm-5 py-3 mb-4 border-bottom border-top">
     <img
       src="{{ post.thumbnail.url }}"
-      class="thumbnail-icon rounded"
+      class="post-thumbnail-icon"
       width="100%"
       alt="{{ post.title }}">
     <div class="ml-4 small">
@@ -59,7 +59,7 @@
     </div>
   </div>
 
-  <h2 class="pt-1">{{ post.summary }}</h2>
+  <h2 class="pt-1">{{ post.subtitle }}</h2>
 
   <div class="text-left">
     {{ post.body|markdown }}
@@ -86,7 +86,7 @@
           hx-push-url="true"
           style="cursor:pointer">
             <img
-              class="mx-auto card-img-top p-5"
+              class="post-thumbnail p-5 mx-auto"
               src="{{ post.thumbnail.url }}"
               alt="{{ post.title }}">
             <div class="card-body px-5 px-md-4 pt-0 pb-5">
