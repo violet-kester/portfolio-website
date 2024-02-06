@@ -3,6 +3,7 @@ from django.contrib.postgres.search import SearchRank, SearchVector
 from django.core.mail import send_mail
 from django.db.models import Count
 from django.shortcuts import render, get_object_or_404
+from django.views.decorators.http import require_POST
 from .forms import CommentForm, SearchForm, SharePostForm
 from .models import Post
 from taggit.models import Tag
@@ -45,7 +46,7 @@ def post_detail(request, post_slug):
     and a list of recommended posts.
 
     Parameters:
-        - `post_slug`: The post's unique slug identifier.
+        - `post_slug`: The post's unique slug id.
 
     Context variables:
        - `post`: The Post object representing the displayed post.
@@ -98,7 +99,7 @@ def post_list(request, tag_slug=None):
     Renders a template of published blog posts, optionally filtered by a tag.
 
     Parameters:
-        - (Optional) `tag_slug`: The slug identifier of the tag to filter by.
+        - (Optional) `tag_slug`: The slug id of the tag to filter by.
 
     Context variables:
         - `posts`: A list of Post objects.
@@ -125,8 +126,8 @@ def post_list(request, tag_slug=None):
             'base_template': base_template,
         }
         return render(request,
-                    'blog/post/tag_results.html',
-                    context)
+                      'blog/post/tag_results.html',
+                      context)
 
     # Else return all published posts
     context = {
@@ -144,12 +145,12 @@ def post_share(request, post_slug):
     Post share view.
 
     Handles both GET and POST requests for sharing a post by email.
-        - For GET requests, returns the share post form template.
-        - For POST requests, sends an email with a link to the recipient.
+        - GET: Returns the share post form template.
+        - POST: Sends an email with a link to the recipient.
           Renders a confirmation message template after the email is sent.
 
     Parameters:
-        - `post_slug` - The slug identifier of the post being shared.
+        - `post_slug`: The slug id of the post being shared.
 
     Context variables:
         - `post`: The Post object.
@@ -160,9 +161,11 @@ def post_share(request, post_slug):
                            depending on the request type.
     """
 
-    post = get_object_or_404(Post, slug=post_slug, status=Post.Status.PUBLISHED)
+    post = get_object_or_404(Post, slug=post_slug,
+                             status=Post.Status.PUBLISHED)
     sent = False
 
+    # For POST requests, send an email using the form data
     if request.method == 'POST':
         form = SharePostForm(request.POST)
         if form.is_valid():
@@ -178,6 +181,7 @@ def post_share(request, post_slug):
                       'kester.violet.j@gmail.com',
                       [data['recipients_email']])
             sent = True
+    # For other requests, return an empty share post form
     else:
         form = SharePostForm()
 
@@ -197,45 +201,40 @@ def post_share(request, post_slug):
                   context)
 
 
-def post_comment (request, post_slug):
+@require_POST
+def post_comment(request, post_slug):
     """
     Post comment view.
 
-    Handles both GET and POST requests for commenting on a post.
-    For GET requests, returns the comment form template.
-    For POST requests, creates a comment and appended it to the comments list.
+    Handles the creation and display of comments on a blog post.
+    Returns a rendered HTML commented to be appended to the comment list.
 
     Parameters:
-        - `post_slug`: The slug identifier of the post being commented on.
+        - `post_slug`: The slug id of the post being commented on.
 
     Context variables:
-        - `comment`: The new Comment object (only for POST requests).
-        - `form`: An instance of the CommentForm.
+        - `comment`: The new Comment object.
     """
 
-    post = get_object_or_404(Post, slug=post_slug, status=Post.Status.PUBLISHED)
+    post = get_object_or_404(Post, slug=post_slug,
+                             status=Post.Status.PUBLISHED)
     comment = None
+    form = CommentForm(data=request.POST)
 
-    if request.method == 'POST':
-        form = CommentForm(data=request.POST)
-        if form.is_valid():
-            # Create a comment without saving it to the database
-            comment = form.save(commit=False)
-            # Assign comment to post
-            comment.post = post
-            # Save the comment to the database
-            comment.save()
-            # Add a success flash message
-            messages.success(request, "Your comment has been added.")
-        context = {
-            'comment': comment,
-        }
-        return render(request, 'blog/post/comment.html', context)
+    if form.is_valid():
+        # Create a comment without saving it to the database
+        comment = form.save(commit=False)
+        # Assign comment to post
+        comment.post = post
+        # Save the comment to the database
+        comment.save()
+        # Flash a success message
+        messages.success(request, "Your comment has been added.")
 
     context = {
-        'form': CommentForm(),
+        'comment': comment,
     }
-    return render(request, 'blog/post/forms/comment_form.html', context)
+    return render(request, 'blog/post/comment.html', context)
 
 
 # TODO:
@@ -247,12 +246,13 @@ def post_search(request):
     """
     Post search view.
 
-    Renders a template of published blog posts that match a query string.
-    Finds posts that contain the query in their title or body.
+    Takes a query string from the user and returns a list of blog posts
+    that match the query in their title, body, or overview summary.
+    Results are ordered by relevance to the query.
 
     Context variables:
-        - `query` - The query string submitted by the user.
-        - `results` - A QuerySet of Post objects, ordered by relevance.
+        - `query` - The search query.
+        - `results` - Matching Post objects, ordered by relevance.
     """
 
     query = None
@@ -262,7 +262,7 @@ def post_search(request):
         form = SearchForm(request.POST)
         if form.is_valid():
             query = form.cleaned_data['query']
-            search_vector = SearchVector('title', 'body', 'summary')
+            search_vector = SearchVector('title', 'body', 'overview')
             results = Post.objects.filter(status='PB').annotate(
                 search=search_vector,
                 rank=SearchRank(search_vector, query)
