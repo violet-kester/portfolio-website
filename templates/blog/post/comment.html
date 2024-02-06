@@ -1,19 +1,22 @@
 <li class="d-flex flex-column pt-4 border-top">
 
+  <!-- Flash messages -->
   {% if messages %}
   <ul class="messages">
-      {% for message in messages %}
-      <li class="alert alert-{{ message.tags }}">{{ message }}</li>
-      {% endfor %}
+    {% for message in messages %}
+    <li class="alert alert-{{ message.tags }}">{{ message }}</li>
+    {% endfor %}
   </ul>
   {% endif %}
 
+  <!-- Comment details -->
   <p class="text-muted">
     Comment by <span class="text-primary">{{ comment.name }}</span><br />
     {% if comment.location %}{{ comment.location }} -{% endif %}
     {{ comment.created }}
   </p>
 
+  <!-- Comment text -->
   <div class="mb-1">
     {{ comment.body|linebreaks }}
   </div>
