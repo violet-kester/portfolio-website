@@ -15,13 +15,14 @@ class Post(models.Model):
     status = models.CharField(max_length=2,
                               choices=Status.choices,
                               default=Status.DRAFT)
-    title = models.CharField(max_length=250)
     slug = models.SlugField(max_length=250,
                             unique=True)
+    title = models.CharField(max_length=250)
+    subtitle = models.CharField(max_length=250, blank=True)
     author = models.ForeignKey(User,
                                on_delete=models.CASCADE,
                                related_name='posts')
-    summary = models.TextField(blank=True)
+    overview = models.TextField(blank=True)
     body = models.TextField(blank=True)
     thumbnail = models.ImageField(upload_to='blog/static/blog/img/thumbnails/',
                                   default='static/img/logos/logo-480.png')
