@@ -122,7 +122,7 @@ button {
     width: 12px;
 }
 
-.nav-menu-link span {
+.nav-menu-link {
     font-size: 1rem;
     letter-spacing: .15rem;
 }
@@ -221,11 +221,9 @@ figcaption {
     margin-bottom: 1.25rem;
 }
 
-
-
 .pdf {
     width: 100%;
-    height: 65vh;
+    height: 80vh;
 }
 
 .tag {
@@ -324,7 +322,7 @@ code {
         letter-spacing: 1.25rem;
     }
 
-    .nav-menu-link span,
+    .nav-menu-link,
     .card-link {
         font-size: 1.25rem;
     }
