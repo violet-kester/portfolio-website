@@ -60,7 +60,8 @@ h4 {
     margin-top: 24px;
 }
 
-h4, h5 {
+h4,
+h5 {
     margin-top: 24px;
     margin-bottom: 15px;
 }
@@ -71,6 +72,12 @@ button {
 
 .fw-light {
     font-weight: 200;
+}
+
+.tiny-header {
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: .25rem;
 }
 
 /* Navigation -------------------------------- */
@@ -84,7 +91,7 @@ button {
     height: 40px;
     text-transform: uppercase;
     letter-spacing: 1rem;
-    margin-left: 16px;
+    margin-left: 9px;
 }
 
 .nav-btn {
@@ -167,12 +174,16 @@ button {
     max-width: 250px;
 }
 
+.faded-card h3 {
+    font-size: 1.5rem;
+}
+
 .post-thumbnail {
     border-radius: .5rem;
+    width: 100%;
 }
 
 .post-thumbnail-icon {
-    border-radius: .5rem;
     max-width: 6rem;
 }
 
@@ -209,7 +220,7 @@ button {
 
 figure img {
     width: 100%;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.25rem;
     border-radius: .5rem;
 }
 
@@ -217,8 +228,12 @@ figcaption {
     /* `muted` theme color */
     color: #5a5a5a;
     font-size: 85%;
-    text-align: center;
     margin-bottom: 1.25rem;
+}
+
+figcaption a {
+    font-style: italic;
+
 }
 
 .pdf {
@@ -307,7 +322,8 @@ code {
     box-shadow: 0 0 0 3px #f9f7f7;
 }
 
-.fade-to-teal:hover {
+.fade-to-teal:hover,
+a:hover {
     /* `teal` theme color */
     color: #85FFE4;
     transition: color 1.5s;

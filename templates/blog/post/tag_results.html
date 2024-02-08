@@ -10,7 +10,7 @@
 <h1>Browse by tag</h1>
 
   <div class="mt-5">
-    <h4>
+    <h4 class="tiny-header">
       {% with posts.count as total_results %}
       {{ total_results }} blog post{{ total_results|pluralize }}
       tagged with "{{ tag.name }}"
