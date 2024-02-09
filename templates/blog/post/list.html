@@ -28,7 +28,7 @@
         <h3 class="mb-3 fade-to-teal">{{ post.title }}</h3>
         <span class="text-light small">{{ post.publish }}</span>
         <div class="text-muted small">
-          {{ post.body|truncatewords_html:18|markdown|striptags }}
+          {{ post.overview|truncatewords_html:18|markdown|striptags }}
         </div>
       </div>
 
