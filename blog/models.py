@@ -24,6 +24,9 @@ class Post(models.Model):
                                related_name='posts')
     overview = models.TextField(blank=True)
     body = models.TextField(blank=True)
+    # banner = models.ImageField(upload_to='blog/static/blog/img/banners/',
+    #                            blank=True,
+    #                            null=True)
     thumbnail = models.ImageField(upload_to='blog/static/blog/img/thumbnails/',
                                   default='static/img/logos/logo-480.png')
     publish = models.DateTimeField(default=timezone.now)
@@ -71,3 +74,22 @@ class Comment(models.Model):
 
     def __str__(self):
         return f'Comment by {self.name} on {self.post}'
+
+
+class Banner(models.Model):
+    """A model class that represents a blog post's banner image."""
+
+    post = models.OneToOneField(
+        Post,
+        on_delete=models.CASCADE,
+        related_name='banner'
+    )
+    image = models.ImageField(
+        upload_to='blog/static/blog/img/posts/banners/'
+    )
+    caption = models.CharField(max_length=250, blank=True)
+    source = models.CharField(max_length=250, blank=True)
+    alt = models.CharField(max_length=250, blank=True)
+
+    def __str__(self):
+        return f'{self.post.title} banner'

@@ -1,6 +1,8 @@
 from django.contrib import admin
-from .models import Post, Comment
+from .models import Post, Comment, Banner
 
+class BannerInline(admin.TabularInline):
+    model = Banner
 
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
@@ -15,6 +17,9 @@ class PostAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('title',)}
     # Order columns by status and publish date by default
     ordering = ['-status', '-publish']
+    # Inline admin classes
+    # Add or edit the banner image from the Post admin page
+    inlines = [BannerInline]
 
 
 @admin.register(Comment)
@@ -23,3 +28,4 @@ class CommentAdmin(admin.ModelAdmin):
     list_display = ['name', 'post', 'created', 'active']
     # Column filters
     list_filter = ['active', 'created', 'updated']
+
