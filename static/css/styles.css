@@ -20,10 +20,6 @@ ul {
     padding-inline-start: 0;
 }
 
-ul li {
-    list-style-type: none;
-}
-
 button:focus {
     outline: none;
 }
@@ -72,6 +68,11 @@ button {
 
 .fw-light {
     font-weight: 200;
+}
+
+strong {
+    color: #e0dcd9;
+    font-weight: 500;
 }
 
 .tiny-header {
@@ -153,6 +154,24 @@ button {
 
 /* Components -------------------------------- */
 
+ul li {
+    list-style-type: circle;
+}
+
+.unstyled {
+    list-style-type: none;
+}
+
+.overview {
+    font-size: 85%;
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+.overview p {
+    margin-bottom: 0;
+}
+
 .faded-card {
     overflow: hidden;
     opacity: 45%;
@@ -231,10 +250,10 @@ figcaption {
     margin-bottom: 1.25rem;
 }
 
-figcaption a {
+/* figcaption a {
     font-style: italic;
 
-}
+} */
 
 .pdf {
     width: 100%;
@@ -263,7 +282,6 @@ figcaption a {
 
 pre {
     color: #8a8a8a;
-    font-size: 75%;
     text-align: left;
     background-color: #1a1a1a;
     padding: 1.5rem;
@@ -277,7 +295,7 @@ pre {
 code {
     font-family: 'DM Mono';
     font-weight: 300;
-    line-height: 1.5rem;
+    line-height: 1.75rem;
 }
 
 /* Effects and animation ------------------- */
