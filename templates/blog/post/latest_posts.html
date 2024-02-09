@@ -1,7 +1,7 @@
 <ul class="mt-4">
   {% for post in latest_posts %}
   <li
-    class="my-3 small rounded"
+    class="unstyled small rounded my-3"
     hx-get="{{ post.get_absolute_url }}"
     hx-target="#content"
     hx-swap="outerHTML show:window:top"
