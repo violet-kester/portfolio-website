@@ -298,6 +298,20 @@ code {
     line-height: 1.75rem;
 }
 
+/* Reusme ---------------------------------- */
+
+.resume h5 {
+    text-transform: uppercase;
+}
+
+.resume tr {
+    border-style: none;
+}
+
+.resume td {
+    vertical-align: top;
+}
+
 /* Effects and animation ------------------- */
 
 .glassy {
