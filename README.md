@@ -1,4 +1,4 @@
-<!-- header -->
+<!-- Header -->
 
 <div align='center'>
   <img src='static/img/logos/portfolio-logo-240.png' width='75px' alt='Logo'>
@@ -11,22 +11,7 @@
   </p>
 </div>
 
-<!-- images  -->
-
-<div align='center'>
-  <h3>Image Gallery</h3>
-  <hr/>
-  <div class='images-container'>
-    <img src='projects/static/projects/img/screenshots/portfolio-600x900-projects.png' alt='Projects page' width='400px' height='600px'>
-    <img src='projects/static/projects/img/screenshots/portfolio-600x900-post-images.png' alt='Blog post' width='400px' height='600px'>
-    <img src='projects/static/projects/img/screenshots/portfolio-600x900-blog.png' alt='Blog' width='400px' height='600px'>
-    <img src='projects/static/projects/img/screenshots/portfolio-600x900-post-code.png' alt='Blog post with code examples' width='400px' height='600px'>
-    <img src='projects/static/projects/img/screenshots/portfolio-600x900-post-comment.png' alt='Comment form' width='400px' height='600px'>
-    <img src='projects/static/projects/img/screenshots/portfolio-600x900-post-search.png' alt='Search results' width='400px' height='600px'>
-  </div>
-</div>
-
-<!-- installation -->
+<!-- Installation -->
 
 <div>
   <h3>Running the application</h3>
@@ -72,4 +57,147 @@
   <h4>
     4. Open the app in your browser at <a href='http://127.0.0.1:8000/'>http://127.0.0.1:8000/</a>.
   </h4>
+</div>
+
+<!-- Project structure -->
+
+<h3>Project Structure</h3>
+<hr/>
+
+```
+website/
+│
+│
+├── blog/
+│   ├── migrations/
+│   ├── static/
+│   │   └── blog/
+│   │      └── img/
+│   │	      └── banners/
+│   │	      └── thumbnails/
+│   ├── templatetags/
+│   │   ├── __init__.py
+│   │   └── blog_tags.py
+│   ├── __init__.py
+│   ├── admin.py
+│   ├── apps.py
+│   ├── forms.py
+│   ├── models.py
+│   ├── urls.py
+│   └── views.py
+│
+│
+├── core/
+│   ├── templatetags/
+│   │   ├── __init__.py
+│   │   └── markdown.py
+│   ├── __init__.py
+│   ├── apps.py
+│   ├── forms.py
+│   ├── urls.py
+│   └── views.py
+│
+│
+├── projects/
+│   ├── migrations/
+│   ├── static/
+│   │   └── projects/
+│   │	   └── img/
+│   │	      ├── logos/
+│   │	      ├── screenshots/
+│   │	      └── thumbnails/
+│   ├── templatetags/
+│   │   └── project_tags.py
+│   ├── __init__.py
+│   ├── admin.py
+│   ├── apps.py
+│   ├── models.py
+│   ├── urls.py
+│   └── views.py
+│
+│
+├── static/
+│   ├── css/
+│   │   ├── bootstrap-theme.min.css
+│   │   ├── styles.css
+│   │   └── syntax-highlighting.css
+│   └── img/
+│       ├── icons/
+│       ├── logos/
+│       ├── photos/
+│       └── favicon.ico
+│
+│
+├── templates
+│   ├── blog/
+│   │   ├── post/
+│   │   │   ├── forms/
+│   │   │   │   ├── comment_form.html
+│   │   │   │   ├── search_form.html
+│   │   │   │   └── share_form.html
+│   │   │   ├── comment.html
+│   │   │   ├── detail.html
+│   │   │   ├── latest_posts.html
+│   │   │   ├── list.html
+│   │   │   ├── search_results.html
+│   │   │   ├── share.html
+│   │   │   └── tag_results.html
+│   │   └── index.html
+│   ├── core/
+│   │   ├── about.html
+│   │   ├── index.html
+│   │   ├── nav_menu_links.html
+│   │   ├── nav_menu.html
+│   │   ├── navbar.html
+│   │   ├── resume.html
+│   │   └── sidebar.html
+│   ├── projects/
+│   │   ├── detail.html
+│   │   ├── index.html
+│   │   ├── latest_projects.html
+│   │   ├── link_buttons.html
+│   │   ├── list.html
+│   │   ├── screenshot_carousel.html
+│   │   └── technologies_list.html
+│   ├── _base.html
+│   └── _partial.html
+│
+│
+├── venv/
+│
+│
+├── website/
+│   ├── __init__.py
+│   ├── asgi.py
+│   ├── settings.py
+│   ├── urls.py
+│   └── wsgi.py
+│
+│
+├── .env
+│
+│
+├── .gitignore
+│
+│
+├── manage.py
+│
+│
+├── README.md
+│
+│
+└── requirements.txt
+```
+
+<!-- Images  -->
+
+<h3>Image Gallery</h3>
+<hr/>
+<div class='images-container' align='center'>
+  <img src='projects/static/projects/img/screenshots/portfolio-600x900-projects.png' alt='Projects page' width='400px' height='600px'>
+  <img src='projects/static/projects/img/screenshots/portfolio-600x900-post-images.png' alt='Blog post' width='400px' height='600px'>
+  <img src='projects/static/projects/img/screenshots/portfolio-600x900-blog.png' alt='Blog' width='400px' height='600px'>
+  <img src='projects/static/projects/img/screenshots/portfolio-600x900-post-code.png' alt='Blog post with code examples' width='400px' height='600px'>
+  <img src='projects/static/projects/img/screenshots/portfolio-600x900-post-comment.png' alt='Comment form' width='400px' height='600px'>
+  <img src='projects/static/projects/img/screenshots/portfolio-600x900-post-search.png' alt='Search results' width='400px' height='600px'>
 </div>
