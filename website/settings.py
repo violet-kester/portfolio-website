@@ -145,3 +145,19 @@ EMAIL_HOST_USER = 'kester.violet.j@gmail.com'
 EMAIL_HOST_PASSWORD = os.environ.get('GMAIL_APP_PASSWORD')
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
+
+# Output all log messages to the console
+
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "handlers": {
+        "console": {
+            "class": "logging.StreamHandler",
+        },
+    },
+    "root": {
+        "handlers": ["console"],
+        "level": "WARNING",
+    },
+}
