@@ -37,8 +37,6 @@ body {
 }
 
 em {
-    /* `red` theme color */
-    /* color: #E6330B; */
     /* `teal` theme color */
     color: #85FFE4;
 }
@@ -53,13 +51,18 @@ h3 {
 h4 {
     /* `primary` theme color */
     color: #FFC107;
-    margin-top: 24px;
 }
 
 h4,
 h5 {
-    margin-top: 24px;
+    margin-top: 32px;
     margin-bottom: 15px;
+}
+
+article h4 {
+    /* `white` theme color */
+    /* Base font color */
+    color: #c9c4c1;
 }
 
 button {
@@ -76,6 +79,8 @@ strong {
 }
 
 .tiny-header {
+    /* `primary` theme color */
+    color: #FFC107;
     font-size: 1rem;
     text-transform: uppercase;
     letter-spacing: .25rem;
@@ -156,6 +161,20 @@ strong {
 
 ul li {
     list-style-type: circle;
+}
+
+.callout ul {
+    margin-left: 12px;
+}
+
+.toc li {
+    list-style-type: none;
+}
+
+.toc li a {
+    /* `white` theme color */
+    /* Base font color */
+    color: #c9c4c1;
 }
 
 .unstyled {
@@ -250,11 +269,6 @@ figcaption {
     margin-bottom: 1.25rem;
 }
 
-/* figcaption a {
-    font-style: italic;
-
-} */
-
 .pdf {
     width: 100%;
     height: 80vh;
@@ -284,7 +298,7 @@ pre {
     color: #8a8a8a;
     text-align: left;
     background-color: #1a1a1a;
-    padding: 1.5rem;
+    padding: 1.75rem 1.5rem;
     margin-bottom: 15px;
     /* Enable word wrap in code blocks */
     overflow-x: auto;
@@ -295,7 +309,14 @@ pre {
 code {
     font-family: 'DM Mono';
     font-weight: 300;
-    line-height: 1.75rem;
+    line-height: 1.5rem;
+}
+
+.codeblock-label {
+    font-style: italic;
+    font-weight: 100;
+    position: absolute;
+    right: 20px;
 }
 
 /* Reusme ---------------------------------- */
@@ -355,7 +376,8 @@ code {
 }
 
 .fade-to-teal:hover,
-a:hover {
+a:hover,
+.toc li a:hover {
     /* `teal` theme color */
     color: #85FFE4;
     transition: color 1.5s;
