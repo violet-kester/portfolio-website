@@ -85,7 +85,7 @@ class Banner(models.Model):
         related_name='banner'
     )
     image = models.ImageField(
-        upload_to='blog/static/blog/img/posts/banners/'
+        upload_to='blog/static/blog/img/banners/'
     )
     caption = models.CharField(max_length=250, blank=True)
     source = models.CharField(max_length=250, blank=True)
