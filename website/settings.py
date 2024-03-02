@@ -32,7 +32,7 @@ INSTALLED_APPS = [
     'django.contrib.postgres',
     'django_htmx',
     'taggit',
-    'template_partials',
+    # 'template_partials',
     'core',
     'projects',
     'blog',
@@ -146,6 +146,7 @@ EMAIL_HOST_PASSWORD = os.environ.get('GMAIL_APP_PASSWORD')
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
+
 # Output all log messages to the console
 
 LOGGING = {
@@ -159,5 +160,21 @@ LOGGING = {
     "root": {
         "handlers": ["console"],
         "level": "WARNING",
+    },
+}
+
+
+# Save media files to S3 on Django >= 4.2
+# https://django-storages.readthedocs.io/en/latest/backends/amazon-S3.html
+
+STORAGES = {
+    "default": {
+        "BACKEND": "storages.backends.s3.S3Storage",
+        "OPTIONS": {
+            "bucket_name": os.environ.get('AWS_STORAGE_BUCKET_NAME'),
+            "region_name": os.environ.get('AWS_S3_REGION_NAME'),
+            "access_key": os.environ.get('AWS_ACCESS_KEY_ID'),
+            "secret_key": os.environ.get('AWS_SECRET_ACCESS_KEY'),
+        },
     },
 }
