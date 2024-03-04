@@ -4,23 +4,16 @@ import os
 
 load_dotenv()
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
-# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG')
 
 ALLOWED_HOSTS = ['127.0.0.1', 'portfolio-website-dx2t.onrender.com']
 
 
-# Application definition
+# Application definition -------------------------------------------------
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -39,7 +32,6 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    "django.middleware.security.SecurityMiddleware",
     "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -105,50 +97,14 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-# Internationalization
-# https://docs.djangoproject.com/en/5.0/topics/i18n/
-
-LANGUAGE_CODE = 'en-us'
-
-TIME_ZONE = 'America/New_York'
-
-USE_I18N = True
-
-USE_TZ = True
-
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/5.0/howto/static-files/
-
-STATIC_URL = 'static/'
-
-STATICFILES_DIRS = [
-    BASE_DIR / "static",
-]
-
-
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-# URL and path to serve user-uploaded media files
-
-MEDIA_URL = ''
-MEDIA_ROOT = BASE_DIR / ''
-
-
-# Email server configuration
-
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'kester.violet.j@gmail.com'
-EMAIL_HOST_PASSWORD = os.environ.get('GMAIL_APP_PASSWORD')
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-
-
-# Output all log messages to the console
+# Enable logging
+# https://docs.djangoproject.com/en/5.0/topics/logging/#examples
 
 LOGGING = {
     "version": 1,
@@ -165,7 +121,51 @@ LOGGING = {
 }
 
 
-# Forever-cacheable files and compression support with WhiteNoise
-# https://whitenoise.readthedocs.io/en/stable/index.html
+# Media files (uploaded photos and other media) --------------------------
 
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+# Base URL for media files
+
+MEDIA_URL = ''
+
+# Base directory for media files in each app
+
+MEDIA_ROOT = BASE_DIR / ''
+
+
+# Static files (CSS, JavaScript, logos, etc.) ----------------------------
+
+# Base URL for static files
+
+STATIC_URL = 'static/'
+
+# Add top-level `static/` directory to static directories list
+
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
+
+# (Production) Where to collect static files used in production
+
+STATIC_ROOT = BASE_DIR / "staticfiles"
+
+# (Production) Enable WhiteNoise storage backend
+# https://whitenoise.readthedocs.io/en/stable/django.html
+
+STORAGES = {
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+    },
+}
+
+
+# Email server configuration ---------------------------------------------
+
+EMAIL_HOST = 'smtp.gmail.com'
+
+EMAIL_HOST_USER = 'kester.violet.j@gmail.com'
+
+EMAIL_HOST_PASSWORD = os.environ.get('GMAIL_APP_PASSWORD')
+
+EMAIL_PORT = 587
+
+EMAIL_USE_TLS = True
