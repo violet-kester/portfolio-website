@@ -7,7 +7,7 @@
     <i>My personal website and blog.</i>
   </p>
   <p>
-    Django | PostgreSQL | Whitenoise | htmx | hyperscript | Bootstrap
+    Django | PostgreSQL | WhiteNoise | htmx | hyperscript | Bootstrap
   </p>
 </div>
 
