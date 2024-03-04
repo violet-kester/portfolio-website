@@ -17,7 +17,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG')
 
-ALLOWED_HOSTS = ['portfolio-website-dx2t.onrender.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'portfolio-website-dx2t.onrender.com']
 
 
 # Application definition
@@ -39,6 +39,8 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -161,3 +163,9 @@ LOGGING = {
         "level": "WARNING",
     },
 }
+
+
+# Forever-cacheable files and compression support with WhiteNoise
+# https://whitenoise.readthedocs.io/en/stable/index.html
+
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
