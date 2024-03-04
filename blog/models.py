@@ -24,9 +24,6 @@ class Post(models.Model):
                                related_name='posts')
     overview = models.TextField(blank=True)
     body = models.TextField(blank=True)
-    # banner = models.ImageField(upload_to='blog/static/blog/img/banners/',
-    #                            blank=True,
-    #                            null=True)
     thumbnail = models.ImageField(upload_to='blog/static/blog/img/thumbnails/',
                                   default='static/img/logos/logo-480.png')
     publish = models.DateTimeField(default=timezone.now)
