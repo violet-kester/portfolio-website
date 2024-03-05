@@ -7,13 +7,13 @@
     <i>My personal website and blog.</i>
   </p>
   <p>
-    Django | PostgreSQL | WhiteNoise | htmx | hyperscript | Bootstrap
+    Django | PostgreSQL | WhiteNoise | S3 | CloudFront | htmx | hyperscript | Bootstrap
   </p>
 </div>
 
 <!-- Installation -->
 
-<div>
+<!-- <div>
   <h3>Running the application</h3>
   <hr/>
   <p>
@@ -57,7 +57,7 @@
   <h4>
     4. Open the app in your browser at <a href='http://127.0.0.1:8000/'>http://127.0.0.1:8000/</a>.
   </h4>
-</div>
+</div> -->
 
 <!-- Project structure -->
 
@@ -91,18 +91,6 @@ website/
 │   ├── forms.py
 │   ├── urls.py
 │   └── views.py
-│
-│
-├── media/
-│   ├── blog/
-│   │   └── img/
-│   │       ├── banners/
-│   │       └── thumbnails/
-│   └── projects/
-│       └── img/
-│           ├── logos/
-│           ├── thumbnails/
-│           └── screenshots/
 │
 │
 ├── projects/
