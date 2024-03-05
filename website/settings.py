@@ -12,7 +12,7 @@ DEBUG = os.environ.get('DEBUG')
 
 ALLOWED_HOSTS = [
     '127.0.0.1',
-    'portfolio-website-dx2t.onrender.com'
+    'portfolio-website-dx2t.onrender.com',
     'violetkester.com'
 ]
 
