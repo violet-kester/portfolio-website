@@ -148,26 +148,19 @@ STATICFILES_DIRS = [
 
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
-# (Production) Enable WhiteNoise storage backend
+# (Production) Enable S3 and WhiteNoise storage backends
 # https://whitenoise.readthedocs.io/en/stable/django.html
 
-STORAGES = {
-    "default": {
-        "BACKEND": "storages.backends.s3.S3Storage",
-        "OPTIONS": {
-            "bucket_name": os.environ.get('AWS_STORAGE_BUCKET_NAME'),
-            "region_name": os.environ.get('AWS_S3_REGION_NAME'),
-            "access_key": os.environ.get('AWS_ACCESS_KEY_ID'),
-            "secret_key": os.environ.get('AWS_SECRET_ACCESS_KEY'),
-            "custom_domain": os.environ.get('AWS_S3_CUSTOM_DOMAIN'),
-            "cloudfront_key_id": os.environ.get('AWS_CLOUDFRONT_KEY_ID'),
-            "cloudfront_key": os.environ.get('AWS_CLOUDFRONT_KEY'),
-        },
-    },
-    "staticfiles": {
-        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
-    },
-}
+DEFAULT_FILE_STORAGE = "storages.backends.s3.S3Storage"
+AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME')
+AWS_S3_REGION_NAME = os.environ.get('AWS_S3_REGION_NAME')
+AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+AWS_S3_CUSTOM_DOMAIN = os.environ.get('AWS_S3_CUSTOM_DOMAIN')
+AWS_CLOUDFRONT_KEY_ID = os.environ.get('AWS_CLOUDFRONT_KEY_ID')
+AWS_CLOUDFRONT_KEY = os.environ.get('AWS_CLOUDFRONT_KEY')
+
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 
 # Email server configuration ---------------------------------------------
