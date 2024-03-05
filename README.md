@@ -70,11 +70,6 @@ website/
 │
 ├── blog/
 │   ├── migrations/
-│   ├── static/
-│   │   └── blog/
-│   │      └── img/
-│   │	      └── banners/
-│   │	      └── thumbnails/
 │   ├── templatetags/
 │   │   ├── __init__.py
 │   │   └── blog_tags.py
@@ -98,14 +93,19 @@ website/
 │   └── views.py
 │
 │
+├── media/
+│   ├── blog/
+│   │   ├── img/
+│   │   │   ├── banners/
+│   │	  │   └── thumbnails/
+│   │   ├── projects/
+│   │   │   ├── logos/
+│   │	  │   ├── thumbnails/
+│   │	  │   └── screenshots/
+│
+│
 ├── projects/
 │   ├── migrations/
-│   ├── static/
-│   │   └── projects/
-│   │	   └── img/
-│   │	      ├── logos/
-│   │	      ├── screenshots/
-│   │	      └── thumbnails/
 │   ├── templatetags/
 │   │   └── project_tags.py
 │   ├── __init__.py
@@ -126,6 +126,8 @@ website/
 │       ├── logos/
 │       ├── photos/
 │       └── favicon.ico
+│
+├── staticfiles/
 │
 │
 ├── templates
