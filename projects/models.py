@@ -54,11 +54,11 @@ class Project(models.Model):
     summary = models.TextField(blank=True)
     description = models.TextField(blank=True)
     technologies = models.ManyToManyField(Technology, related_name='projects')
-    logo = models.ImageField(upload_to='projects/static/projects/img/logos/',
-                             default='static/img/logos/portfolio-logo-480.png')
+    logo = models.ImageField(upload_to='projects/img/logos/',
+                             default='img/logos/portfolio-logo-480.png')
     thumbnail = models.ImageField(
-        upload_to='projects/static/projects/img/thumbnails/',
-        default='static/img/logos/portfolio-logo-480.png'
+        upload_to='projects/img/thumbnails/',
+        default='img/logos/portfolio-logo-480.png'
     )
     publish = models.DateTimeField(default=timezone.now)
     created = models.DateTimeField(auto_now_add=True)
@@ -113,7 +113,7 @@ class Screenshot(models.Model):
         related_name='screenshots'
     )
     image = models.ImageField(
-        upload_to='projects/static/projects/img/screenshots/'
+        upload_to='projects/img/screenshots/'
     )
     description = models.CharField(max_length=250, blank=True)
 

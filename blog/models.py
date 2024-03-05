@@ -24,8 +24,8 @@ class Post(models.Model):
                                related_name='posts')
     overview = models.TextField(blank=True)
     body = models.TextField(blank=True)
-    thumbnail = models.ImageField(upload_to='blog/static/blog/img/thumbnails/',
-                                  default='static/img/logos/logo-480.png')
+    thumbnail = models.ImageField(upload_to='blog/img/thumbnails/',
+                                  default='img/logos/logo-480.png')
     publish = models.DateTimeField(default=timezone.now)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
@@ -82,7 +82,7 @@ class Banner(models.Model):
         related_name='banner'
     )
     image = models.ImageField(
-        upload_to='blog/static/blog/img/banners/'
+        upload_to='blog/img/banners/'
     )
     caption = models.CharField(max_length=250, blank=True)
     source = models.CharField(max_length=250, blank=True)

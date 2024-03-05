@@ -127,9 +127,9 @@ LOGGING = {
 
 MEDIA_URL = ''
 
-# Base directory for media files in each app
+# Base directory for media files
 
-MEDIA_ROOT = BASE_DIR / ''
+MEDIA_ROOT = BASE_DIR / 'media/'
 
 
 # Static files (CSS, JavaScript, logos, etc.) ----------------------------
