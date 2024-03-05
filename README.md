@@ -126,8 +126,7 @@ website/
 │       ├── icons/
 │       ├── logos/
 │       ├── photos/
-│       │   ├── screenshots/
-│       │   └── violet.jpg
+│       ├── screenshots/
 │       └── favicon.ico
 │
 │
