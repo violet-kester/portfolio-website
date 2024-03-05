@@ -95,13 +95,14 @@ website/
 │
 ├── media/
 │   ├── blog/
-│   │   ├── img/
-│   │   │   ├── banners/
-│   │	  │   └── thumbnails/
-│   │   ├── projects/
-│   │   │   ├── logos/
-│   │	  │   ├── thumbnails/
-│   │	  │   └── screenshots/
+│   │   └── img/
+│   │       ├── banners/
+│   │	      └── thumbnails/
+│   └── projects/
+│       └── img/
+│           ├── logos/
+│   	      ├── thumbnails/
+│   	      └── screenshots/
 │
 │
 ├── projects/
@@ -126,6 +127,7 @@ website/
 │       ├── logos/
 │       ├── photos/
 │       └── favicon.ico
+│
 │
 ├── staticfiles/
 │
