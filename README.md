@@ -97,12 +97,12 @@ website/
 │   ├── blog/
 │   │   └── img/
 │   │       ├── banners/
-│   │	      └── thumbnails/
+│   │       └── thumbnails/
 │   └── projects/
 │       └── img/
 │           ├── logos/
-│   	      ├── thumbnails/
-│   	      └── screenshots/
+│           ├── thumbnails/
+│           └── screenshots/
 │
 │
 ├── projects/
