@@ -128,8 +128,9 @@ LOGGING = {
 MEDIA_URL = ''
 
 # Base directory for media files
+# NOTE: Not necessary when serving media files from S3
 
-MEDIA_ROOT = BASE_DIR / 'media/'
+# MEDIA_ROOT = BASE_DIR / 'media/'
 
 
 # Static files (CSS, JavaScript, logos, etc.) ----------------------------
@@ -138,7 +139,7 @@ MEDIA_ROOT = BASE_DIR / 'media/'
 
 STATIC_URL = 'static/'
 
-# Add top-level `static/` directory to static directories list
+# Add top-level `static/` directory to static files directories list
 
 STATICFILES_DIRS = [
     BASE_DIR / "static",
@@ -148,19 +149,27 @@ STATICFILES_DIRS = [
 
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
-# (Production) Enable S3 and WhiteNoise storage backends
+# (Production) Enable AWS S3 and WhiteNoise storage backends
 # https://whitenoise.readthedocs.io/en/stable/django.html
+# https://django-storages.readthedocs.io/en/latest/backends/amazon-S3.html
 
-DEFAULT_FILE_STORAGE = "storages.backends.s3.S3Storage"
-AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME')
-AWS_S3_REGION_NAME = os.environ.get('AWS_S3_REGION_NAME')
-AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
-AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
-AWS_S3_CUSTOM_DOMAIN = os.environ.get('AWS_S3_CUSTOM_DOMAIN')
-AWS_CLOUDFRONT_KEY_ID = os.environ.get('AWS_CLOUDFRONT_KEY_ID')
-AWS_CLOUDFRONT_KEY = os.environ.get('AWS_CLOUDFRONT_KEY')
-
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+STORAGES = {
+    "default": {
+        "BACKEND": "storages.backends.s3.S3Storage",
+        "OPTIONS": {
+            "bucket_name": os.environ.get('AWS_STORAGE_BUCKET_NAME'),
+            "region_name": os.environ.get('AWS_S3_REGION_NAME'),
+            "access_key": os.environ.get('AWS_ACCESS_KEY_ID'),
+            "secret_key": os.environ.get('AWS_SECRET_ACCESS_KEY'),
+            "custom_domain": os.environ.get('AWS_S3_CUSTOM_DOMAIN'),
+            "cloudfront_key_id": os.environ.get('AWS_CLOUDFRONT_KEY_ID'),
+            "cloudfront_key": os.environ.get('AWS_CLOUDFRONT_KEY'),
+        },
+    },
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+    },
+}
 
 
 # Email server configuration ---------------------------------------------
