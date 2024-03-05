@@ -126,6 +126,8 @@ website/
 │       ├── icons/
 │       ├── logos/
 │       ├── photos/
+│       │   ├── screenshots/
+│       │   └── violet.jpg
 │       └── favicon.ico
 │
 │
@@ -198,10 +200,10 @@ website/
 <h3>Image Gallery</h3>
 <hr/>
 <div class='images-container' align='center'>
-  <img src='projects/static/projects/img/screenshots/portfolio-600x900-projects.png' alt='Projects page' width='400px' height='600px'>
-  <img src='projects/static/projects/img/screenshots/portfolio-600x900-post-images.png' alt='Blog post' width='400px' height='600px'>
-  <img src='projects/static/projects/img/screenshots/portfolio-600x900-blog.png' alt='Blog' width='400px' height='600px'>
-  <img src='projects/static/projects/img/screenshots/portfolio-600x900-post-code.png' alt='Blog post with code examples' width='400px' height='600px'>
-  <img src='projects/static/projects/img/screenshots/portfolio-600x900-post-comment.png' alt='Comment form' width='400px' height='600px'>
-  <img src='projects/static/projects/img/screenshots/portfolio-600x900-post-search.png' alt='Search results' width='400px' height='600px'>
+  <img src='static/img/screenshots/portfolio-600x900-projects.png' alt='Projects page' width='400px' height='600px'>
+  <img src='static/img/screenshots/portfolio-600x900-post-images.png' alt='Blog post' width='400px' height='600px'>
+  <img src='static/img/screenshots/portfolio-600x900-blog.png' alt='Blog' width='400px' height='600px'>
+  <img src='static/img/screenshots/portfolio-600x900-admin.png' alt='Blog post with code examples' width='400px' height='600px'>
+  <img src='static/img/screenshots/portfolio-600x900-post-comment.png' alt='Comment form' width='400px' height='600px'>
+  <img src='static/img/screenshots/portfolio-600x900-post-search.png' alt='Search results' width='400px' height='600px'>
 </div>
