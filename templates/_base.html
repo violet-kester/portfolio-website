@@ -49,7 +49,7 @@
 </head>
 
 <body hx-boost="true" hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'>
-  <div class="grid container-fluid">
+  <div class="grid container-fluid vh-100">
 
     <!-- Navbar -------------------------------->
 
@@ -63,7 +63,7 @@
 
     <main
       id="content"
-      class="container col-12 col-sm-11 col-md-8 col-lg-8 col-xl-6 px-3 px-lg-5 py-5 text-center">
+      class="container text-center col-12 col-sm-11 col-md-10 col-lg-9 col-xl-8 px-3 px-lg-5 py-5">
         {% block main %}{% endblock %}
     </main>
 
