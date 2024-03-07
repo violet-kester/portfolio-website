@@ -143,22 +143,14 @@ strong {
 /* Layout ------------------------------------ */
 
 #content {
-    height: calc(100vh - 64px);
-}
-
-#welcome {
-    height: 100%;
+    margin-bottom: 64px;
 }
 
 #sidebar {
-    /* `gray-900` theme color */
-    background-color: #0d0d0d;
-    border: none;
     right: 0;
     top: 0;
     border-radius: 1.5rem;
     overflow-y: scroll;
-    z-index: 20;
 }
 
 #sidebar input {
@@ -316,8 +308,8 @@ pre {
 
 code {
     font-family: 'DM Mono';
-    font-weight: 600;
-    /* line-height: 1.5rem; */
+    font-weight: 300;
+    line-height: 1.5rem;
 }
 
 .codeblock-label {
@@ -413,15 +405,14 @@ a:hover,
     .project-card .carousel-item img {
         max-height: 600px;
     }
+
+    /* .pdf {
+        height: 100vh;
+    } */
 }
 
-/* Medium+ screens - mobile/tablet view */
+/* Medium+ screens */
 @media (min-width: 768px) {
-
-}
-
-/* Large+ screens - desktop view */
-@media (min-width: 992px) {
     #nav-menu {
         top: 64px;
         width: auto;
@@ -429,6 +420,10 @@ a:hover,
         border: none;
     }
 }
+
+/* Large+ screens */
+/* @media (min-width: 992px) {
+} */
 
 /* Theme colors ------------------------------ */
 
@@ -465,12 +460,8 @@ a:hover,
 
 /* `secondary` theme color */
 /* Card background, code block background, tag background, form input borders */
-/* Horizontal line dividers, sidebar border */
+/* Horizontal line dividers */
 /* #1a1a1a */
-
-/* `gray-100` theme color */
-/* Inline code color */
-/* #e0dcd9 */
 
 /* `gray-200` theme color */
 /* #e0dcd9 */
@@ -493,9 +484,8 @@ a:hover,
 /* #5a5a5a */
 
 /* `gray-900` theme color */
-/* Website, sidebar background color */
+/* Website background color */
 /* #0d0d0d */
-/* rgba(13, 13, 13, 0.5) */
 
 /* `black` theme color */
 /* Form input background color */
