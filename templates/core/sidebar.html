@@ -4,7 +4,7 @@
 
 <aside
   id="sidebar"
-  class="slide-up col-12 col-lg-5 col-xl-3 p-3 position-fixed text-center text-lg-right">
+  class="slide-up col-12 col-lg-5 col-xl-4 p-3 pb-5 pb-lg-3 text-center text-lg-right">
 
   <div class="d-flex justify-content-between">
 
@@ -17,7 +17,7 @@
     <!-- Sidebar toggler ------------------------->
 
     <div
-      class="nav-btn"
+      class="navbar-btn"
       aria-label="Toggle sidebar"
       _="on click toggle between .slide-up and .slide-down on #sidebar">
         <img src="/static/img/icons/close.png"/>
@@ -27,11 +27,11 @@
 
   <!-- Sidebar content --------------------------->
 
-  <div class="mt-5 px-4 px-lg-5">
+  <div class="my-5 px-4 px-lg-5">
 
     <!-- Projects -->
 
-    <div class="mb-5">
+    <div class="mb-5 pt-5 pt-lg-4">
       <h3
         class="text-primary mb-5"
         hx-get="{% url 'projects:homepage' %}"
@@ -49,7 +49,7 @@
 
     <div class="mb-5">
 
-      <h3
+    <h3
       class="text-primary my-5"
       hx-get="{% url 'blog:homepage' %}"
       hx-target="#content"
@@ -60,13 +60,13 @@
       Blog
     </h3>
 
-    <h5 class="text-primary">Recent posts</h5>
+    <h5 class="tiny-header">Recent posts</h5>
 
     {% get_latest_posts 3 %}
 
     <!-- Tags -->
 
-    <h5 class="text-primary">Tags</h5>
+    <h5 class="tiny-header">Tags</h5>
 
       {% get_all_post_tags as post_tags %}
       <ul>

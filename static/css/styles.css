@@ -39,6 +39,7 @@ body {
 em {
     /* `teal` theme color */
     color: #85FFE4;
+    font-weight: 200;
 }
 
 h1,
@@ -65,10 +66,6 @@ article h4 {
     color: #c9c4c1;
 }
 
-button {
-    letter-spacing: .075em;
-}
-
 .fw-light {
     font-weight: 200;
 }
@@ -86,23 +83,30 @@ strong {
     letter-spacing: .25rem;
 }
 
+.large-header {
+    font-size: 6.5rem;
+}
+
 /* Navigation -------------------------------- */
 
 .navbar {
-    height: 64px;
+    height: 6.5rem;
+}
+
+.navbar-upper {
+    height: 3rem;
 }
 
 .navbar-title {
-    font-size: 1rem;
-    height: 40px;
-    text-transform: uppercase;
+    font-size: 1.25rem;
+    line-height: 3rem;
     letter-spacing: 1rem;
+    text-transform: uppercase;
     margin-left: 9px;
 }
 
-.nav-btn {
-    height: 40px;
-    width: 32px;
+.navbar-btn {
+    width: 3rem;
     cursor: pointer;
     padding: 0;
     display: flex;
@@ -111,61 +115,67 @@ strong {
     flex-shrink: 0;
 }
 
-#nav-menu {
-    bottom: 0;
+#navbar-page-links {
     width: 100vw;
-    height: 64px;
-    border-radius: 1.25rem;
-    z-index: 5;
+    height: 1.5rem;
 }
 
-.nav-menu-link {
-    max-height: 40px;
-    border-radius: .75rem;
-    letter-spacing: .16rem;
-    cursor: pointer;
+.navbar-page-link {
     display: flex;
     align-items: center;
+    background: none;
+    border: 0;
+    cursor: pointer;
 }
 
-.nav-menu-link button {
+.navbar-page-link button {
     border-radius: 50%;
     border-width: 0;
-    height: 12px;
-    width: 12px;
-}
-
-.nav-menu-link {
-    font-size: 1rem;
-    letter-spacing: .15rem;
+    height: 1.25rem;
+    width: 1.25rem;
+    max-height: 1.25rem;
+    max-width: 1.25rem;
 }
 
 /* Layout ------------------------------------ */
 
 #content {
-    height: calc(100vh - 64px);
+    min-height: calc(100vh - 6.5rem);
+    /* width: 100vw; */
 }
 
 #welcome {
-    height: 100%;
+    height: calc(100vh - 14.5rem);
+    padding-bottom: 8rem;
+}
+
+#welcome h1,
+#welcome p {
+    opacity: 0;
 }
 
 #sidebar {
     /* `gray-900` theme color */
     background-color: #0d0d0d;
-    border: none;
+    /* `secondary` theme color */
+    border-bottom: 1px solid #1a1a1a;
+    border-radius: 1.5rem;
+    position: fixed;
     right: 0;
     top: 0;
-    border-radius: 1.5rem;
     overflow-y: scroll;
     z-index: 20;
 }
 
 #sidebar input {
-    height: 40px;
+    height: 3rem;
 }
 
 /* Components -------------------------------- */
+
+button {
+    letter-spacing: .075em;
+}
 
 ul li {
     list-style-type: circle;
@@ -277,11 +287,6 @@ figcaption {
     margin-bottom: 1.25rem;
 }
 
-.pdf {
-    width: 100%;
-    height: 80vh;
-}
-
 .tag {
     font-size: 85%;
     /* `teal` theme color */
@@ -367,7 +372,6 @@ code {
 
 .slide-down {
     transition: all .6s ease-in-out;
-    height: 100vh;
     opacity: 1;
 }
 
@@ -391,23 +395,17 @@ a:hover,
     transition: color 1.5s;
 }
 
+.invisible {
+    opacity: 0;
+}
+
 /* Media queries ----------------------------- */
 
 /* Small+ screens */
 @media (min-width: 576px) {
     .navbar-title {
-        font-size: 1.75rem;
+        font-size: 1.5rem;
         letter-spacing: 1.25rem;
-    }
-
-    .nav-menu-link,
-    .card-link {
-        font-size: 1.25rem;
-    }
-
-    .nav-menu-link button {
-        height: 16px;
-        width: 16px;
     }
 
     .project-card .carousel-item img {
@@ -417,16 +415,26 @@ a:hover,
 
 /* Medium+ screens - mobile/tablet view */
 @media (min-width: 768px) {
-
+    .large-header {
+        font-size: 8rem;
+    }
 }
 
 /* Large+ screens - desktop view */
 @media (min-width: 992px) {
-    #nav-menu {
-        top: 64px;
-        width: auto;
-        height: calc(100vh - 64px);
-        border: none;
+    #sidebar {
+        height: 100vh;
+        /* `secondary` theme color */
+        border-left: 1px solid #1a1a1a;
+        border-bottom: none;
+    }
+}
+
+/* Extra, extra large screens */
+@media (min-width: 1500px) {
+    #sidebar {
+        /* equivalent to `col-2.5` */
+        width: 20.83%
     }
 }
 
