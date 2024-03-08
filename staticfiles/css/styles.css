@@ -320,12 +320,12 @@ pre {
 }
 
 pre code {
-    font-weight: 300;
+    font-weight: 400;
 }
 
 code {
     font-family: 'DM Mono';
-    font-weight: 500;
+    font-weight: 600;
 }
 
 .codeblock-label {
