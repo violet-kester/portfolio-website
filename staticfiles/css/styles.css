@@ -60,12 +60,6 @@ h5 {
     margin-bottom: 15px;
 }
 
-article h4 {
-    /* `white` theme color */
-    /* Base font color */
-    color: #c9c4c1;
-}
-
 .fw-light {
     font-weight: 200;
 }
@@ -185,9 +179,9 @@ ul li {
     margin-left: 12px;
 }
 
-.toc li {
+/* .toc li {
     list-style-type: none;
-}
+} */
 
 .toc li a {
     /* `white` theme color */
@@ -321,6 +315,7 @@ pre {
 
 pre code {
     font-weight: 400;
+    font-size: 90%;
 }
 
 code {
@@ -331,8 +326,8 @@ code {
 .codeblock-label {
     font-style: italic;
     font-weight: 100;
-    position: absolute;
-    right: 20px;
+    /* position: absolute;
+    right: 1.5rem; */
 }
 
 /* Reusme ---------------------------------- */
