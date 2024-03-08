@@ -17,7 +17,7 @@
 }
 
 ul {
-    padding-inline-start: 0;
+    padding-inline-start: 1rem;
 }
 
 button:focus {
@@ -73,7 +73,7 @@ h5 {
 .tiny-header {
     /* `primary` theme color */
     color: #FFC107;
-    font-size: 1rem;
+    font-size: 1.25rem;
     text-transform: uppercase;
     letter-spacing: .25rem;
 }
@@ -139,13 +139,13 @@ h5 {
 /* Layout ------------------------------------ */
 
 #content {
-    min-height: calc(100vh - 7rem);
-    /* width: 100vw; */
+    height: 100%;
+    max-height: calc(100vh - 7rem);
 }
 
 #welcome {
-    height: calc(100vh - 14.5rem);
-    padding-bottom: 9rem;
+    height: 100%;
+    padding-bottom: 12rem;
 }
 
 #welcome h1,
@@ -346,7 +346,37 @@ code {
     padding-right: .5rem;
 }
 
-/* Reusme ---------------------------------- */
+/* Tables and resume ------------------------- */
+
+table {
+    border-collapse: collapse;
+    text-align: left;
+}
+
+table td,
+table th {
+    border: 1px solid #1a1a1a;
+    padding: 1.25rem;
+}
+
+table th {
+    vertical-align: bottom;
+}
+
+table td {
+    vertical-align: top;
+}
+
+table tr:first-child th {
+    /* `black` theme color */
+    background-color: rgba(8, 8, 8, 1)
+}
+
+table tr td:first-child {
+    /* `black` theme color */
+    background-color: rgba(8, 8, 8, .3);
+    hyphens: none;
+}
 
 .resume h5 {
     text-transform: uppercase;
@@ -356,9 +386,6 @@ code {
     border-style: none;
 }
 
-.resume td {
-    vertical-align: top;
-}
 
 /* Effects and animation ------------------- */
 
@@ -428,6 +455,32 @@ a:hover,
         border-left: 1px solid #1a1a1a;
         border-bottom: none;
     }
+
+    /* Base font size: 1.4rem */
+    h1 {
+        font-size: calc(1.4rem * 3.15);
+    }
+
+    h2 {
+        font-size: calc(1.4rem * 2.25);
+    }
+
+    h3 {
+        font-size: calc(1.4rem * 2);
+    }
+
+    h4 {
+        font-size: calc(1.4rem * 1.75);
+    }
+
+    h5 {
+        font-size: calc(1.4rem * 1.5);
+    }
+
+    /* The h6 font size stays the same */
+    /* h6 {
+        font-size: calc(1.4rem * 1.25);
+    } */
 }
 
 /* Medium+ screens - mobile/tablet view */
@@ -518,5 +571,6 @@ a:hover,
 /* rgba(13, 13, 13, 0.5) */
 
 /* `black` theme color */
-/* Form input background color */
+/* Input background color, table headers */
 /* #080808 */
+/* rgba(8, 8, 8, 1) */
