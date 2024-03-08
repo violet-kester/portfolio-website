@@ -139,8 +139,7 @@ website/
 │   ├── core/
 │   │   ├── about.html
 │   │   ├── index.html
-│   │   ├── nav_menu_links.html
-│   │   ├── nav_menu.html
+│   │   ├── navbar_page_links.html
 │   │   ├── navbar.html
 │   │   ├── resume.html
 │   │   └── sidebar.html
