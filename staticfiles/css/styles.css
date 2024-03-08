@@ -282,9 +282,12 @@ ul li {
     background: none;
 }
 
+figure {
+    margin: 1.25rem 0;
+}
+
 figure img {
     width: 100%;
-    margin-bottom: 1.25rem;
     border-radius: .5rem;
 }
 
@@ -292,7 +295,7 @@ figcaption {
     /* `muted` theme color */
     color: #5a5a5a;
     font-size: 85%;
-    margin-bottom: 1.25rem;
+    margin: 1.25rem 0;
 }
 
 .tag {
