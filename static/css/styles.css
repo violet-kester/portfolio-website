@@ -84,7 +84,7 @@ strong {
 /* Navigation -------------------------------- */
 
 .navbar {
-    height: 6.5rem;
+    height: 7rem;
 }
 
 .navbar-upper {
@@ -111,7 +111,7 @@ strong {
 
 #navbar-page-links {
     width: 100vw;
-    height: 1.5rem;
+    height: 2rem;
 }
 
 .navbar-page-link {
@@ -186,7 +186,6 @@ ul li {
 .toc li a {
     /* `light` theme color */
     color: #8a8a8a;
-    font-size: 85%;
 }
 
 .unstyled {
@@ -194,7 +193,6 @@ ul li {
 }
 
 .overview {
-    font-size: 85%;
     text-align: left;
     margin-bottom: 1.25rem;
 }
@@ -324,6 +322,7 @@ code {
 }
 
 .codeblock-label {
+    font-size: 85%;
     font-style: italic;
     font-weight: 100;
     padding-right: .5rem;
@@ -396,9 +395,17 @@ a:hover,
 
 /* Small+ screens */
 @media (min-width: 576px) {
+    .navbar {
+        height: 6.5rem;
+    }
+
     .navbar-title {
         font-size: 1.5rem;
         letter-spacing: 1.25rem;
+    }
+
+    #navbar-page-links {
+        height: 1.5rem;
     }
 
     .project-card .carousel-item img {
