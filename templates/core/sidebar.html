@@ -31,42 +31,27 @@
 
     <!-- Projects -->
 
-    <div class="mb-5 pt-5 pt-lg-4">
-      <h3
-        class="text-primary mb-5"
-        hx-get="{% url 'projects:homepage' %}"
-        hx-target="#content"
-        hx-swap="outerHTML show:window:top"
-        hx-push-url="true"
-        style="cursor:pointer"
-        _="on click toggle between .slide-down and .slide-up on #sidebar">
-          Featured projects
-      </h3>
+    <div class="mb-5 pt-4">
+
+      <h3 class="text-primary mb-5">Featured projects</h3>
+
       {% get_latest_projects 3 %}
+
     </div>
 
     <!-- Blog -->
 
     <div class="mb-5">
 
-    <h3
-      class="text-primary my-5"
-      hx-get="{% url 'blog:homepage' %}"
-      hx-target="#content"
-      hx-swap="outerHTML show:window:top"
-      hx-push-url="true"
-      style="cursor:pointer"
-      _="on click toggle between .slide-down and .slide-up on #sidebar">
-      Blog
-    </h3>
+      <h3 class="text-primary my-5">Blog</h3>
 
-    <h5 class="tiny-header">Recent posts</h5>
+      <h5 class="tiny-header">Recent posts</h5>
 
-    {% get_latest_posts 3 %}
+      {% get_latest_posts 3 %}
 
-    <!-- Tags -->
+      <!-- Tags -->
 
-    <h5 class="tiny-header">Tags</h5>
+      <h5 class="tiny-header">Tags</h5>
 
       {% get_all_post_tags as post_tags %}
       <ul>
