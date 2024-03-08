@@ -1,18 +1,21 @@
 {% load static %}
 
 <nav class="navbar glassy sticky-top p-3">
-  <div class="container-fluid d-flex justify-content-between align-items-center">
+  <div class="navbar-upper container-fluid d-flex justify-content-between align-items-center">
 
     <!-- Navbar logo --------------------------->
 
     <div
-      class="nav-btn mr-0 ml-2"
+      class="navbar-btn"
       hx-get="{% url 'core:homepage' %}"
       hx-target="#content"
       hx-swap="outerHTML show:window:top"
       hx-push-url="true"
       _="on htmx:afterOnLoad take .focus for event.target">
-        <img src="{% static 'img/logos/portfolio-logo-240.png' %}" alt="Logo" height="32px">
+        <img
+          src="{% static 'img/logos/portfolio-logo-240.png' %}"
+          alt="Logo"
+          class="w-100">
     </div>
 
     <!-- Navbar title --------------------------->
@@ -24,13 +27,16 @@
     <!-- Sidebar toggler ----------------------->
 
     <div
-      class="nav-btn"
+      class="navbar-btn"
       aria-label="Toggle sidebar"
       _="on click toggle between .slide-up and .slide-down on #sidebar">
-        <img src="{% static 'img/icons/list.png' %}" />
+        <img src="{% static 'img/icons/list.png' %}">
     </div>
 
-    <!-- Links to pages -->
-
   </div>
+
+  <!-- Links to pages -------------------------->
+
+  {% include './navbar_page_links.html' %}
+
 </nav>
