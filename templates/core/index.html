@@ -8,21 +8,41 @@
   id="welcome"
   class="container-fluid d-flex flex-column justify-content-center align-items-center">
     <div>
+
       <h1
-        class="large-header mb-3"
-        _="on load transition my opacity to 1 over 3s">
+        class="large-header mb-0"
+        _="on load transition opacity to 1 over 3s">
           Welcome
       </h1>
-      <p _="on load wait 1s then transition my opacity to 1 over 3s">
-        This is the website homepage.
-      </p>
-      <p _="on load wait 2s then transition my opacity to 1 over 3s">
-        Lorem <em>ipsum</em> dolor sit amet, consectetur adipiscing elit,<br/>
-        sed do <code>eiusmod tempor</code> incididunt ut labore et dolore
+
+      <a
+        class="stronger"
+        hx-get="{% url 'blog:homepage' %}"
+        hx-target="#content"
+        hx-swap="outerHTML show:window:top"
+        hx-push-url="true"
+        _="on load wait 1s then transition opacity to 1 over 3s">
+          Portfolio Website
+      </a>
+      <span _="on load wait 1s then transition opacity to 1 over 3s">|</span>
+      <a
+        class="stronger"
+        hx-get="{% url 'blog:homepage' %}"
+        hx-target="#content"
+        hx-swap="outerHTML show:window:top"
+        hx-push-url="true"
+        _="on load wait 2s then transition opacity to 1 over 3s">
+          Web Development & Design Blog
+      </a>
+
+      <p _="on load wait 3s then transition opacity to 1 over 3s">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit,<br/>
+        sed do eiusmod tempor incididunt ut labore et dolore
         magna aliqua.<br/>
-        Tortor id aliquet <code>lectus proin</code>
-        nibh <em>nisl condimentum</em>.
+        Tortor id aliquet lectus proin
+        nibh nisl condimentum.
       </p>
+
     </div>
 </div>
 
