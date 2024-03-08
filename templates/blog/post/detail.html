@@ -67,8 +67,11 @@
     <figcaption style="text-align: center; position: relative;">
       {{ post.banner.caption }}
       {% if post.banner.source %}
-      <a href="{{ post.banner.source }}" target="_blank" style="position: absolute; right: 0;">
-        Source
+      <a
+        href="{{ post.banner.source }}"
+        target="_blank"
+        style="position: absolute; right: 0;">
+          Source
       </a>
       {% endif %}
     </figcaption>
@@ -76,8 +79,8 @@
 
   <!-- Overview -------------------------------->
 
-  <div class="overview card border-secondary bg-dark text-light py-3 px-4">
-    <span class="tiny-header text-primary text-center mb-1">Overview</span>
+  <div class="overview card border-secondary bg-dark text-light pt-3 px-4 pb-4">
+    <span class="tiny-header text-primary text-center">Overview</span>
     {{ post.overview|markdown|linebreaks }}
   </div>
 
