@@ -64,9 +64,10 @@ h5 {
     font-weight: 200;
 }
 
-strong {
-    color: #e0dcd9;
-    font-weight: 500;
+.stronger {
+    /* `gray-100` theme color */
+    color: #f0ebea;
+    font-weight: 600;
 }
 
 .tiny-header {
@@ -148,8 +149,15 @@ strong {
 }
 
 #welcome h1,
-#welcome p {
+#welcome p,
+#welcome a,
+#welcome span {
     opacity: 0;
+}
+
+#welcome a {
+    display: inline-block;
+    margin-bottom: 1.25rem;
 }
 
 #sidebar {
@@ -170,6 +178,10 @@ strong {
 }
 
 /* Components -------------------------------- */
+
+a {
+    cursor: pointer;
+}
 
 button {
     letter-spacing: .075em;
@@ -289,16 +301,15 @@ figcaption {
     color: #85FFE4;
     /* `secondary` theme color */
     background-color: #1a1a1a;
-    padding: .5rem .75rem;
+    padding: .5rem 1rem;
     border-radius: 50rem;
     cursor: pointer;
 }
 
 .callout {
-    font-size: 85%;
     /* `light` theme color */
     color: #8a8a8a;
-    margin-bottom: 1.25rem;
+    margin: 1.25rem 0;
 }
 
 /* Code blocks ------------------------------- */
@@ -399,21 +410,20 @@ a:hover,
 
 /* Small+ screens */
 @media (min-width: 576px) {
-    .navbar {
-        height: 6.5rem;
-    }
-
     .navbar-title {
         font-size: 1.5rem;
         letter-spacing: 1.25rem;
     }
 
-    #navbar-page-links {
-        height: 1.5rem;
-    }
-
     .project-card .carousel-item img {
         max-height: 600px;
+    }
+
+    #sidebar {
+        height: 100vh;
+        /* `secondary` theme color */
+        border-left: 1px solid #1a1a1a;
+        border-bottom: none;
     }
 }
 
@@ -425,14 +435,9 @@ a:hover,
 }
 
 /* Large+ screens - desktop view */
-@media (min-width: 992px) {
-    #sidebar {
-        height: 100vh;
-        /* `secondary` theme color */
-        border-left: 1px solid #1a1a1a;
-        border-bottom: none;
-    }
-}
+/* @media (min-width: 992px) {
+
+} */
 
 /* Extra, extra large screens */
 @media (min-width: 1500px) {
@@ -482,7 +487,7 @@ a:hover,
 
 /* `gray-100` theme color */
 /* Inline code color */
-/* #e0dcd9 */
+/* #f0ebea */
 
 /* `gray-200` theme color */
 /* #e0dcd9 */
