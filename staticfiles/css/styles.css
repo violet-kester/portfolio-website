@@ -56,8 +56,8 @@ h4 {
 
 h4,
 h5 {
-    margin-top: 32px;
-    margin-bottom: 15px;
+    margin-top: 2.75rem;
+    margin-bottom: 1.25rem;
 }
 
 .fw-light {
@@ -96,7 +96,7 @@ strong {
     line-height: 3rem;
     letter-spacing: 1rem;
     text-transform: uppercase;
-    margin-left: 9px;
+    margin-left: .75rem;
 }
 
 .navbar-btn {
@@ -176,17 +176,17 @@ ul li {
 }
 
 .callout ul {
-    margin-left: 12px;
+    margin-left: 1rem;
 }
 
-/* .toc li {
+.toc li {
     list-style-type: none;
-} */
+}
 
 .toc li a {
-    /* `white` theme color */
-    /* Base font color */
-    color: #c9c4c1;
+    /* `light` theme color */
+    color: #8a8a8a;
+    font-size: 85%;
 }
 
 .unstyled {
@@ -196,7 +196,7 @@ ul li {
 .overview {
     font-size: 85%;
     text-align: left;
-    margin-bottom: 15px;
+    margin-bottom: 1.25rem;
 }
 
 .overview p {
@@ -296,7 +296,7 @@ figcaption {
     font-size: 85%;
     /* `light` theme color */
     color: #8a8a8a;
-    margin-bottom: 15px;
+    margin-bottom: 1.25rem;
 }
 
 /* Code blocks ------------------------------- */
@@ -326,7 +326,7 @@ code {
 .codeblock-label {
     font-style: italic;
     font-weight: 100;
-    padding-right: .25rem;
+    padding-right: .5rem;
 }
 
 /* Reusme ---------------------------------- */
@@ -390,10 +390,6 @@ a:hover,
     /* `teal` theme color */
     color: #85FFE4;
     transition: color 1.5s;
-}
-
-.invisible {
-    opacity: 0;
 }
 
 /* Media queries ----------------------------- */
@@ -487,7 +483,7 @@ a:hover,
 
 /* `gray-500` theme color */
 /* `light` theme color */
-/* Card text, sidebar preview text, project technologies list, search result dates */
+/* Card text, sidebar preview text, project technologies list, search result dates, TOC links color */
 /* #8a8a8a */
 /* rgba(249, 247, 247, 1) */
 
