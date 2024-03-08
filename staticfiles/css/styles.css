@@ -39,7 +39,7 @@ body {
 em {
     /* `teal` theme color */
     color: #85FFE4;
-    font-weight: 200;
+    font-weight: 300;
 }
 
 h1,
@@ -302,9 +302,9 @@ figcaption {
 /* Code blocks ------------------------------- */
 
 pre {
+    background-color: none;
     color: #8a8a8a;
     text-align: left;
-    background-color: #1a1a1a;
     padding: 1.75rem 1.5rem;
     margin: 15px 0;
     /* Enable word wrap in code blocks */
@@ -326,8 +326,7 @@ code {
 .codeblock-label {
     font-style: italic;
     font-weight: 100;
-    /* position: absolute;
-    right: 1.5rem; */
+    padding-right: .25rem;
 }
 
 /* Reusme ---------------------------------- */
