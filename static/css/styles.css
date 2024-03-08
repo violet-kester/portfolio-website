@@ -146,7 +146,7 @@ strong {
 
 #welcome {
     height: calc(100vh - 14.5rem);
-    padding-bottom: 8rem;
+    padding-bottom: 7.5rem;
 }
 
 #welcome h1,
@@ -317,6 +317,10 @@ pre {
     overflow-x: auto;
     white-space: pre-wrap;
     word-wrap: break-word;
+}
+
+pre code {
+    font-weight: 300;
 }
 
 code {
