@@ -81,6 +81,10 @@ strong {
     font-size: 6.5rem;
 }
 
+.source {
+    font-style: italic;
+}
+
 /* Navigation -------------------------------- */
 
 .navbar {
