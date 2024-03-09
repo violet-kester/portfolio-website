@@ -1,8 +1,15 @@
 from django.contrib import admin
-from .models import Post, Comment, Banner
+from .models import Post, Comment, Banner, Photo
+
 
 class BannerInline(admin.TabularInline):
     model = Banner
+
+
+class PhotoInline(admin.TabularInline):
+    model = Photo
+    extra = 1
+
 
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
@@ -19,7 +26,7 @@ class PostAdmin(admin.ModelAdmin):
     ordering = ['-status', '-publish']
     # Inline admin classes
     # Add or edit the banner image from the Post admin page
-    inlines = [BannerInline]
+    inlines = [BannerInline, PhotoInline]
 
 
 @admin.register(Comment)
@@ -28,4 +35,3 @@ class CommentAdmin(admin.ModelAdmin):
     list_display = ['name', 'post', 'created', 'active']
     # Column filters
     list_filter = ['active', 'created', 'updated']
-

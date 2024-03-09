@@ -9,9 +9,11 @@ class LinkInline(admin.TabularInline):
     # Number of empty slots to display (default is 3)
     extra = 1
 
+
 class ScreenshotInline(admin.TabularInline):
     model = Screenshot
     extra = 1
+
 
 class ProjectAdmin(admin.ModelAdmin):
     # Displayed columns
@@ -32,11 +34,10 @@ class ProjectAdmin(admin.ModelAdmin):
 
 admin.site.register(Project, ProjectAdmin)
 
+
 class TechnologyAdmin(admin.ModelAdmin):
     # Displayed columns
     list_display = ['name', 'category']
 
+
 admin.site.register(Technology, TechnologyAdmin)
-
-
-

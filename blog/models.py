@@ -90,3 +90,22 @@ class Banner(models.Model):
 
     def __str__(self):
         return f'{self.post.title} banner'
+
+
+class Photo(models.Model):
+    """A model class that represents an photo shared in a blog post."""
+
+    project = models.ForeignKey(
+        Post,
+        on_delete=models.CASCADE,
+        related_name='photos'
+    )
+    image = models.ImageField(
+        upload_to='blog/img/photos/'
+    )
+    caption = models.CharField(max_length=250, blank=True)
+    source = models.CharField(max_length=250, blank=True)
+    alt = models.CharField(max_length=250, blank=True)
+
+    def __str__(self):
+        return f'{self.post.title} banner'
