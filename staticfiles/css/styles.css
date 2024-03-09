@@ -388,7 +388,7 @@ table tr td:first-child {
     background-color: rgba(8, 8, 8, .3);
 }
 
-table tr td:last-child {
+resume table tr td:last-child {
     /* `black` theme color */
     background-color: rgba(8, 8, 8, .15)
 }
@@ -461,7 +461,7 @@ a:hover,
     transition: color 1.5s;
 }
 
-.no-bg {
+.bg-none {
     background-color: transparent !important;
 }
 
