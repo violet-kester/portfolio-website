@@ -35,3 +35,9 @@ class CommentAdmin(admin.ModelAdmin):
     list_display = ['name', 'post', 'created', 'active']
     # Column filters
     list_filter = ['active', 'created', 'updated']
+
+
+@admin.register(Photo)
+class PhotoAdmin(admin.ModelAdmin):
+    # Prepopulate slug field based on title
+    prepopulated_fields = {'slug': ('title',)}

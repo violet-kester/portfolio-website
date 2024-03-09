@@ -95,7 +95,7 @@ class Banner(models.Model):
 class Photo(models.Model):
     """A model class that represents an photo shared in a blog post."""
 
-    project = models.ForeignKey(
+    post = models.ForeignKey(
         Post,
         on_delete=models.CASCADE,
         related_name='photos'
@@ -103,6 +103,8 @@ class Photo(models.Model):
     image = models.ImageField(
         upload_to='blog/img/photos/'
     )
+    slug = models.SlugField(max_length=250, unique=True, blank=True)
+    title = models.CharField(max_length=250, blank=True)
     caption = models.CharField(max_length=250, blank=True)
     source = models.CharField(max_length=250, blank=True)
     alt = models.CharField(max_length=250, blank=True)
