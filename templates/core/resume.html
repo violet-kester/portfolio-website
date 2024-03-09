@@ -13,10 +13,11 @@
   <i class="bi-filetype-pdf mr-1"></i> Open PDF
 </a>
 
-<!-- Resume ------------------------------------>
+<section class="resume">
+  <table class="table-dark col-2 col-sm-12">
 
-<section class="resume small">
-  <table class="table-dark col-12">
+    <!-- Technical skills ---------------------->
+
     <thead>
       <tr>
         <th colspan="3" class="p-0">
@@ -24,9 +25,9 @@
         </th>
       </tr>
     </thead>
-    <tbody class="text-left">
+    <tbody>
       <tr>
-        <td class="px-0">
+        <td colspan="3" class="no-bg px-1">
           <strong>Languages</strong> - JavaScript, Python, TypeScript, SQL, HTML, CSS<br />
           <strong>Frameworks and Libraries</strong> - Django, Flask, Express, React, jQuery, Bootstrap, Tailwind CSS,
           HTMX<br />
@@ -36,11 +37,9 @@
         </td>
       </tr>
     </tbody>
-  </table>
 
-  <!--  Engineering experience ----------------->
+    <!-- Engineering experience ---------------->
 
-  <table class="table-dark col-12">
     <thead>
       <tr>
         <th colspan="3" class="p-0">
@@ -48,36 +47,42 @@
         </th>
       </tr>
     </thead>
-    <tbody class="text-left">
+    <tbody>
       <tr>
-        <td class="col-1 px-0">
+        <td class="col-2 col-sm-1 px-1">
           2023
         </td>
-        <td class="col-9 p-2.5">
+        <td class="col-8 col-sm-9">
           <strong>Software Engineer Intern</strong>, Rithm School
-          <ul class="ml-4">
-            <li>Contributed to the Student Information System (SIS), a production learning management system with over
-              80,000 lines of code.</li>
-            <li>Collaborated with an Agile team of engineers to plan and develop features using story points, standups,
-              and pair programming.</li>
-            <li>Developed an announcements app with an admin page for displaying and managing updates for various
-              cohorts.</li>
-            <li>Wrote Slack integration to automate reminders to lecturers regarding unpublished lectures.</li>
-            <li>Ensured reliability of code by maintaining 98% test coverage through comprehensive testing of features.
+          <ul>
+            <li>
+              Contributed to the Student Information System (SIS), a production learning management system with over
+              80,000 lines of code.
+            </li>
+            <li>
+              Collaborated with an Agile team of engineers to plan and develop features using story points, standups,
+              and pair programming.
+            </li>
+            <li>
+              Developed an announcements app with an admin page for displaying and managing updates for various
+              cohorts.
+            </li>
+            <li>
+              Wrote Slack integration to automate reminders to lecturers regarding unpublished lectures.</li>
+            <li>
+              Ensured reliability of code by maintaining 98% test coverage through comprehensive testing of features.
             </li>
           </ul>
         </td>
-        <td class="text-right col-2 px-0">
+        <td class="text-right col-2 px-1">
           San Francisco,<br>
           CA
         </td>
       </tr>
     </tbody>
-  </table>
 
-  <!--  Technical projects ------------------->
+    <!-- Technial projects --------------------->
 
-  <table class="table-dark col-12">
     <thead>
       <tr>
         <th colspan="3" class="p-0">
@@ -85,86 +90,78 @@
         </th>
       </tr>
     </thead>
-    <tbody class="text-left">
+    <tbody>
       <tr>
-        <td class="col-1 px-0">
+        <td class="col-2 col-sm-1 px-1">
           2024
         </td>
-        <td class="col-9 p-2.5">
+        <td class="col-8 col-sm-9">
           <strong>Portfolio website</strong> - <span class="fst-italic">Personal website and blog</span><br>
           Django, PostgreSQL, HTMX, Hyperscript, Bootstrap
-          <ul class="ml-4">
-            <li>Implemented a blog application that enables users to search for, comment on, and browse blog posts by
-              tag.</li>
-            <li>Used HTMX to update site content dynamically from the server, creating a seamless, SPA-like user
-              experience.</li>
+          <ul>
+            <li>
+              Implemented a blog application that enables users to search for, comment on, and browse blog posts by
+              tag.
+            </li>
+            <li>
+              Used HTMX to update site content dynamically from the server, creating a seamless, SPA-like user
+              experience.
+            </li>
           </ul>
         </td>
-        <td class="text-right col-2 px-0">
+        <td class="text-right col-2 px-1">
           <a href="https://github.com/violet-kester/portfolio-website" target="_blank">GitHub</a>
         </td>
       </tr>
       <tr>
-        <td class="col-1 px-0">
+        <td class="col-2 col-sm-1 px-1">
           2023
         </td>
-        <td class="col-9 p-2.5">
+        <td class="col-8 col-sm-9">
           <strong>Jobly</strong> - <span class="fst-italic">Job board application</span><br>
           Express, React, PostgreSQL, Material UI
-          <ul class="ml-4">
-            <li>Mapped out the React component hierarchy as a blueprint for the development process, accounting for the
-              essential state, props, and context for each component.</li>
-            <li>Utilized RESTful API calls from the frontend to the backend to fetch and update job posting data.</li>
+          <ul>
+            <li>
+              Mapped out the React component hierarchy as a blueprint for the development process, accounting for the
+              essential state, props, and context for each component.
+            </li>
+            <li>
+              Utilized RESTful API calls from the frontend to the backend to fetch and update job posting data.
+            </li>
           </ul>
         </td>
-        <td class="text-right col-2 px-0">
+        <td class="text-right col-2 px-1">
           <a href="https://violetkester-jobly.surge.sh/" target="_blank">Demo</a><br>
           <a href="https://github.com/violet-kester/react-jobly" target="_blank">GitHub (frontend)</a><br>
           <a href="https://github.com/violet-kester/express-jobly" target="_blank">GitHub (backend)</a>
         </td>
       </tr>
       <tr>
-        <td class="col-1 px-0">
+        <td class="col-2 col-sm-1 px-1">
           2023
         </td>
-        <td class="col-9 p-2.5">
+        <td class="col-8 col-sm-9">
           <strong>Warbler</strong> - <span class="fst-italic">Twitter clone</span><br>
           Flask, PostgreSQL, SQLAlchemy, Jinja
-          <ul class="ml-4">
-            <li>Implemented a secure JWT login and authentication system, ensuring user privacy and account protection
-              and enabling the authorization of API endpoints.</li>
-            <li>Performed CRUD operations on the database using SQLAlchemy ORM.</li>
+          <ul>
+            <li>
+              Implemented a secure JWT login and authentication system, ensuring user privacy and account protection
+              and enabling the authorization of API endpoints.
+            </li>
+            <li>
+              Performed CRUD operations on the database using SQLAlchemy ORM.
+            </li>
           </ul>
         </td>
-        <td class="text-right col-2 px-0">
+        <td class="text-right col-2 px-1">
           <a href="https://violetkester-warbler.onrender.com/login" target="_blank">Demo</a><br>
           <a href="https://github.com/violet-kester/warbler" target="_blank">GitHub</a>
         </td>
       </tr>
-      <tr>
-        <td class="col-1 px-0">
-          2023
-        </td>
-        <td class="col-9 p-2.5">
-          <strong>Friender</strong> - <span class="fst-italic">Online platform for finding friends</span><br>
-          Flask, React, , PostgreSQL, AWS S3
-          <ul class="ml-4">
-            <li>Used Amazon S3 to store user-uploaded photos, enhancing storage and retrieval performance.</li>
-            <li>Leveraged models' relationships to filter out previously rated users' profiles, optimizing the matching
-              process.</li>
-          </ul>
-        </td>
-        <td class="text-right col-2 px-0">
-          <a href="https://github.com/violet-kester/friender" target="_blank">GitHub (frontend)</a><br>
-          <a href="https://github.com/ari-denary/friender-BACKEND" target="_blank">GitHub (backend)</a>
-        </td>
-      </tr>
     </tbody>
-  </table>
 
-  <!--  Education ------------------------------>
+    <!-- Education ----------------------------->
 
-  <table class="table-dark col-12">
     <thead>
       <tr>
         <th colspan="3" class="p-0">
@@ -174,38 +171,36 @@
     </thead>
     <tbody class="text-left">
       <tr>
-        <td class="col-1 px-0">
+        <td class="col-2 col-sm-1 px-1">
           2023
         </td>
-        <td class="col-9 p-2.5">
+        <td class="col-8 col-sm-9">
           <strong>Rithm School</strong>, Full-Stack Web Development Bootcamp
         </td>
-        <td class="text-right col-2 px-0">
+        <td class="text-right col-2 px-1">
           San Francisco,<br>
           CA
         </td>
       </tr>
       <tr>
-        <td class="col-1 px-0">
+        <td class="col-2 col-sm-1 px-1">
           2007 - 2011
         </td>
-        <td class="col-9 p-2.5">
+        <td class="col-8 col-sm-9">
           <strong>The University of Georgia</strong>, BFA Painting & Drawing<br>
-          <ul class="ml-4">
-            <li>Honors: HOPE Scholarship recipient 2007-2011, <i>magna cum laude</i><br></li>
+          <ul>
+            <li>Honors: HOPE Scholarship recipient 2007-2011, <i>magna cum laude</i></li>
           </ul>
         </td>
-        <td class="text-right col-2 px-0">
+        <td class="text-right col-2 px-1">
           Athens,<br>
           GA
         </td>
       </tr>
     </tbody>
-  </table>
 
-  <!--  Work experience  --------------------->
+    <!-- Work experience ----------------------->
 
-  <table class="table-dark col-12">
     <thead>
       <tr>
         <th colspan="3" class="p-0">
@@ -215,43 +210,41 @@
     </thead>
     <tbody class="text-left">
       <tr>
-        <td class="col-1 px-0">
+        <td class="col-2 col-sm-1 px-1">
           2020 - 2024
         </td>
-        <td class="col-9 p-2.5">
+        <td class="col-8 col-sm-9">
           <strong>Server</strong>, Sushi Murasaki
-          <ul class="ml-4">
+          <ul>
             <li>Delivered top-notch customer service with attentiveness and professionalism in a fast-paced, high-volume
               work environment.</li>
           </ul>
         </td>
-        <td class="text-right col-2 px-0">
+        <td class="text-right col-2 px-1">
           Greenville,<br>
           SC
         </td>
       </tr>
       <tr>
-        <td class="col-1 px-0">
+        <td class="col-2 col-sm-1 px-1">
           2012 - 2014
         </td>
-        <td class="col-9 p-2.5">
+        <td class="col-8 col-sm-9">
           <strong>English teacher</strong>, Teach and Learn in Korea
-          <ul class="ml-4">
+          <ul>
             <li>Organized lesson plans and extracurricular activities as a public school instructor for students in
               grades 1-6.</li>
           </ul>
         </td>
-        <td class="text-right col-2 px-0">
+        <td class="text-right col-2 px-1">
           Jeonju,<br>
           South Korea
         </td>
       </tr>
     </tbody>
-  </table>
 
-  <!--  Volunteer experience  ---------------->
+    <!-- Volunteer experience ------------------>
 
-  <table class="table-dark col-12">
     <thead>
       <tr>
         <th colspan="3" class="p-0">
@@ -261,26 +254,26 @@
     </thead>
     <tbody class="text-left">
       <tr>
-        <td class="col-1 px-0">
+        <td class="col-2 col-sm-1 px-1">
           2016 - 2019
         </td>
-        <td class="col-9 p-2.5">
+        <td class="col-8 col-sm-9">
           <strong>Art Ministry Coordinator</strong>, Central Outreach and Advocacy Center
-          <ul class="ml-4">
+          <ul>
             <li>Established an art program at a volunteer-governed men's shelter, leaving a lasting positive impact on
               the community.</li>
             <li>Led weekly art classes for individuals overcoming homelessness, coordinated volunteers, and exhibited
               guests' work.</li>
           </ul>
         </td>
-        <td class="text-right col-2 px-0">
+        <td class="text-right col-2 px-1">
           Atlanta,<br>
           GA
         </td>
       </tr>
     </tbody>
-  </table>
 
+  </table>
 </section>
 
 {% endblock %}

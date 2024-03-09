@@ -96,7 +96,7 @@
 
 <section class="mb-5">
 
-  <h4 class="tiny-header pb-3 mb-0 text-primary">Similar posts</h4>
+  <h4 class="tiny-header text-primary pb-3 mb-0">Similar posts</h4>
 
   {% if similar_posts %}
   <div class="row justify-content-center">
@@ -115,7 +115,8 @@
               src="{{ post.thumbnail.url }}"
               alt="{{ post.title }}">
             <div class="card-body px-5 px-md-4 pt-0 pb-5">
-              <h3 class="card-title text-light">{{ post.title }}</h5>
+              <h3 class="card-title">{{ post.title }}</h5>
+              <h6>{{ post.subtitle }}</h6>
               <p class="card-text small">
                 {{ post.overview|truncatewords_html:100|markdown|striptags }}
               </p>
@@ -135,14 +136,14 @@
 
 <section>
 
-  <h4 class="tiny-header mb-3 text-primary"> Comments</h4>
+  <h4 class="tiny-header text-primary mb-3"> Comments</h4>
 
   <div class="text-left">
     <ul id="comment-list">
       {% for comment in comments %}
       {% include './comment.html' %}
       {% empty %}
-      <p class="pb-3 text-muted text-center">There are no comments yet.</p>
+      <p class="text-muted text-center pb-3">There are no comments yet.</p>
       {% endfor %}
     </ul>
   </div>
