@@ -16,9 +16,6 @@
     padding: 0;
 }
 
-ul {
-    padding-inline-start: 1rem;
-}
 
 button:focus {
     outline: none;
@@ -139,13 +136,14 @@ h5 {
 /* Layout ------------------------------------ */
 
 #content {
-    height: 100%;
-    max-height: calc(100vh - 7rem);
+    min-height: calc(100vh - 7rem);
+    padding-bottom: 6rem;
 }
 
 #welcome {
-    height: 100%;
-    padding-bottom: 12rem;
+    height: calc(100vh - 16rem);
+    /* height: 100%; */
+    padding-bottom: 10rem;
 }
 
 #welcome h1,
@@ -177,6 +175,10 @@ h5 {
     height: 3rem;
 }
 
+#sidebar i {
+    line-height: 0;
+}
+
 /* Components -------------------------------- */
 
 a {
@@ -187,12 +189,14 @@ button {
     letter-spacing: .075em;
 }
 
-ul li {
-    list-style-type: circle;
+ul {
+    padding-inline-start: 1rem;
+    margin-left: .4rem;
 }
 
-.callout ul {
-    margin-left: 1rem;
+
+ul li {
+    list-style-type: circle;
 }
 
 .toc li {
@@ -218,11 +222,11 @@ ul li {
 }
 
 .faded-card {
-    overflow: hidden;
-    opacity: 45%;
-    transition: opacity 0.3s ease-in-out;
     min-width: 120px;
     max-height: 375px;
+    opacity: 45%;
+    transition: opacity 0.3s ease-in-out;
+    overflow: hidden;
     /* Vendor prefixes for mask-image */
     -webkit-mask-image: linear-gradient(to top, transparent, #1a1a1a 100px);
     mask-image: linear-gradient(to top, transparent, #1a1a1a 100px);
@@ -239,7 +243,11 @@ ul li {
 }
 
 .faded-card h3 {
-    font-size: 1.5rem;
+    font-size: calc(1.4rem * 1.5);
+}
+
+.faded-card p {
+    line-height: 2rem;
 }
 
 .post-thumbnail {
@@ -351,6 +359,7 @@ code {
 table {
     border-collapse: collapse;
     text-align: left;
+    margin: 1.25rem 0;
 }
 
 table td,
@@ -361,6 +370,8 @@ table th {
 
 table th {
     vertical-align: bottom;
+    /* `black` theme color */
+    background-color: rgba(8, 8, 8, 1)
 }
 
 table td {
@@ -375,15 +386,29 @@ table tr:first-child th {
 table tr td:first-child {
     /* `black` theme color */
     background-color: rgba(8, 8, 8, .3);
-    hyphens: none;
+}
+
+table tr td:last-child {
+    /* `black` theme color */
+    background-color: rgba(8, 8, 8, .15)
+}
+
+.resume tr,
+.resume th,
+.resume td {
+    font-size: 85%;
+    border: none;
+    padding: 1rem;
 }
 
 .resume h5 {
+    margin: 1.25rem;
+    /* vertical-align: middle; */
     text-transform: uppercase;
 }
 
-.resume tr {
-    border-style: none;
+.resume ul {
+    margin-bottom: 0;
 }
 
 
@@ -436,12 +461,16 @@ a:hover,
     transition: color 1.5s;
 }
 
+.no-bg {
+    background-color: transparent !important;
+}
+
 /* Media queries ----------------------------- */
 
 /* Small+ screens */
 @media (min-width: 576px) {
     .navbar-title {
-        font-size: 1.5rem;
+        font-size: 1.75rem;
         letter-spacing: 1.25rem;
     }
 
@@ -495,11 +524,22 @@ a:hover,
 
 } */
 
+/* Extra large+ screens - desktop view */
+/* @media (min-width: 1200px) {
+
+} */
+
 /* Extra, extra large screens */
 @media (min-width: 1500px) {
     #sidebar {
         /* equivalent to `col-2.5` */
         width: 20.83%
+    }
+
+    .resume tr,
+    .resume th,
+    .resume td {
+        font-size: 100%;
     }
 }
 
@@ -533,8 +573,8 @@ a:hover,
 /* #B987FA */
 
 /* `primary` theme color */
-/* rgba(255, 193, 7, 0.15) */
 /* #FFC107 */
+/* rgba(255, 193, 7, 1) */
 
 /* `secondary` theme color */
 /* Card background, code block background, tag background, form input borders */
