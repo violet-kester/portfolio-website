@@ -110,4 +110,4 @@ class Photo(models.Model):
     alt = models.CharField(max_length=250, blank=True)
 
     def __str__(self):
-        return f'{self.post.title} banner'
+        return f'An image of {self.alt}'
