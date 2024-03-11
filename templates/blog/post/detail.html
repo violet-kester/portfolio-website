@@ -115,9 +115,8 @@
               src="{{ post.thumbnail.url }}"
               alt="{{ post.title }}">
             <div class="card-body px-5 px-md-4 pt-0 pb-5">
-              <h3 class="card-title">{{ post.title }}</h5>
-              <h6>{{ post.subtitle }}</h6>
-              <p class="card-text small">
+              <h3 class="card-title m-0">{{ post.title }}</h5>
+              <p class="card-text small mb-3">
                 {{ post.overview|truncatewords_html:100|markdown|striptags }}
               </p>
             </div>
