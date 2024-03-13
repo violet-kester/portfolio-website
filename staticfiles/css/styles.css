@@ -585,21 +585,29 @@ a:hover,
 
 } */
 
-/* Extra, extra large screens */
-@media (min-width: 1500px) {
-    #content {
-        /* equivalent to `col-6` */
-        width: 50%
-    }
+@media (min-width: 1400px) {
     #sidebar {
         /* equivalent to `col-3` */
         width: 25%
+    }
+}
+
+/* Extra, extra large screens */
+@media (min-width: 1500px) {
+    #sidebar {
+        /* equivalent to `col-2.5` */
+        width: 22.5%
+    }
+
+    #content {
+        /* equivalent to `col-7` */
+        width: 55%;
     }
 
     .resume tr,
     .resume th,
     .resume td {
-        font-size: 100%;
+        font-size: 90%;
     }
 
     .project-card {
