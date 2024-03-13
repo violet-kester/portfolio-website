@@ -1,11 +1,12 @@
-<!-- Project links -->
+<!-- Project links ----------------------------->
 
-<ul class="d-flex flex-wrap justify-content-center mb-0">
+<ul class="d-flex flex-wrap p-0 m-0">
 
   {% for link in project.links.all %}
-  <li class="unstyled p-1">
+
+  <li class="unstyled">
     <a
-      class="btn btn-outline-primary btn-sm text-nowrap"
+      class="btn btn-outline-primary btn-sm text-nowrap mb-3 mr-3"
       href="{{ link.url }}"
       target="_blank">
         <i class="{{ link.bootstrap_icon }} mr-1"></i>

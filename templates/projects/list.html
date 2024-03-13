@@ -3,54 +3,32 @@
 <!-- Projects -------------------------------->
 
 <div class="container">
-  <div class="card-group row row-cols-1">
+  <div class="row row-cols-3">
 
     {% for project in projects %}
-    <div class="col p-3 border-top">
-      <div class="card project-card">
-        <div class="row row-cols-1 row-cols-sm-2">
+    <div
+      class="project-card col d-flex flex-column p-3"
+      hx-get="{{ project.get_absolute_url }}"
+      hx-target="#content"
+      hx-swap="outerHTML show:window:top"
+      hx-push-url="true"
+      style="cursor: pointer">
 
-          <!-- Project images  -->
+        <img
+          src="{{ project.logo.url }}"
+          class="project-logo mx-auto w-100 p-3 mb-5"
+          alt="{{ project.title }} logo">
 
-          <div class="col p-3 d-flex align-items-center">
-            {% include './screenshot_carousel.html' %}
-          </div>
+        <h3 class="card-title mb-4">{{ project.title }}</h3>
 
-          <!-- Project details  -->
+        <span>{{ project.subtitle }}</span>
 
-          <div
-            class="col p-3"
-            hx-get="{{ project.get_absolute_url }}"
-            hx-target="#content"
-            hx-swap="outerHTML show:window:top"
-            hx-push-url="true"
-            style="cursor: pointer">
-              <div class="card-body h-100 d-flex flex-column p-0">
+        <ul class="text-muted small mt-3 px-0 mx-0">
+          {% for technology in project.technologies.all %}
+            <li class="unstyled">{{ technology }}</li>
+          {% endfor %}
+        </ul>
 
-                {% include './link_buttons.html' %}
-
-                <div class="flex-grow-1 d-flex flex-column justify-content-center px-3 pt-3 pb-0">
-
-                  <img
-                    src="{{ project.logo.url }}"
-                    class="project-logo mx-auto mb-4"
-                    alt="{{ project.title }} logo">
-
-                  <h3 class="card-title mb-3">{{ project.title }}</h3>
-
-                  <div class="card-text">
-                    {{ project.summary|markdown|truncatewords_html:30 }}
-                  </div>
-
-                  {% include './technologies_list.html' %}
-
-                </div>
-
-              </div>
-          </div>
-
-        </div>
-      </div>
     </div>
     {% endfor %}
 
