@@ -1,9 +1,16 @@
-<!-- Project technologies list -->
+<!-- Project technologies list ----------------->
 
-<ul class="technologies list-group list-group-flush small">
-  {% for technology in project.technologies.all %}
-  <li class="list-group-item p-0 border-0 text-light">
-    {{ technology }}
-  </li>
-  {% endfor %}
-</ul>
+{% for category_name, technologies in tech_data.items %}
+  {% if technologies %}
+
+    <p>
+      {{ category_name }}:<br>
+      {% for technology in technologies %}
+        <span class="fst-italic">
+          <em>{{ technology.name }}</em>{% if not forloop.last %},{% endif %}
+        </span>
+      {% endfor %}
+    </p>
+
+  {% endif %}
+{% endfor %}

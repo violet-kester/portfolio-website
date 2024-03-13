@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Project
+from .models import Project, Technology
 
 
 def homepage(request):
@@ -38,6 +38,8 @@ def project_detail(request, slug):
         - `slug`: The project's unique slug identifier.
     Context variables:
         - `project`: The Project object.
+        - `tech_data`: A dictionary of technologies used to create
+                       this project, organized by category.
         - `base_template`: The base template to extend from,
                            depending on the request type.
     """
@@ -46,6 +48,13 @@ def project_detail(request, slug):
                                 status=Project.Status.PUBLISHED,
                                 slug=slug)
 
+    # Populates a dictionary with technology categories as keys
+    # and the corresponding technologies as values.
+    tech_data = {}
+    for category, category_name in Technology.CATEGORY_CHOICES:
+        tech_data[category_name] = project.technologies.filter(
+            category=category)
+
     if request.htmx:
         base_template = "_partial.html"
     else:
@@ -53,6 +62,7 @@ def project_detail(request, slug):
 
     context = {
         'project': project,
+        'tech_data': tech_data,
         'base_template': base_template,
     }
     return render(request,
