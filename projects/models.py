@@ -15,8 +15,10 @@ class Technology(models.Model):
         (4, "Authentication/authorization"),
         (5, "Routing and data handling"),
         (6, "CSS frameworks"),
-        (7, "Testing frameworks"),
-        (8, "Other"),
+        (7, "Templating languages"),
+        (8, "Scripting languages"),
+        (9, "Testing frameworks"),
+        (10, "Other"),
     ]
     category = models.IntegerField(choices=CATEGORY_CHOICES, default=5)
     name = models.CharField(max_length=100, unique=True)
