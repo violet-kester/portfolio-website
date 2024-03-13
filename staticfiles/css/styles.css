@@ -258,7 +258,9 @@ ul li {
 }
 
 .project-logo {
-    width: 12rem;
+    /* height: 12rem; */
+    max-width: 100%;
+    object-fit: contain;
 }
 
 .project-card {

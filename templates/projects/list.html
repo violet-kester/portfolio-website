@@ -3,7 +3,7 @@
 <!-- Projects -------------------------------->
 
 <div class="container">
-  <div class="row row-cols-3">
+  <div class="row row-cols-1 row-cols-lg-3">
 
     {% for project in projects %}
     <div
@@ -16,14 +16,14 @@
 
         <img
           src="{{ project.logo.url }}"
-          class="project-logo mx-auto w-100 p-3 mb-5"
+          class="project-logo mx-auto p-3 mb-5"
           alt="{{ project.title }} logo">
 
         <h3 class="card-title mb-4">{{ project.title }}</h3>
 
         <span>{{ project.subtitle }}</span>
 
-        <ul class="text-muted small mt-3 px-0 mx-0">
+        <ul class="text-muted small px-0 mt-3 mx-0 mb-5 mb-lg-0">
           {% for technology in project.technologies.all %}
             <li class="unstyled">{{ technology }}</li>
           {% endfor %}
