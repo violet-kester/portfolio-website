@@ -9,12 +9,14 @@ class Technology(models.Model):
     """A model class that represents a technology used in a project."""
 
     CATEGORY_CHOICES = [
-        (1, "Backend framework"),
-        (2, "Frontend framework"),
+        (1, "Backend"),
+        (2, "Frontend"),
         (3, "Databases and persistence"),
-        (4, "CSS framework"),
-        (5, "Testing framework"),
-        (6, "Misc."),
+        (4, "Authentication/authorization"),
+        (5, "Routing and data handling"),
+        (6, "CSS frameworks"),
+        (7, "Testing frameworks"),
+        (8, "Other"),
     ]
     category = models.IntegerField(choices=CATEGORY_CHOICES, default=5)
     name = models.CharField(max_length=100, unique=True)
@@ -46,26 +48,26 @@ class Project(models.Model):
     status = models.CharField(max_length=2,
                               choices=Status.choices,
                               default=Status.DRAFT)
-    title = models.CharField(max_length=250)
     slug = models.SlugField(max_length=250, unique=True)
-    author = models.ForeignKey(User,
-                               on_delete=models.CASCADE,
-                               related_name='projects')
-    summary = models.TextField(blank=True)
-    description = models.TextField(blank=True)
-    technologies = models.ManyToManyField(Technology, related_name='projects')
+    title = models.CharField(max_length=250)
+    subtitle = models.CharField(max_length=250, blank=True)
     logo = models.ImageField(upload_to='projects/img/logos/',
                              default='img/logos/portfolio-logo-480.png')
     thumbnail = models.ImageField(
         upload_to='projects/img/thumbnails/',
         default='img/logos/portfolio-logo-480.png'
     )
-    publish = models.DateTimeField(default=timezone.now)
-    created = models.DateTimeField(auto_now_add=True)
+    created = models.DateTimeField(default=timezone.now)
     updated = models.DateTimeField(auto_now=True)
+    author = models.ForeignKey(User,
+                               on_delete=models.CASCADE,
+                               related_name='projects')
+    overview = models.TextField(blank=True)
+    features = models.TextField(blank=True)
+    technologies = models.ManyToManyField(Technology, related_name='projects')
 
     class Meta:
-        ordering = ['-publish']
+        ordering = ['-created']
 
     def __str__(self):
         return self.title
