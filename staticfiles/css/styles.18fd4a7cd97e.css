@@ -355,7 +355,7 @@ figcaption {
 }
 
 .portrait {
-    width: 100%;
+    width: 50%;
 }
 
 /* .scroll-button {
@@ -572,10 +572,6 @@ a:hover,
 
     .project-logo {
         width: 24rem;
-    }
-
-    .portrait {
-        width: 50%;
     }
 }
 

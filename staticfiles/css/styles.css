@@ -12,18 +12,17 @@
     display: none;
 }
 
-.container-fluid {
+html,
+body {
+    /* Ensure the full height is available */
+    height: 100%;
+    /* Reset default margin */
+    margin: 0;
+}
+
+.container-fluid,
+.container {
     padding: 0;
-}
-
-
-button:focus {
-    outline: none;
-}
-
-td,
-th {
-    padding: 0 1rem;
 }
 
 /* Typography -------------------------------- */
@@ -86,7 +85,7 @@ h5 {
 /* Navigation -------------------------------- */
 
 .navbar {
-    height: 7rem;
+    height: 8rem;
 }
 
 .navbar-upper {
@@ -94,7 +93,7 @@ h5 {
 }
 
 .navbar-title {
-    font-size: 1.25rem;
+    font-size: 1.75rem;
     line-height: 3rem;
     letter-spacing: 1rem;
     text-transform: uppercase;
@@ -106,6 +105,7 @@ h5 {
     width: 3rem;
     cursor: pointer;
     padding: 0;
+    border: none;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -114,13 +114,13 @@ h5 {
 
 #navbar-page-links {
     width: 100vw;
-    height: 2rem;
+    height: 3rem;
 }
 
 .navbar-page-link {
     display: flex;
     align-items: center;
-    background: none;
+    padding: 1rem;
     cursor: pointer;
 }
 
@@ -135,21 +135,40 @@ h5 {
 /* Layout ------------------------------------ */
 
 #content {
-    min-height: calc(100vh - 7rem);
+    height: 100%;
+    /* Adjusted for navbar */
+    min-height: calc(100vh - 8rem);
     padding-bottom: 6rem;
 }
 
+/* #welcome-container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+} */
+
 #welcome {
-    height: calc(100vh - 16rem);
     /* height: 100%; */
-    padding-bottom: 10rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5%;
+
 }
 
 #welcome h1,
 #welcome p,
 #welcome a,
-#welcome span {
+#welcome span,
+#welcome img {
     opacity: 0;
+}
+
+#welcome img {
+    height: 24rem;
 }
 
 #welcome a {
@@ -182,6 +201,10 @@ h5 {
 
 a {
     cursor: pointer;
+}
+
+button:focus {
+    outline: none;
 }
 
 button {
@@ -264,8 +287,15 @@ ul li {
 }
 
 .project-card {
+    opacity: 0.75;
+    transition: opacity 0.3s ease;
     background: none;
     border: 0;
+}
+
+.project-card:hover,
+.project-card:focus {
+    opacity: 1;
 }
 
 .project-card .card-body {
@@ -322,6 +352,10 @@ figcaption {
     /* `light` theme color */
     color: #8a8a8a;
     margin: 1.25rem 0;
+}
+
+.portrait {
+    width: 100%;
 }
 
 /* .scroll-button {
@@ -499,8 +533,8 @@ a:hover,
         border-bottom: none;
     }
 
-    .portrait {
-        width: 50%;
+    #welcome img {
+        height: 30rem;
     }
 
     /* Base font size: 1.4rem */
@@ -538,6 +572,10 @@ a:hover,
 
     .project-logo {
         width: 24rem;
+    }
+
+    .portrait {
+        width: 50%;
     }
 }
 

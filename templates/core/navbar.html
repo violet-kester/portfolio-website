@@ -1,6 +1,6 @@
 {% load static %}
 
-<nav class="navbar glassy sticky-top p-3">
+<nav class="navbar glassy d-flex flex-col sticky-top p-3">
   <div class="navbar-upper container-fluid d-flex justify-content-between align-items-center">
 
     <!-- Navbar logo --------------------------->
@@ -13,7 +13,7 @@
       hx-push-url="true"
       _="on htmx:afterOnLoad take .focus for event.target">
         <img
-          src="{% static 'img/logos/portfolio-logo-240.png' %}"
+          src="{% static 'img/logos/portfolio-logo-240px.png' %}"
           alt="Logo"
           style="width: 3rem;">
     </div>

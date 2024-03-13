@@ -1,49 +1,57 @@
 {% extends base_template %}
 
+{% load static %}
+
 {% block title %}Violet Kester - Web Development & Design{% endblock %}
 
 {% block main %}
 
-<div
-  id="welcome"
-  class="container-fluid d-flex flex-column justify-content-center align-items-center">
-    <div>
+  <div
+    id="welcome">
 
-      <h1
-        class="large-header mb-0"
-        _="on load transition opacity to 1 over 3s">
-          Welcome
-      </h1>
+        <img
+          src="{% static 'img/logos/portfolio-logo-raw-480x360px.png' %}"
+          class="mb-4"
+          alt="Logo"
+          _="on load transition opacity to 1 over 6s">
 
-      <a
-        class="stronger"
-        hx-get="{% url 'projects:homepage' %}"
-        hx-target="#content"
-        hx-swap="outerHTML show:window:top"
-        hx-push-url="true"
-        _="on load wait 1s then transition opacity to 1 over 3s">
-          Portfolio Website
-      </a>
-      <span _="on load wait 2s then transition opacity to 1 over 3s">|</span>
-      <a
-        class="stronger"
-        hx-get="{% url 'blog:homepage' %}"
-        hx-target="#content"
-        hx-swap="outerHTML show:window:top"
-        hx-push-url="true"
-        _="on load wait 2s then transition opacity to 1 over 3s">
-          Web Development & Design Blog
-      </a>
+        <h1
+          class="large-header mb-0"
+          _="on load transition opacity to 1 over 6s">
+            Welcome
+        </h1>
 
-      <p _="on load wait 3s then transition opacity to 1 over 3s">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit,<br/>
-        sed do eiusmod tempor incididunt ut labore et dolore
-        magna aliqua.<br/>
-        Tortor id aliquet lectus proin
-        nibh nisl condimentum.
-      </p>
+        <div>
+          <a
+            class="stronger"
+            hx-get="{% url 'projects:homepage' %}"
+            hx-target="#content"
+            hx-swap="outerHTML show:window:top"
+            hx-push-url="true"
+            _="on load wait 1s then transition opacity to 1 over 3s">
+              Portfolio Website
+          </a>
+          <span _="on load wait 2s then transition opacity to 1 over 3s">|</span>
+          <a
+            class="stronger"
+            hx-get="{% url 'blog:homepage' %}"
+            hx-target="#content"
+            hx-swap="outerHTML show:window:top"
+            hx-push-url="true"
+            _="on load wait 3s then transition opacity to 1 over 3s">
+              Web Development & Design Blog
+          </a>
+        </div>
 
-    </div>
-</div>
+        <!-- <p _="on load wait 3s then transition opacity to 1 over 3s">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit,<br/>
+          sed do eiusmod tempor incididunt ut labore et dolore
+          magna aliqua.<br/>
+          Tortor id aliquet lectus proin
+          nibh nisl condimentum.
+        </p> -->
+
+  </div>
+
 
 {% endblock %}
