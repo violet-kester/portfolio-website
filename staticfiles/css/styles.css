@@ -155,7 +155,7 @@ h5 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 5%;
+    margin-top: 15%;
 
 }
 
@@ -168,7 +168,7 @@ h5 {
 }
 
 #welcome img {
-    height: 24rem;
+    max-width: 18rem;
 }
 
 #welcome a {
@@ -533,10 +533,6 @@ a:hover,
         border-bottom: none;
     }
 
-    #welcome img {
-        height: 30rem;
-    }
-
     /* Base font size: 1.4rem */
     h1 {
         font-size: calc(1.4rem * 3.15);
@@ -591,9 +587,13 @@ a:hover,
 
 /* Extra, extra large screens */
 @media (min-width: 1500px) {
+    #content {
+        /* equivalent to `col-6` */
+        width: 50%
+    }
     #sidebar {
-        /* equivalent to `col-2.5` */
-        width: 20.83%
+        /* equivalent to `col-3` */
+        width: 25%
     }
 
     .resume tr,
