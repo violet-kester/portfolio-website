@@ -56,7 +56,7 @@
       {% get_all_post_tags as post_tags %}
       <ul>
         {% for tag in post_tags %}
-        <li class="unstyled mb-1">
+        <li class="unstyled mb-3">
           <span
             class="tag"
             hx-get="{% url 'blog:post_list_by_tag' tag_slug=tag.slug %}"
