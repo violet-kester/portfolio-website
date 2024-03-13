@@ -2,61 +2,61 @@
 
 <div
   id="screenshotCarousel-{{ project.slug }}"
-  class="carousel carousel-dark screenshot-carousel slide mx-auto pt-2"
+  class="carousel screenshot-carousel carousel-dark slide mx-auto pt-2"
   data-bs-interval="false">
 
     <div class="carousel-indicators">
       {% for screenshot in project.screenshots.all %}
-      <button
-        type="button"
-        data-bs-target="#screenshotCarousel-{{ project.slug }}"
-        data-bs-slide-to="{{ forloop.counter0 }}"
-        {% if forloop.first %}
-        class="active"
-        aria-current="true"
-        {% endif %}
-        aria-label="Slide {{ forloop.counter }}">
-      </button>
+        <button
+          type="button"
+          data-bs-target="#screenshotCarousel-{{ project.slug }}"
+          data-bs-slide-to="{{ forloop.counter0 }}"
+          {% if forloop.first %}
+          class="active"
+          aria-current="true"
+          {% endif %}
+          aria-label="Slide {{ forloop.counter }}">
+        </button>
       {% endfor %}
     </div>
 
     <div class="carousel-inner">
       {% for screenshot in project.screenshots.all %}
-      {% if forloop.first %}
-      <div class="carousel-item active">
-        <img
-          src="{{ screenshot.image.url }}"
-          class="img-fluid"
-          data-bs-target="#screenshotCarousel-{{ project.slug }}"
-          data-bs-slide="next"
-          alt="{{ screenshot.description }}">
-      </div>
-      {% else %}
-      <div class="carousel-item">
-        <img
-          src="{{ screenshot.image.url }}"
-          class="img-fluid"
-          data-bs-target="#screenshotCarousel-{{ project.slug }}"
-          data-bs-slide="next"
-          alt="{{ screenshot.description }}">
-      </div>
-      {% endif %}
+        {% if forloop.first %}
+          <div class="carousel-item active">
+            <img
+              src="{{ screenshot.image.url }}"
+              class="img-fluid"
+              data-bs-target="#screenshotCarousel-{{ project.slug }}"
+              data-bs-slide="next"
+              alt="{{ screenshot.description }}">
+          </div>
+        {% else %}
+          <div class="carousel-item">
+            <img
+              src="{{ screenshot.image.url }}"
+              class="img-fluid"
+              data-bs-target="#screenshotCarousel-{{ project.slug }}"
+              data-bs-slide="next"
+              alt="{{ screenshot.description }}">
+          </div>
+        {% endif %}
       {% endfor %}
     </div>
 
-      <button
-        class="carousel-control-prev"
-        type="button"
-        data-bs-target="#screenshotCarousel-{{ project.slug }}"
-        data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      </button>
-      <button
-        class="carousel-control-next"
-        type="button"
-        data-bs-target="#screenshotCarousel-{{ project.slug }}"
-        data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      </button>
+    <button
+      class="carousel-control-prev"
+      type="button"
+      data-bs-target="#screenshotCarousel-{{ project.slug }}"
+      data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    </button>
+    <button
+      class="carousel-control-next"
+      type="button"
+      data-bs-target="#screenshotCarousel-{{ project.slug }}"
+      data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    </button>
 
-  </div>
+</div>

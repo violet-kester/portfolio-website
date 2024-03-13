@@ -21,7 +21,6 @@
 <section class="container-fluid text-left">
 
   <div class="row">
-
     <!-- Screenshots -->
     <div class="col-md-6">
       <h4 class="tiny-header py-3 mb-2 mt-0 border-bottom">Screenshots</h4>
@@ -38,17 +37,13 @@
   <!-- Overview -->
   <div>
     <h4 class="tiny-header pb-3 mb-2 border-bottom">Overview</h4>
-
-      {{ project.overview|markdown}}
-
+    {{ project.overview|markdown}}
   </div>
 
   <!-- Features -->
   <div>
-    <h4 class="tiny-header pb-3 mb-2 border-bottom">Features and challenges</h4>
-
-      {{ project.features|markdown }}
-
+    <h4 class="tiny-header pb-3 mb-2 border-bottom">Features</h4>
+    {{ project.features|markdown }}
   </div>
 
 </section>
