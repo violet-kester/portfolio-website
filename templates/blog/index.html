@@ -4,15 +4,14 @@
 
 {% block main %}
 
-<h1 class="mb-5">blog</h1>
+<h1 class="mb-5">Blog</h1>
 
 <p class="mb-5">
   Hac habitasse platea dictumst vetibulum.
 </p>
 
-<div>
-  <h4 class="mb-3">Recent posts</h4>
-  {% include './post/list.html' %}
-</div>
+<h4 class="mb-3">Recent posts</h4>
+
+{% include './post/list.html' %}
 
 {% endblock %}
