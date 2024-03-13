@@ -99,6 +99,7 @@ h5 {
     letter-spacing: 1rem;
     text-transform: uppercase;
     margin-left: .75rem;
+    padding-bottom: .5rem;
 }
 
 .navbar-btn {
@@ -120,7 +121,6 @@ h5 {
     display: flex;
     align-items: center;
     background: none;
-    border: 0;
     cursor: pointer;
 }
 
@@ -303,12 +303,12 @@ figure img {
 figcaption {
     /* `muted` theme color */
     color: #5a5a5a;
-    font-size: 85%;
+    font-size: 90%;
     margin: 1.25rem 0;
 }
 
 .tag {
-    font-size: 85%;
+    font-size: 90%;
     /* `teal` theme color */
     color: #85FFE4;
     /* `secondary` theme color */
@@ -362,7 +362,8 @@ code {
     font-size: 85%;
     font-style: italic;
     font-weight: 100;
-    padding-right: .5rem;
+    padding-top: .25rem;
+    padding-right: .75rem;
 }
 
 /* Tables and resume ------------------------- */
@@ -483,7 +484,7 @@ a:hover,
 /* Small+ screens */
 @media (min-width: 576px) {
     .navbar-title {
-        font-size: 1.75rem;
+        font-size: 2rem;
         letter-spacing: 1.25rem;
     }
 
