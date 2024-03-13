@@ -2,10 +2,9 @@
 
 <!-- Projects -------------------------------->
 
-<div class="container">
-  <div class="row row-cols-1 row-cols-lg-3">
+<div class="row row-cols-1 row-cols-lg-3">
 
-    {% for project in projects %}
+  {% for project in projects %}
     <div
       class="project-card col d-flex flex-column p-3"
       hx-get="{{ project.get_absolute_url }}"
@@ -30,7 +29,6 @@
         </ul>
 
     </div>
-    {% endfor %}
+  {% endfor %}
 
-  </div>
 </div>
