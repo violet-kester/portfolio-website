@@ -322,7 +322,7 @@ figcaption {
     margin: 1.25rem 0;
 }
 
-/* .scroll-button {
+.scroll-button {
     position: fixed;
     bottom: 2rem;
     left: 2rem;
@@ -330,7 +330,7 @@ figcaption {
 
 .scroll-button i {
     font-size: 2.5rem;
-} */
+}
 
 /* Code blocks ------------------------------- */
 
@@ -428,6 +428,10 @@ table tr td:first-child {
     backdrop-filter: blur(9px);
     z-index: 1;
 }
+
+.hidden {
+    display: none;
+  }
 
 .fade-in {
     transition: all .3s ease-in-out;
