@@ -485,10 +485,6 @@ a:hover,
         border-bottom: none;
     }
 
-    .portrait {
-        width: 50%;
-    }
-
     /* Base font size: 1.4rem */
     h1 {
         font-size: calc(1.4rem * 3.15);
@@ -521,7 +517,6 @@ a:hover,
     .large-header {
         font-size: 8rem;
     }
-
     .project-logo {
         width: 24rem;
     }
@@ -603,7 +598,7 @@ a:hover,
 
 /* `gray-500` theme color */
 /* `light` theme color */
-/* Card text, sidebar preview text, project list technologies, search result dates, TOC links color */
+/* Card text, sidebar preview text, project technologies list, search result dates, TOC links color */
 /* #8a8a8a */
 /* rgba(249, 247, 247, 1) */
 
