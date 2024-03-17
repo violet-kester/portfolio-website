@@ -6,12 +6,13 @@
 
   {% for project in projects %}
     <div
-      class="project-card col d-flex flex-column p-3"
+      class="project-card col d-flex flex-column fade-to-teal p-3"
       hx-get="{{ project.get_absolute_url }}"
       hx-target="#content"
       hx-swap="outerHTML show:window:top"
       hx-push-url="true"
-      style="cursor: pointer">
+      style="cursor: pointer"
+      _="on load wait {{ forloop.counter|add:'-1' }}s then transition opacity to 1 over 3s">
 
         <img
           src="{{ project.logo.url }}"
@@ -22,7 +23,7 @@
 
         <span>{{ project.subtitle }}</span>
 
-        <ul class="text-muted small px-0 mt-3 mx-0 mb-5 mb-lg-0">
+        <ul class="text-muted small px-0 mt-4 mx-0 mb-5 mb-lg-0">
           {% for technology in project.technologies.all %}
             <li class="unstyled">{{ technology }}</li>
           {% endfor %}
