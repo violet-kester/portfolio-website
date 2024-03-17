@@ -36,7 +36,7 @@
   <!-- Overview -->
   <div>
     <h4 class="tiny-header pb-3 border-bottom">Overview</h4>
-    {{ project.overview|markdown}}
+    {{ project.overview|markdown }}
   </div>
 
   <!-- Features -->
@@ -44,6 +44,14 @@
     <h4 class="tiny-header pb-3 border-bottom">Features</h4>
     {{ project.features|markdown }}
   </div>
+
+  <!-- Structure -->
+  {% if project.structure %}
+    <div>
+      <h4 class="tiny-header pb-3 border-bottom">Project structure</h4>
+      {{ project.structure|markdown }}
+    </div>
+  {% endif %}
 
 </section>
 
