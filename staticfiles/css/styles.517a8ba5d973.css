@@ -75,11 +75,7 @@ h5 {
 }
 
 .large-header {
-    font-size: 1.75rem;
-    line-height: 3rem;
-    letter-spacing: 1rem;
-    text-transform: uppercase;
-    padding-bottom: .5rem;
+    font-size: 6.5rem;
 }
 
 .source {
@@ -97,7 +93,12 @@ h5 {
 }
 
 .navbar-title {
+    font-size: 1.75rem;
+    line-height: 3rem;
+    letter-spacing: 1rem;
+    text-transform: uppercase;
     margin-left: .75rem;
+    padding-bottom: .5rem;
 }
 
 .navbar-btn {
@@ -164,10 +165,6 @@ h5 {
 #welcome span,
 #welcome img {
     opacity: 0;
-}
-
-#welcome h1 {
-    font-size: 6.5rem;
 }
 
 #welcome img {
@@ -515,7 +512,7 @@ a:hover,
 
 /* Small+ screens */
 @media (min-width: 576px) {
-    .large-header {
+    .navbar-title {
         font-size: 2rem;
         letter-spacing: 1.25rem;
     }
@@ -560,7 +557,7 @@ a:hover,
 
 /* Medium+ screens - mobile/tablet view */
 @media (min-width: 768px) {
-    #welcome h1 {
+    .large-header {
         font-size: 8rem;
     }
 
