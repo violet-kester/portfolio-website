@@ -22,7 +22,7 @@ class ProjectAdmin(admin.ModelAdmin):
     list_filter = ['status', 'created', 'created', 'author']
     # Fields displayed in the admin edit form
     fields = ['slug', 'title', 'subtitle', 'author', 'overview', 'technologies',
-              'features', 'logo', 'thumbnail', 'created', 'status']
+              'features', 'structure', 'logo', 'thumbnail', 'created', 'status']
     # Prepopulate slug field based on title
     prepopulated_fields = {'slug': ('title',)}
     # Order columns by status and publish date by default

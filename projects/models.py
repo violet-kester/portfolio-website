@@ -66,6 +66,7 @@ class Project(models.Model):
                                related_name='projects')
     overview = models.TextField(blank=True)
     features = models.TextField(blank=True)
+    structure = models.TextField(blank=True)
     technologies = models.ManyToManyField(Technology, related_name='projects')
 
     class Meta:
