@@ -9,20 +9,20 @@
   <div id="welcome">
 
         <img
-          src="{% static 'img/logos/portfolio-logo-raw-480x360px.png' %}"
+          src="{% static 'img/logos/portfolio-logo-900x668px.png' %}"
           class="mb-4"
           alt="Logo"
           _="on load transition opacity to 1 over 6s">
 
         <h1
-          class="large-header mb-0"
+          class="mb-0"
           _="on load transition opacity to 1 over 6s">
             Welcome
         </h1>
 
         <div>
           <a
-            class="tiny-header stronger"
+            class="tiny-header fade-to-teal stronger"
             hx-get="{% url 'projects:homepage' %}"
             hx-target="#content"
             hx-swap="outerHTML show:window:top"
@@ -32,7 +32,7 @@
           </a>
           <span _="on load wait 2s then transition opacity to 1 over 3s">|</span>
           <a
-            class="tiny-header stronger"
+            class="tiny-header fade-to-teal stronger"
             hx-get="{% url 'blog:homepage' %}"
             hx-target="#content"
             hx-swap="outerHTML show:window:top"
