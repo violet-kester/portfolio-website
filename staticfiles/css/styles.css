@@ -283,11 +283,13 @@ ul li {
     max-width: 6rem;
 }
 
-.project-logo {
-    /* height: 12rem; */
-    max-width: 100%;
-    object-fit: contain;
-}
+/* .projects {
+    display: grid;
+    Adjust the number of columns as needed
+    grid-template-columns: repeat(3, 1fr);
+    Make all rows the same height
+    grid-auto-rows: minmax(min-content, max-content);
+} */
 
 .project-card {
     opacity: 0;
@@ -295,15 +297,16 @@ ul li {
     border: 0;
 }
 
-.project-card img {
-    max-height: 400px;
-}
-
 .project-card .card-body {
     /* `white` theme color */
     color: #f9f7f7;
 }
 
+.project-logo {
+    /* height: 12rem; */
+    max-width: 100%;
+    object-fit: contain;
+}
 
 .screenshot-carousel {
     max-width: 500px;
