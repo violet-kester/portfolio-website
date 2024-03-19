@@ -1,5 +1,7 @@
 {% load markdown %}
 
+{% load project_tags %}
+
 <!-- Projects -------------------------------->
 
 <div class="row row-cols-1 row-cols-lg-3">
@@ -12,7 +14,7 @@
       hx-swap="outerHTML show:window:top"
       hx-push-url="true"
       style="cursor: pointer"
-      _="on load wait {{ forloop.counter|add:'-1' }}s then transition opacity to 1 over 3s">
+      _="on load wait {{ forloop.counter0|multiply:0.5 }}s then transition opacity to 1 over 2.5s">
 
         <img
           src="{{ project.logo.url }}"

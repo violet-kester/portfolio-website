@@ -534,7 +534,7 @@ a:hover,
         border-bottom: none;
     }
 
-    /* Base font size: 1.4rem */
+    /* Base font size: 1.5rem */
     h1 {
         font-size: calc(1.4rem * 3.15);
     }

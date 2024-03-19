@@ -12,11 +12,11 @@
           src="{% static 'img/logos/portfolio-logo-900x668px.png' %}"
           class="mb-4"
           alt="Logo"
-          _="on load transition opacity to 1 over 6s">
+          _="on load transition opacity to 1 over 3s">
 
         <h1
           class="mb-0"
-          _="on load transition opacity to 1 over 6s">
+          _="on load transition opacity to 1 over 2.5s">
             Welcome
         </h1>
 
@@ -27,18 +27,17 @@
             hx-target="#content"
             hx-swap="outerHTML show:window:top"
             hx-push-url="true"
-            _="on load wait 1s then transition opacity to 1 over 3s">
+            _="on load wait 0.5s then transition opacity to 1 over 2.5s">
               Portfolio Website
           </a>
-          <span _="on load wait 2s then transition opacity to 1 over 3s">|</span>
           <a
             class="tiny-header fade-to-teal stronger"
             hx-get="{% url 'blog:homepage' %}"
             hx-target="#content"
             hx-swap="outerHTML show:window:top"
             hx-push-url="true"
-            _="on load wait 3s then transition opacity to 1 over 3s">
-              Web Development & Design Blog
+            _="on load wait 1s then transition opacity to 1 over 2.5s">
+            | Web Development & Design Blog
           </a>
         </div>
 
