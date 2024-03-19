@@ -443,7 +443,7 @@ table tr td:first-child {
 .resume tr,
 .resume th,
 .resume td {
-    font-size: 85%;
+    font-size: 90%;
     border: none;
     padding: 1rem;
 }
@@ -578,37 +578,35 @@ a:hover,
 
 /* Large+ screens - desktop view */
 /* @media (min-width: 992px) {
-
 } */
 
-/* Extra large+ screens - desktop view */
+/* XL+ screens - desktop view */
 /* @media (min-width: 1200px) {
-
 } */
 
+/* XXL+ screens */
 @media (min-width: 1400px) {
+    #content {
+        /* Equivalent to `col-8` */
+        width: 66.7%;
+    }
+
     #sidebar {
-        /* equivalent to `col-3` */
-        width: 25%
+        /* Equivalent to `col-4` */
+        width: 33.3%
     }
 }
 
-/* Extra, extra large screens */
-@media (min-width: 1500px) {
-    #sidebar {
-        /* equivalent to `col-2.5` */
-        width: 22.5%
-    }
-
+/* XXXL+ large screens */
+@media (min-width: 1600px) {
     #content {
-        /* equivalent to `col-7` */
-        width: 55%;
+        /* Equivalent to `col-7` */
+        width: 58.3%;
     }
 
-    .resume tr,
-    .resume th,
-    .resume td {
-        font-size: 90%;
+    #sidebar {
+        /* Equivalent to `col-3` */
+        width: 25%
     }
 
     .project-card {
