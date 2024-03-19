@@ -606,7 +606,9 @@ a:hover,
 
     #sidebar {
         /* Equivalent to `col-3` */
-        width: 25%
+        /* width: 25%; */
+        /* Equivalent to `col-3.5` */
+        width: 29.1%;
     }
 
     .project-card {
