@@ -16,7 +16,10 @@
   </p>
   <p>
     <a href='https://violetkester.com' target='_blank'>
-      Visit my website
+      Visit the website
+    </a>
+    <a href="https://violetkester.com/projects/portfolio-website">
+      Project details
     </a>
   </p>
 </div>
