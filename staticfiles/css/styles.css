@@ -69,7 +69,8 @@ h5 {
 .tiny-header {
     /* `primary` theme color */
     color: #FFC107;
-    font-size: 1.5rem;
+    /* Base font size: 1.6rem */
+    font-size: 90%;
     text-transform: uppercase;
     letter-spacing: .25rem;
 }
@@ -177,6 +178,9 @@ h5 {
 #welcome a {
     display: inline-block;
     margin-bottom: 1.25rem;
+    font-size: 85%;
+    text-transform: uppercase;
+    letter-spacing: .25rem;
 }
 
 #sidebar {
@@ -534,7 +538,7 @@ a:hover,
         border-bottom: none;
     }
 
-    /* Base font size: 1.5rem */
+    /* Base font size: 1.6rem */
     h1 {
         font-size: calc(1.4rem * 3.15);
     }
@@ -577,8 +581,12 @@ a:hover,
 }
 
 /* Large+ screens - desktop view */
-/* @media (min-width: 992px) {
-} */
+@media (min-width: 992px) {
+    #welcome a {
+        /* Base font size: 1.6rem */
+        font-size: 94%;
+    }
+}
 
 /* XL+ screens - desktop view */
 /* @media (min-width: 1200px) {
