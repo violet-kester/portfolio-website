@@ -17,7 +17,7 @@
   <p>
     <a href='https://violetkester.com' target='_blank'>
       Visit the website
-    </a>
+    </a><br>
     <a href="https://violetkester.com/projects/portfolio-website">
       Project details
     </a>
