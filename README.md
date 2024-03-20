@@ -1,13 +1,23 @@
 <!-- Header -->
 
 <div align='center'>
-  <img src='static/img/logos/portfolio-logo-240.png' width='75px' alt='Logo'>
+  <img
+    src='static/img/logos/portfolio-logo-240px.png'
+    width='75px'
+    alt='Logo'>
+
   <h1>Portfolio Website</h1>
+
   <p>
-    <i>My personal website and blog.</i>
+    <i>My portfolio website and blog.</i>
   </p>
   <p>
     Django | PostgreSQL | WhiteNoise | S3 | CloudFront | htmx | hyperscript | Bootstrap
+  </p>
+  <p>
+    <a href='https://violetkester.com' target='_blank'>
+      Visit my website
+    </a>
   </p>
 </div>
 
