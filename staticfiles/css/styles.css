@@ -376,6 +376,7 @@ figcaption {
 /* Code blocks ------------------------------- */
 
 pre {
+    width: 100%;
     background-color: none;
     color: #8a8a8a;
     text-align: left;
